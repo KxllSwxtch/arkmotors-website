@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+@tailwind utilities;
+
+@theme {
+	--color-arkGold: #ffd700;
+	--color-arkGoldDark: #b78d37;
+	--color-arkBlack: #333333;
+}
