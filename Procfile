@@ -1,1 +1,1 @@
-web: serve -s build
+web: nginx -c /app/config/nginx.conf
