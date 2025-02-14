@@ -72,7 +72,7 @@ const Catalog = () => {
 			params.append('country', ctry)
 
 			const response = await axios.post(
-				'https://www.arkmotors.kr/search/getMakerList',
+				'https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/getMakerList',
 				params,
 				{
 					headers: {
@@ -108,7 +108,7 @@ const Catalog = () => {
 			params.append('maker', makerNo)
 
 			const response = await axios.post(
-				'https://www.arkmotors.kr/search/getModelList',
+				'https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/getModelList',
 				params,
 				{
 					headers: {
@@ -142,7 +142,7 @@ const Catalog = () => {
 			params.append('model', modelNo)
 
 			const response = await axios.post(
-				'https://www.arkmotors.kr/search/getDetailModelList',
+				'https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/getDetailModelList',
 				params,
 				{
 					headers: {
@@ -174,7 +174,7 @@ const Catalog = () => {
 			params.append('detail-model', detailModelNo)
 
 			const response = await axios.post(
-				'https://www.arkmotors.kr/search/getGradeList',
+				'https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/getGradeList',
 				params,
 				{
 					headers: {
@@ -204,7 +204,7 @@ const Catalog = () => {
 			params.append('grade', gradeNo)
 
 			const response = await axios.post(
-				'https://www.arkmotors.kr/search/getDetailGradeList',
+				'https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/getDetailGradeList',
 				params,
 				{
 					headers: {
@@ -279,7 +279,7 @@ const Catalog = () => {
 	const handleSearch = async () => {
 		setLoading(true)
 
-		const baseURL = `https://www.arkmotors.kr/search/model/${country}/${page}`
+		const baseURL = `https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/model/${country}/${page}`
 		const params = new URLSearchParams({
 			order: '',
 			ascending: 'desc',
@@ -371,7 +371,7 @@ const Catalog = () => {
 				params.append('country', country)
 
 				const response = await axios.post(
-					'https://www.arkmotors.kr/search/getMakerList',
+					'https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/getMakerList',
 					params,
 					{
 						headers: {
@@ -389,7 +389,7 @@ const Catalog = () => {
 			}
 		}
 
-		const baseURL = `https://www.arkmotors.kr/search/model/${country}/${page}`
+		const baseURL = `https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/model/${country}/${page}`
 		const params = new URLSearchParams({
 			order: '',
 			ascending: 'desc',
