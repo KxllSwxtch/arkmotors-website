@@ -41,11 +41,15 @@ const Catalog = () => {
 	const [color, setColor] = useState('')
 	const [carPlateNumber, setCarPlateNumber] = useState('')
 
-	// Список найденных автомобилей
 	const [carList, setCarList] = useState([])
 	const [loading, setLoading] = useState(true)
 	const [page, setPage] = useState(1) // Текущая страница
 	const [totalPages, setTotalPages] = useState(7000) // Всего страниц
+	const [isFiltersOpen, setIsFiltersOpen] = useState(false)
+
+	const toggleFilters = () => {
+		setIsFiltersOpen((prev) => !prev)
+	}
 
 	// ------------------ Запросы к API ------------------
 	// 1) Выбор страны => getMakerList
@@ -273,6 +277,8 @@ const Catalog = () => {
 		return txt.value
 	}
 	const handleSearch = async () => {
+		setLoading(true)
+
 		const baseURL = `https://www.arkmotors.kr/search/model/${country}/${page}`
 		const params = new URLSearchParams({
 			order: '',
@@ -348,6 +354,7 @@ const Catalog = () => {
 
 			setCarList(cars)
 		} catch (error) {
+			setLoading(false)
 			console.error('Ошибка при загрузке автомобилей:', error)
 		}
 	}
@@ -477,6 +484,7 @@ const Catalog = () => {
 		<div className='p-4'>
 			<h1 className='text-2xl font-bold mb-4'>Каталог автомобилей</h1>
 
+			{/* Фильтры */}
 			<>
 				{/* Кнопки для выбора страны */}
 				<div className='flex gap-4 mb-6 justify-center'>
@@ -513,274 +521,329 @@ const Catalog = () => {
 
 				{/* Если страна выбрана, показываем основные фильтры */}
 				{country && (
-					<div className='space-y-6 max-w-xl'>
-						{/* Производитель */}
-						<div>
-							<label className='block mb-2 font-semibold'>Производитель:</label>
-							<select
-								value={selectedMaker}
-								onChange={(e) => handleMakerChange(e.target.value)}
-								className='border border-gray-300 p-2 w-full rounded'
-							>
-								<option value=''>Выберите производителя</option>
-								{makerList.map((maker) => (
-									<option key={maker.MAKER_NO} value={maker.MAKER_NO}>
-										{maker.MAKER_NAME}
-									</option>
-								))}
-							</select>
+					<div className='bg-white shadow-md rounded-lg p-6 md:p-8 max-w-6xl mx-auto'>
+						<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+							{/* Производитель */}
+							<div>
+								<label className='block text-gray-700 font-medium mb-2'>
+									Производитель:
+								</label>
+								<select
+									value={selectedMaker}
+									onChange={(e) => handleMakerChange(e.target.value)}
+									className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
+								>
+									<option value=''>Выберите производителя</option>
+									{makerList.map((maker) => (
+										<option key={maker.MAKER_NO} value={maker.MAKER_NO}>
+											{maker.MAKER_NAME}
+										</option>
+									))}
+								</select>
+							</div>
+
+							{/* Модель */}
+							<div>
+								<label className='block text-gray-700 font-medium mb-2'>
+									Модель:
+								</label>
+								<select
+									value={selectedModel}
+									onChange={(e) => handleModelChange(e.target.value)}
+									className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
+									disabled={!selectedMaker}
+								>
+									<option value=''>Выберите модель</option>
+									{modelList.map((model) => (
+										<option key={model.MODEL_NO} value={model.MODEL_NO}>
+											{model.MODEL_NAME}
+										</option>
+									))}
+								</select>
+							</div>
+
+							{/* Подробная модель */}
+							<div>
+								<label className='block text-gray-700 font-medium mb-2'>
+									Подробная модель:
+								</label>
+								<select
+									value={selectedDetailModel}
+									onChange={(e) => handleDetailModelChange(e.target.value)}
+									className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
+									disabled={!selectedModel}
+								>
+									<option value=''>Выберите подробную модель</option>
+									{detailModelList.map((dmodel) => (
+										<option
+											key={dmodel.DETAIL_MODEL_NO}
+											value={dmodel.DETAIL_MODEL_NO}
+										>
+											{dmodel.DETAIL_MODEL_NAME}
+										</option>
+									))}
+								</select>
+							</div>
+
+							{/* Комплектация */}
+							<div>
+								<label className='block text-gray-700 font-medium mb-2'>
+									Комплектация:
+								</label>
+								<select
+									value={selectedGrade}
+									onChange={(e) => handleGradeChange(e.target.value)}
+									className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
+									disabled={!selectedDetailModel}
+								>
+									<option value=''>Выберите комплектацию</option>
+									{gradeList.map((grade) => (
+										<option key={grade.GRADE_NO} value={grade.GRADE_NO}>
+											{grade.GRADE_NAME}
+										</option>
+									))}
+								</select>
+							</div>
+
+							{/* Детальная комплектация */}
+							<div>
+								<label className='block text-gray-700 font-medium mb-2'>
+									Детальная комплектация:
+								</label>
+								<select
+									value={selectedDetailGrade}
+									onChange={(e) => handleDetailGradeChange(e.target.value)}
+									className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
+									disabled={!selectedGrade}
+								>
+									<option value=''>Выберите детальную комплектацию</option>
+									{detailGradeList.map((dgrade) => (
+										<option
+											key={dgrade.DETAIL_GRADE_NO}
+											value={dgrade.DETAIL_GRADE_NO}
+										>
+											{dgrade.DETAIL_GRADE_NAME}
+										</option>
+									))}
+								</select>
+							</div>
 						</div>
 
-						{/* Модель */}
-						<div>
-							<label className='block mb-2 font-semibold'>Модель:</label>
-							<select
-								value={selectedModel}
-								onChange={(e) => handleModelChange(e.target.value)}
-								className='border border-gray-300 p-2 w-full rounded'
-								disabled={!selectedMaker}
+						{/* Кнопка показа/скрытия */}
+						<div className='text-center my-4'>
+							<button
+								onClick={toggleFilters}
+								className='cursor-pointer m-auto mt-10 flex items-center justify-center gap-2 px-6 py-3 bg-arkGoldDark text-white font-semibold rounded-lg shadow-md hover:bg-arkGold transition'
 							>
-								<option value=''>Выберите модель</option>
-								{modelList.map((model) => (
-									<option key={model.MODEL_NO} value={model.MODEL_NO}>
-										{model.MODEL_NAME}
-									</option>
-								))}
-							</select>
+								{isFiltersOpen
+									? 'Скрыть Дополнительные Фильтры'
+									: 'Показать Дополнительные Фильтры'}
+								{isFiltersOpen ? '🔼' : '🔽'}
+							</button>
 						</div>
 
-						{/* Подробная модель */}
-						<div>
-							<label className='block mb-2 font-semibold'>
-								Подробная модель:
-							</label>
-							<select
-								value={selectedDetailModel}
-								onChange={(e) => handleDetailModelChange(e.target.value)}
-								className='border border-gray-300 p-2 w-full rounded'
-								disabled={!selectedModel}
-							>
-								<option value=''>Выберите подробную модель</option>
-								{detailModelList.map((dmodel) => (
-									<option
-										key={dmodel.DETAIL_MODEL_NO}
-										value={dmodel.DETAIL_MODEL_NO}
-									>
-										{dmodel.DETAIL_MODEL_NAME}
-									</option>
-								))}
-							</select>
+						{/* Дополнительные фильтры (шторка) */}
+						<div
+							className={`overflow-hidden transition-all duration-300 ${
+								isFiltersOpen
+									? 'max-h-[1000px] opacity-100'
+									: 'max-h-0 opacity-0'
+							}`}
+						>
+							<div className='bg-white shadow-lg rounded-lg p-6 md:p-8 max-w-6xl mx-auto mt-4'>
+								<div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+									{/* Цена от */}
+									<div>
+										<label className='block text-gray-700 font-medium mb-2'>
+											Цена от:
+										</label>
+										<select
+											value={priceMin}
+											onChange={(e) => handlePriceMinChange(e.target.value)}
+											className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
+										>
+											{priceOptions.map((opt) => (
+												<option key={opt.value} value={opt.value}>
+													{opt.label}
+												</option>
+											))}
+										</select>
+									</div>
+
+									{/* Цена до */}
+									<div>
+										<label className='block text-gray-700 font-medium mb-2'>
+											Цена до:
+										</label>
+										<select
+											value={priceMax}
+											onChange={(e) => setPriceMax(e.target.value)}
+											className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
+										>
+											{filteredPriceMaxOptions.map((opt) => (
+												<option key={opt.value} value={opt.value}>
+													{opt.label}
+												</option>
+											))}
+										</select>
+									</div>
+
+									{/* Год от */}
+									<div>
+										<label className='block text-gray-700 font-medium mb-2'>
+											Год от:
+										</label>
+										<select
+											value={yearMin}
+											onChange={(e) => handleYearMinChange(e.target.value)}
+											className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
+										>
+											{yearOptions.map((opt) => (
+												<option key={opt.value} value={opt.value}>
+													{opt.label}
+												</option>
+											))}
+										</select>
+									</div>
+
+									{/* Год до */}
+									<div>
+										<label className='block text-gray-700 font-medium mb-2'>
+											Год до:
+										</label>
+										<select
+											value={yearMax}
+											onChange={(e) => setYearMax(e.target.value)}
+											className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
+										>
+											{filteredYearMaxOptions.map((opt) => (
+												<option key={opt.value} value={opt.value}>
+													{opt.label}
+												</option>
+											))}
+										</select>
+									</div>
+
+									{/* Пробег от */}
+									<div>
+										<label className='block text-gray-700 font-medium mb-2'>
+											Пробег от:
+										</label>
+										<select
+											value={useKmMin}
+											onChange={(e) => handleUseKmMinChange(e.target.value)}
+											className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
+										>
+											{useKmOptions.map((opt) => (
+												<option key={opt.value} value={opt.value}>
+													{opt.label}
+												</option>
+											))}
+										</select>
+									</div>
+
+									{/* Пробег до */}
+									<div>
+										<label className='block text-gray-700 font-medium mb-2'>
+											Пробег до:
+										</label>
+										<select
+											value={useKmMax}
+											onChange={(e) => setUseKmMax(e.target.value)}
+											className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
+										>
+											{filteredUseKmMaxOptions.map((opt) => (
+												<option key={opt.value} value={opt.value}>
+													{opt.label}
+												</option>
+											))}
+										</select>
+									</div>
+
+									{/* Топливо */}
+									<div>
+										<label className='block text-gray-700 font-medium mb-2'>
+											Топливо:
+										</label>
+										<select
+											value={fuel}
+											onChange={(e) => setFuel(e.target.value)}
+											className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
+										>
+											{fuelOptions.map((opt) => (
+												<option key={opt.value} value={opt.value}>
+													{opt.label}
+												</option>
+											))}
+										</select>
+									</div>
+
+									{/* Трансмиссия */}
+									<div>
+										<label className='block text-gray-700 font-medium mb-2'>
+											Трансмиссия:
+										</label>
+										<select
+											value={mission}
+											onChange={(e) => setMission(e.target.value)}
+											className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
+										>
+											{missionOptions.map((opt) => (
+												<option key={opt.value} value={opt.value}>
+													{opt.label}
+												</option>
+											))}
+										</select>
+									</div>
+
+									{/* Цвет */}
+									<div>
+										<label className='block text-gray-700 font-medium mb-2'>
+											Цвет:
+										</label>
+										<select
+											value={color}
+											onChange={(e) => setColor(e.target.value)}
+											className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
+										>
+											{colorOptions.map((opt) => (
+												<option key={opt.value} value={opt.value}>
+													{opt.label}
+												</option>
+											))}
+										</select>
+									</div>
+
+									{/* Номер авто */}
+									<div>
+										<label className='block text-gray-700 font-medium mb-2'>
+											Номер авто:
+										</label>
+										<input
+											type='text'
+											value={carPlateNumber}
+											onChange={(e) => setCarPlateNumber(e.target.value)}
+											maxLength={9}
+											className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
+											placeholder='Введите номер авто'
+										/>
+									</div>
+								</div>
+							</div>
 						</div>
 
-						{/* Комплектация */}
-						<div>
-							<label className='block mb-2 font-semibold'>Комплектация:</label>
-							<select
-								value={selectedGrade}
-								onChange={(e) => handleGradeChange(e.target.value)}
-								className='border border-gray-300 p-2 w-full rounded'
-								disabled={!selectedDetailModel}
+						{/* Кнопка поиска */}
+						<div className='mt-6 text-center'>
+							<button
+								onClick={handleSearch}
+								disabled={!country}
+								className='cursor-pointer w-full md:w-auto px-6 py-3 rounded-lg font-semibold bg-arkGold text-black hover:bg-arkGoldDark hover:text-white transition shadow-md'
 							>
-								<option value=''>Выберите комплектацию</option>
-								{gradeList.map((grade) => (
-									<option key={grade.GRADE_NO} value={grade.GRADE_NO}>
-										{grade.GRADE_NAME}
-									</option>
-								))}
-							</select>
-						</div>
-
-						{/* Детальная комплектация */}
-						<div>
-							<label className='block mb-2 font-semibold'>
-								Детальная комплектация:
-							</label>
-							<select
-								value={selectedDetailGrade}
-								onChange={(e) => handleDetailGradeChange(e.target.value)}
-								className='border border-gray-300 p-2 w-full rounded'
-								disabled={!selectedGrade}
-							>
-								<option value=''>Выберите детальную комплектацию</option>
-								{detailGradeList.map((dgrade) => (
-									<option
-										key={dgrade.DETAIL_GRADE_NO}
-										value={dgrade.DETAIL_GRADE_NO}
-									>
-										{dgrade.DETAIL_GRADE_NAME}
-									</option>
-								))}
-							</select>
+								🔍 Поиск
+							</button>
 						</div>
 					</div>
 				)}
-
-				{/* Дополнительные фильтры (цена, год, пробег, топливо, трансмиссия, цвет, номер) */}
-				<div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-6'>
-					{/* Цена от/до */}
-					<div className='flex flex-col'>
-						<label className='font-semibold mb-1'>Цена от:</label>
-						<select
-							value={priceMin}
-							onChange={(e) => handlePriceMinChange(e.target.value)}
-							className='border border-gray-300 p-2 rounded'
-						>
-							{priceOptions.map((opt) => (
-								<option key={opt.value} value={opt.value}>
-									{opt.label}
-								</option>
-							))}
-						</select>
-					</div>
-					<div className='flex flex-col'>
-						<label className='font-semibold mb-1'>Цена до:</label>
-						<select
-							value={priceMax}
-							onChange={(e) => setPriceMax(e.target.value)}
-							className='border border-gray-300 p-2 rounded'
-						>
-							{filteredPriceMaxOptions.map((opt) => (
-								<option key={opt.value} value={opt.value}>
-									{opt.label}
-								</option>
-							))}
-						</select>
-					</div>
-
-					{/* Год от/до */}
-					<div className='flex flex-col'>
-						<label className='font-semibold mb-1'>Год от:</label>
-						<select
-							value={yearMin}
-							onChange={(e) => handleYearMinChange(e.target.value)}
-							className='border border-gray-300 p-2 rounded'
-						>
-							{yearOptions.map((opt) => (
-								<option key={opt.value} value={opt.value}>
-									{opt.label}
-								</option>
-							))}
-						</select>
-					</div>
-					<div className='flex flex-col'>
-						<label className='font-semibold mb-1'>Год до:</label>
-						<select
-							value={yearMax}
-							onChange={(e) => setYearMax(e.target.value)}
-							className='border border-gray-300 p-2 rounded'
-						>
-							{filteredYearMaxOptions.map((opt) => (
-								<option key={opt.value} value={opt.value}>
-									{opt.label}
-								</option>
-							))}
-						</select>
-					</div>
-
-					{/* Пробег от/до */}
-					<div className='flex flex-col'>
-						<label className='font-semibold mb-1'>Пробег от:</label>
-						<select
-							value={useKmMin}
-							onChange={(e) => handleUseKmMinChange(e.target.value)}
-							className='border border-gray-300 p-2 rounded'
-						>
-							{useKmOptions.map((opt) => (
-								<option key={opt.value} value={opt.value}>
-									{opt.label}
-								</option>
-							))}
-						</select>
-					</div>
-					<div className='flex flex-col'>
-						<label className='font-semibold mb-1'>Пробег до:</label>
-						<select
-							value={useKmMax}
-							onChange={(e) => setUseKmMax(e.target.value)}
-							className='border border-gray-300 p-2 rounded'
-						>
-							{filteredUseKmMaxOptions.map((opt) => (
-								<option key={opt.value} value={opt.value}>
-									{opt.label}
-								</option>
-							))}
-						</select>
-					</div>
-
-					{/* Топливо */}
-					<div className='flex flex-col'>
-						<label className='font-semibold mb-1'>Топливо:</label>
-						<select
-							value={fuel}
-							onChange={(e) => setFuel(e.target.value)}
-							className='border border-gray-300 p-2 rounded'
-						>
-							{fuelOptions.map((opt) => (
-								<option key={opt.value} value={opt.value}>
-									{opt.label}
-								</option>
-							))}
-						</select>
-					</div>
-
-					{/* Трансмиссия */}
-					<div className='flex flex-col'>
-						<label className='font-semibold mb-1'>Трансмиссия:</label>
-						<select
-							value={mission}
-							onChange={(e) => setMission(e.target.value)}
-							className='border border-gray-300 p-2 rounded'
-						>
-							{missionOptions.map((opt) => (
-								<option key={opt.value} value={opt.value}>
-									{opt.label}
-								</option>
-							))}
-						</select>
-					</div>
-
-					{/* Цвет */}
-					<div className='flex flex-col'>
-						<label className='font-semibold mb-1'>Цвет:</label>
-						<select
-							value={color}
-							onChange={(e) => setColor(e.target.value)}
-							className='border border-gray-300 p-2 rounded'
-						>
-							{colorOptions.map((opt) => (
-								<option key={opt.value} value={opt.value}>
-									{opt.label}
-								</option>
-							))}
-						</select>
-					</div>
-
-					{/* Номер авто */}
-					<div className='flex flex-col'>
-						<label className='font-semibold mb-1'>Номер авто:</label>
-						<input
-							type='text'
-							value={carPlateNumber}
-							onChange={(e) => setCarPlateNumber(e.target.value)}
-							maxLength={9}
-							className='border border-gray-300 p-2 rounded'
-							placeholder='Введите номер (макс. 9 символов)'
-						/>
-					</div>
-				</div>
-
-				{/* Кнопка "Поиск" */}
-				<div className='mt-6'>
-					<button
-						onClick={handleSearch}
-						disabled={
-							!country // Можно запретить поиск, пока не выбрана страна, или оставить свободу выбора
-						}
-						className='cursor-pointer px-6 py-3 rounded font-semibold bg-[var(--color-arkGold)] text-black hover:bg-[var(--color-arkGoldDark)] hover:text-white'
-					>
-						Поиск
-					</button>
-				</div>
 			</>
 
 			{/* Отображение автомобилей */}
