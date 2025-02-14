@@ -72,7 +72,7 @@ const Catalog = () => {
 			params.append('country', ctry)
 
 			const response = await axios.post(
-				'https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/getMakerList',
+				'https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/getMakerList',
 				params,
 				{
 					headers: {
@@ -108,7 +108,7 @@ const Catalog = () => {
 			params.append('maker', makerNo)
 
 			const response = await axios.post(
-				'https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/getModelList',
+				'https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/getModelList',
 				params,
 				{
 					headers: {
@@ -142,7 +142,7 @@ const Catalog = () => {
 			params.append('model', modelNo)
 
 			const response = await axios.post(
-				'https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/getDetailModelList',
+				'https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/getDetailModelList',
 				params,
 				{
 					headers: {
@@ -174,7 +174,7 @@ const Catalog = () => {
 			params.append('detail-model', detailModelNo)
 
 			const response = await axios.post(
-				'https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/getGradeList',
+				'https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/getGradeList',
 				params,
 				{
 					headers: {
@@ -204,7 +204,7 @@ const Catalog = () => {
 			params.append('grade', gradeNo)
 
 			const response = await axios.post(
-				'https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/getDetailGradeList',
+				'https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/getDetailGradeList',
 				params,
 				{
 					headers: {
@@ -279,7 +279,7 @@ const Catalog = () => {
 	const handleSearch = async () => {
 		setLoading(true)
 
-		const baseURL = `https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/model/${country}/${page}`
+		const baseURL = `https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/model/${country}/${page}`
 		const params = new URLSearchParams({
 			order: '',
 			ascending: 'desc',
@@ -326,7 +326,10 @@ const Catalog = () => {
 			const doc = parser.parseFromString(html, 'text/html')
 
 			const carElements = doc.querySelectorAll('li.car-detail.ul-car-detail')
+
 			const cars = Array.from(carElements).map((el) => {
+				const name =
+					el.querySelector('.car-name span a')?.textContent.trim() || ''
 				const rawImage =
 					el
 						.querySelector('.car-img')
@@ -338,7 +341,7 @@ const Catalog = () => {
 					link:
 						'https://www.arkmotors.kr' +
 						el.querySelector('a').getAttribute('href'),
-					name: el.querySelector('.car-name span a').textContent.trim(),
+					name,
 					year:
 						el.querySelectorAll('.car-option li')[0]?.textContent.trim() || '',
 					mileage:
@@ -371,7 +374,7 @@ const Catalog = () => {
 				params.append('country', country)
 
 				const response = await axios.post(
-					'https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/getMakerList',
+					'https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/getMakerList',
 					params,
 					{
 						headers: {
@@ -389,7 +392,7 @@ const Catalog = () => {
 			}
 		}
 
-		const baseURL = `https://corsproxy.io/?key=28174bc7&url=https://www.arkmotors.kr/search/model/${country}/${page}`
+		const baseURL = `https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/model/${country}/${page}`
 		const params = new URLSearchParams({
 			order: '',
 			ascending: 'desc',
@@ -470,6 +473,7 @@ const Catalog = () => {
 	}
 
 	const resetFilters = () => {
+		// Сбрасываем состояние фильтров
 		setSelectedMaker('')
 		setSelectedModel('')
 		setSelectedDetailModel('')
@@ -486,13 +490,13 @@ const Catalog = () => {
 		setColor('')
 		setCarPlateNumber('')
 
-		fetchCars()
+		fetchCars({})
 	}
 
 	useEffect(() => {
 		window.scroll({ top: 0, behavior: 'smooth' }) // Прокручиваем страницу вверх
 		fetchCars()
-	}, [country, page]) // Загружать заново при смене страны
+	}, [country, page])
 
 	// ------------------ Обработчики пагинации ------------------
 	// Функция для создания массива страниц
@@ -528,41 +532,29 @@ const Catalog = () => {
 
 	return (
 		<div className='p-4'>
-			<h1 className='text-2xl font-bold mb-4'>Каталог автомобилей</h1>
-
 			{/* Фильтры */}
 			<>
 				{/* Кнопки для выбора страны */}
-				<div className='flex gap-4 mb-6 justify-center'>
-					<button
-						onClick={() => handleCountryClick('kor')}
-						className={`
-						cursor-pointer
-        px-4 py-2 rounded
+				<div className='flex justify-center gap-4 mb-6'>
+					{[
+						{ label: '🇰🇷 Корейские', value: 'kor' },
+						{ label: '🌍 Иномарки', value: 'foreign' },
+					].map(({ label, value }) => (
+						<button
+							key={value}
+							onClick={() => handleCountryClick(value)}
+							className={`
+        cursor-pointer relative px-6 py-3 text-lg font-semibold rounded-lg shadow-md transition-all
         ${
-					country === 'kor'
-						? 'bg-arkGoldDark text-white'
-						: 'bg-arkBlack text-[var(--color-arkGold)]'
+					country === value
+						? 'bg-arkGoldDark text-white scale-105 shadow-lg'
+						: 'bg-arkBlack text-arkGold hover:bg-arkGold hover:text-black'
 				}
       `}
-					>
-						Корейские авто
-					</button>
-
-					<button
-						onClick={() => handleCountryClick('foreign')}
-						className={`
-						cursor-pointer
-        px-4 py-2 rounded
-        ${
-					country === 'foreign'
-						? 'bg-[var(--color-arkGoldDark)] text-white'
-						: 'bg-[var(--color-arkBlack)] text-[var(--color-arkGold)]'
-				}
-      `}
-					>
-						Иномарки
-					</button>
+						>
+							{label}
+						</button>
+					))}
 				</div>
 
 				{/* Если страна выбрана, показываем основные фильтры */}
@@ -697,7 +689,7 @@ const Catalog = () => {
 							}`}
 						>
 							<div className='bg-white shadow-lg rounded-lg p-6 md:p-8 max-w-6xl mx-auto mt-4'>
-								<div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+								<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
 									{/* Цена от */}
 									<div>
 										<label className='block text-gray-700 font-medium mb-2'>
@@ -861,7 +853,7 @@ const Catalog = () => {
 									</div>
 
 									{/* Номер авто */}
-									<div>
+									{/* <div>
 										<label className='block text-gray-700 font-medium mb-2'>
 											Номер авто:
 										</label>
@@ -873,7 +865,7 @@ const Catalog = () => {
 											className='w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-arkGoldDark focus:border-arkGoldDark transition'
 											placeholder='Введите номер авто'
 										/>
-									</div>
+									</div> */}
 								</div>
 							</div>
 						</div>
