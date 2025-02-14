@@ -9,6 +9,7 @@ import {
 	missionOptions,
 	colorOptions,
 } from '../utils'
+import { CarListItem } from '../сomponents'
 
 const Catalog = () => {
 	// ------------------ Основные состояния ------------------
@@ -43,6 +44,8 @@ const Catalog = () => {
 	// Список найденных автомобилей
 	const [carList, setCarList] = useState([])
 	const [loading, setLoading] = useState(true)
+	const [page, setPage] = useState(1) // Текущая страница
+	const [totalPages, setTotalPages] = useState(7000) // Всего страниц
 
 	// ------------------ Запросы к API ------------------
 	// 1) Выбор страны => getMakerList
@@ -270,7 +273,7 @@ const Catalog = () => {
 		return txt.value
 	}
 	const handleSearch = async () => {
-		const baseURL = `https://www.arkmotors.kr/search/model/${country}`
+		const baseURL = `https://www.arkmotors.kr/search/model/${country}/${page}`
 		const params = new URLSearchParams({
 			order: '',
 			ascending: 'desc',
@@ -352,7 +355,7 @@ const Catalog = () => {
 	// Функция загрузки автомобилей
 	const fetchCars = async () => {
 		setLoading(true)
-		const baseURL = `https://www.arkmotors.kr/search/model/${country}`
+		const baseURL = `https://www.arkmotors.kr/search/model/${country}/${page}`
 		const params = new URLSearchParams({
 			order: '',
 			ascending: 'desc',
@@ -434,10 +437,41 @@ const Catalog = () => {
 	}
 
 	useEffect(() => {
+		window.scroll({ top: 0, behavior: 'smooth' }) // Прокручиваем страницу вверх
 		fetchCars()
-	}, [country]) // Загружать заново при смене страны
+	}, [country, page]) // Загружать заново при смене страны
 
-	console.log(carList[0]?.image.replaceAll('"', ''))
+	// ------------------ Обработчики пагинации ------------------
+	// Функция для создания массива страниц
+	const getPageNumbers = () => {
+		const maxVisible = 5
+		const pages = []
+		const startPage = Math.max(1, page - Math.floor(maxVisible / 2))
+		const endPage = Math.min(totalPages, startPage + maxVisible - 1)
+
+		for (let i = startPage; i <= endPage; i++) {
+			pages.push(i)
+		}
+
+		return pages
+	}
+
+	// Обработчики навигации
+	const goToPage = (pageNum) => {
+		setPage(pageNum)
+	}
+	const goToFirstPage = () => {
+		setPage(1)
+	}
+	const goToLastPage = () => {
+		setPage(totalPages)
+	}
+	const goToPrevPage = () => {
+		if (page > 1) setPage(page - 1)
+	}
+	const goToNextPage = () => {
+		if (page < totalPages) setPage(page + 1)
+	}
 
 	return (
 		<div className='p-4'>
@@ -756,30 +790,59 @@ const Catalog = () => {
 				) : (
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
 						{carList.length > 0 ? (
-							carList.map((car, idx) => (
-								<div key={idx} className='border p-4 rounded shadow-md'>
-									<a href={car.link} target='_blank' rel='noopener noreferrer'>
-										<img
-											src={car.image.replaceAll('"', '')}
-											alt={car.name}
-											className='w-full h-62 object-cover mb-2 rounded'
-										/>
-										<h2 className='text-lg font-semibold'>{car.name}</h2>
-										<p className='text-gray-600'>
-											{car.year} • {car.mileage}
-										</p>
-										<p className='text-gray-600'>
-											{car.fuel} • {car.transmission}
-										</p>
-										<p className='text-yellow-600 font-bold'>{car.price}</p>
-									</a>
-								</div>
-							))
+							carList.map((car, idx) => <CarListItem car={car} key={idx} />)
 						) : (
 							<p>Автомобили не найдены.</p>
 						)}
 					</div>
 				)}
+			</div>
+
+			{/* Пагинация */}
+			<div className='mt-6 flex justify-center items-center gap-2'>
+				<button
+					onClick={goToFirstPage}
+					disabled={page === 1}
+					className='cursor-pointer px-3 py-1 text-gray-700 hover:text-black'
+				>
+					&laquo;
+				</button>
+				<button
+					onClick={goToPrevPage}
+					disabled={page === 1}
+					className='px-3 py-1 text-gray-700 hover:text-black'
+				>
+					&lt;
+				</button>
+
+				{getPageNumbers().map((pageNum) => (
+					<button
+						key={pageNum}
+						onClick={() => goToPage(pageNum)}
+						className={`cursor-pointer px-3 py-1 rounded ${
+							pageNum === page
+								? 'bg-yellow-500 text-white'
+								: 'text-gray-700 hover:text-black'
+						}`}
+					>
+						{pageNum}
+					</button>
+				))}
+
+				<button
+					onClick={goToNextPage}
+					disabled={page === totalPages}
+					className='cursor-pointer px-3 py-1 text-gray-700 hover:text-black'
+				>
+					&gt;
+				</button>
+				<button
+					onClick={goToLastPage}
+					disabled={page === totalPages}
+					className='cursor-pointer px-3 py-1 text-gray-700 hover:text-black'
+				>
+					&raquo;
+				</button>
 			</div>
 		</div>
 	)
