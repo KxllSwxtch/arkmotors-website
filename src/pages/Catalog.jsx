@@ -9,7 +9,7 @@ import {
 	missionOptions,
 	colorOptions,
 } from '../utils'
-import { CarListItem } from '../сomponents'
+import { CarListItem, Loader, Message } from '../сomponents'
 
 const Catalog = () => {
 	// ------------------ Основные состояния ------------------
@@ -353,6 +353,7 @@ const Catalog = () => {
 			})
 
 			setCarList(cars)
+			setLoading(false)
 		} catch (error) {
 			setLoading(false)
 			console.error('Ошибка при загрузке автомобилей:', error)
@@ -362,6 +363,32 @@ const Catalog = () => {
 	// Функция загрузки автомобилей
 	const fetchCars = async () => {
 		setLoading(true)
+
+		// Загружаем список производителей, если он ещё не загружен
+		if (makerList.length === 0) {
+			try {
+				const params = new URLSearchParams()
+				params.append('country', country)
+
+				const response = await axios.post(
+					'https://www.arkmotors.kr/search/getMakerList',
+					params,
+					{
+						headers: {
+							'Content-Type': 'application/x-www-form-urlencoded',
+							Accept: 'application/json',
+						},
+					},
+				)
+
+				if (response.data?.status === 200) {
+					setMakerList(response.data.data || [])
+				}
+			} catch (error) {
+				console.error('Ошибка при загрузке производителей:', error)
+			}
+		}
+
 		const baseURL = `https://www.arkmotors.kr/search/model/${country}/${page}`
 		const params = new URLSearchParams({
 			order: '',
@@ -395,7 +422,6 @@ const Catalog = () => {
 		})
 
 		const searchURL = `${baseURL}?${params.toString()}`
-		console.log('Отправка GET запроса:', searchURL)
 
 		try {
 			const response = await axios.get(searchURL, {
@@ -414,7 +440,7 @@ const Catalog = () => {
 					el
 						.querySelector('.car-img')
 						.style.background.match(/url\((.*?)\)/)[1] || ''
-				const cleanImage = decodeHTML(rawImage) // Убираем &quot;
+				const cleanImage = decodeHTML(rawImage)
 
 				return {
 					image: cleanImage,
@@ -441,6 +467,26 @@ const Catalog = () => {
 		} finally {
 			setLoading(false)
 		}
+	}
+
+	const resetFilters = () => {
+		setSelectedMaker('')
+		setSelectedModel('')
+		setSelectedDetailModel('')
+		setSelectedGrade('')
+		setSelectedDetailGrade('')
+		setPriceMin('')
+		setPriceMax('')
+		setYearMin('')
+		setYearMax('')
+		setUseKmMin('')
+		setUseKmMax('')
+		setFuel('')
+		setMission('')
+		setColor('')
+		setCarPlateNumber('')
+
+		fetchCars()
 	}
 
 	useEffect(() => {
@@ -833,13 +879,22 @@ const Catalog = () => {
 						</div>
 
 						{/* Кнопка поиска */}
-						<div className='mt-6 text-center'>
+						<div className='mt-6 flex flex-wrap gap-4 justify-center'>
+							{/* Кнопка "Поиск" */}
 							<button
 								onClick={handleSearch}
 								disabled={!country}
-								className='cursor-pointer w-full md:w-auto px-6 py-3 rounded-lg font-semibold bg-arkGold text-black hover:bg-arkGoldDark hover:text-white transition shadow-md'
+								className='cursor-pointer px-6 py-3 rounded-lg font-semibold bg-arkGold text-black hover:bg-arkGoldDark hover:text-white transition shadow-md'
 							>
 								🔍 Поиск
+							</button>
+
+							{/* Кнопка "Сбросить фильтры" */}
+							<button
+								onClick={resetFilters}
+								className='cursor-pointer px-6 py-3 rounded-lg font-semibold bg-gray-300 text-gray-800 hover:bg-gray-400 transition shadow-md'
+							>
+								🔄 Сбросить
 							</button>
 						</div>
 					</div>
@@ -849,64 +904,72 @@ const Catalog = () => {
 			{/* Отображение автомобилей */}
 			<div className='mt-6'>
 				{loading ? (
-					<p>Загрузка...</p>
-				) : (
-					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-						{carList.length > 0 ? (
-							carList.map((car, idx) => <CarListItem car={car} key={idx} />)
-						) : (
-							<p>Автомобили не найдены.</p>
-						)}
+					<div className='flex justify-center items-center h-32'>
+						<Loader />
 					</div>
+				) : carList.length > 0 ? (
+					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+						{carList
+							.sort((a, b) => (a.year > b.year ? -1 : 1))
+							.map((car, idx) => (
+								<CarListItem car={car} key={idx} />
+							))}
+					</div>
+				) : (
+					<Message text='Автомобили не найдены' icon='❌' />
 				)}
 			</div>
 
 			{/* Пагинация */}
-			<div className='mt-6 flex justify-center items-center gap-2'>
-				<button
-					onClick={goToFirstPage}
-					disabled={page === 1}
-					className='cursor-pointer px-3 py-1 text-gray-700 hover:text-black'
-				>
-					&laquo;
-				</button>
-				<button
-					onClick={goToPrevPage}
-					disabled={page === 1}
-					className='px-3 py-1 text-gray-700 hover:text-black'
-				>
-					&lt;
-				</button>
+			{carList.length > 0 && (
+				<>
+					<div className='mt-6 flex justify-center items-center gap-2'>
+						<button
+							onClick={goToFirstPage}
+							disabled={page === 1}
+							className='cursor-pointer px-3 py-1 text-gray-700 hover:text-black'
+						>
+							&laquo;
+						</button>
+						<button
+							onClick={goToPrevPage}
+							disabled={page === 1}
+							className='px-3 py-1 text-gray-700 hover:text-black'
+						>
+							&lt;
+						</button>
 
-				{getPageNumbers().map((pageNum) => (
-					<button
-						key={pageNum}
-						onClick={() => goToPage(pageNum)}
-						className={`cursor-pointer px-3 py-1 rounded ${
-							pageNum === page
-								? 'bg-yellow-500 text-white'
-								: 'text-gray-700 hover:text-black'
-						}`}
-					>
-						{pageNum}
-					</button>
-				))}
+						{getPageNumbers().map((pageNum) => (
+							<button
+								key={pageNum}
+								onClick={() => goToPage(pageNum)}
+								className={`cursor-pointer px-3 py-1 rounded ${
+									pageNum === page
+										? 'bg-yellow-500 text-white'
+										: 'text-gray-700 hover:text-black'
+								}`}
+							>
+								{pageNum}
+							</button>
+						))}
 
-				<button
-					onClick={goToNextPage}
-					disabled={page === totalPages}
-					className='cursor-pointer px-3 py-1 text-gray-700 hover:text-black'
-				>
-					&gt;
-				</button>
-				<button
-					onClick={goToLastPage}
-					disabled={page === totalPages}
-					className='cursor-pointer px-3 py-1 text-gray-700 hover:text-black'
-				>
-					&raquo;
-				</button>
-			</div>
+						<button
+							onClick={goToNextPage}
+							disabled={page === totalPages}
+							className='cursor-pointer px-3 py-1 text-gray-700 hover:text-black'
+						>
+							&gt;
+						</button>
+						<button
+							onClick={goToLastPage}
+							disabled={page === totalPages}
+							className='cursor-pointer px-3 py-1 text-gray-700 hover:text-black'
+						>
+							&raquo;
+						</button>
+					</div>
+				</>
+			)}
 		</div>
 	)
 }
