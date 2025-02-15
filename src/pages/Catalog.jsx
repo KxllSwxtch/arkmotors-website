@@ -11,6 +11,8 @@ import {
 } from '../utils'
 import { CarListItem, Loader, Message } from '../сomponents'
 
+const API_BASE_URL = 'https://ark-motors-backend-3a002a527613.herokuapp.com'
+
 const Catalog = () => {
 	// ------------------ Основные состояния ------------------
 	const [country, setCountry] = useState('kor') // 'kor' или 'foreign'
@@ -52,6 +54,7 @@ const Catalog = () => {
 	}
 
 	// ------------------ Запросы к API ------------------
+	// ------------------ Запросы к API ------------------
 	// 1) Выбор страны => getMakerList
 	const handleCountryClick = async (ctry) => {
 		// Сбрасываем состояние
@@ -68,22 +71,10 @@ const Catalog = () => {
 		setDetailGradeList([])
 
 		try {
-			const params = new URLSearchParams()
-			params.append('country', ctry)
-
-			const response = await axios.post(
-				'https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/getMakerList',
-				params,
-				{
-					headers: {
-						'Content-Type': 'application/x-www-form-urlencoded',
-						Accept: 'application/json',
-					},
-				},
-			)
-			if (response.data?.status === 200) {
-				setMakerList(response.data.data || [])
-			}
+			const response = await axios.get(`${API_BASE_URL}/makers`, {
+				params: { country: ctry },
+			})
+			setMakerList(response.data)
 		} catch (error) {
 			console.error('Ошибка при загрузке производителей:', error)
 		}
@@ -102,24 +93,11 @@ const Catalog = () => {
 		setDetailGradeList([])
 
 		if (!makerNo) return
-
 		try {
-			const params = new URLSearchParams()
-			params.append('maker', makerNo)
-
-			const response = await axios.post(
-				'https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/getModelList',
-				params,
-				{
-					headers: {
-						'Content-Type': 'application/x-www-form-urlencoded',
-						Accept: 'application/json',
-					},
-				},
-			)
-			if (response.data?.status === 200) {
-				setModelList(response.data.data || [])
-			}
+			const response = await axios.get(`${API_BASE_URL}/models`, {
+				params: { maker: makerNo },
+			})
+			setModelList(response.data)
 		} catch (error) {
 			console.error('Ошибка при загрузке моделей:', error)
 		}
@@ -136,24 +114,11 @@ const Catalog = () => {
 		setDetailGradeList([])
 
 		if (!modelNo) return
-
 		try {
-			const params = new URLSearchParams()
-			params.append('model', modelNo)
-
-			const response = await axios.post(
-				'https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/getDetailModelList',
-				params,
-				{
-					headers: {
-						'Content-Type': 'application/x-www-form-urlencoded',
-						Accept: 'application/json',
-					},
-				},
-			)
-			if (response.data?.status === 200) {
-				setDetailModelList(response.data.data || [])
-			}
+			const response = await axios.get(`${API_BASE_URL}/detail-models`, {
+				params: { model: modelNo },
+			})
+			setDetailModelList(response.data)
 		} catch (error) {
 			console.error('Ошибка при загрузке подробных моделей:', error)
 		}
@@ -168,24 +133,11 @@ const Catalog = () => {
 		setDetailGradeList([])
 
 		if (!detailModelNo) return
-
 		try {
-			const params = new URLSearchParams()
-			params.append('detail-model', detailModelNo)
-
-			const response = await axios.post(
-				'https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/getGradeList',
-				params,
-				{
-					headers: {
-						'Content-Type': 'application/x-www-form-urlencoded',
-						Accept: 'application/json',
-					},
-				},
-			)
-			if (response.data?.status === 200) {
-				setGradeList(response.data.data || [])
-			}
+			const response = await axios.get(`${API_BASE_URL}/grades`, {
+				params: { 'detail-model': detailModelNo },
+			})
+			setGradeList(response.data)
 		} catch (error) {
 			console.error('Ошибка при загрузке комплектаций:', error)
 		}
@@ -198,24 +150,11 @@ const Catalog = () => {
 		setDetailGradeList([])
 
 		if (!gradeNo) return
-
 		try {
-			const params = new URLSearchParams()
-			params.append('grade', gradeNo)
-
-			const response = await axios.post(
-				'https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/getDetailGradeList',
-				params,
-				{
-					headers: {
-						'Content-Type': 'application/x-www-form-urlencoded',
-						Accept: 'application/json',
-					},
-				},
-			)
-			if (response.data?.status === 200) {
-				setDetailGradeList(response.data.data || [])
-			}
+			const response = await axios.get(`${API_BASE_URL}/detail-grades`, {
+				params: { grade: gradeNo },
+			})
+			setDetailGradeList(response.data)
 		} catch (error) {
 			console.error('Ошибка при загрузке детальных комплектаций:', error)
 		}
@@ -271,16 +210,11 @@ const Catalog = () => {
 	)
 
 	// ------------------ Финальный поиск ------------------
-	const decodeHTML = (html) => {
-		const txt = document.createElement('textarea')
-		txt.innerHTML = html
-		return txt.value
-	}
-	const handleSearch = async () => {
+	const searchCars = async () => {
 		setLoading(true)
 
-		const baseURL = `https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/model/${country}/${page}`
-		const params = new URLSearchParams({
+		// Собираем все параметры для запроса в виде объекта
+		const params = {
 			order: '',
 			ascending: 'desc',
 			view: 'image',
@@ -309,162 +243,14 @@ const Catalog = () => {
 			tab: 'model',
 			detailSearch: 'close',
 			type: '',
-		})
-
-		const searchURL = `${baseURL}?${params.toString()}`
-		console.log('Отправка GET запроса:', searchURL)
-
-		try {
-			const response = await axios.get(searchURL, {
-				headers: {
-					Accept: 'text/html',
-				},
-			})
-
-			const html = response.data
-			const parser = new DOMParser()
-			const doc = parser.parseFromString(html, 'text/html')
-
-			const carElements = doc.querySelectorAll('li.car-detail.ul-car-detail')
-
-			const cars = Array.from(carElements).map((el) => {
-				const name =
-					el.querySelector('.car-name span a')?.textContent.trim() || ''
-				const rawImage =
-					el
-						.querySelector('.car-img')
-						.style.background.match(/url\((.*?)\)/)[1] || ''
-				const cleanImage = decodeHTML(rawImage) // Убираем &quot;
-
-				return {
-					image: cleanImage,
-					link:
-						'https://www.arkmotors.kr' +
-						el.querySelector('a').getAttribute('href'),
-					name,
-					year:
-						el.querySelectorAll('.car-option li')[0]?.textContent.trim() || '',
-					mileage:
-						el.querySelectorAll('.car-option li')[1]?.textContent.trim() || '',
-					fuelType:
-						el.querySelectorAll('.car-option li')[2]?.textContent.trim() || '',
-					transmission:
-						el.querySelectorAll('.car-option li')[3]?.textContent.trim() || '',
-					price:
-						el.querySelector('.price .num')?.textContent.trim() + '만원' || '',
-				}
-			})
-
-			setCarList(cars)
-			setLoading(false)
-		} catch (error) {
-			setLoading(false)
-			console.error('Ошибка при загрузке автомобилей:', error)
-		}
-	}
-
-	// Функция загрузки автомобилей
-	const fetchCars = async () => {
-		setLoading(true)
-
-		// Загружаем список производителей, если он ещё не загружен
-		if (makerList.length === 0) {
-			try {
-				const params = new URLSearchParams()
-				params.append('country', country)
-
-				const response = await axios.post(
-					'https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/getMakerList',
-					params,
-					{
-						headers: {
-							'Content-Type': 'application/x-www-form-urlencoded',
-							Accept: 'application/json',
-						},
-					},
-				)
-
-				if (response.data?.status === 200) {
-					setMakerList(response.data.data || [])
-				}
-			} catch (error) {
-				console.error('Ошибка при загрузке производителей:', error)
-			}
+			page, // не забываем передавать номер страницы
 		}
 
-		const baseURL = `https://thingproxy.freeboard.io/fetch/https://www.arkmotors.kr/search/model/${country}/${page}`
-		const params = new URLSearchParams({
-			order: '',
-			ascending: 'desc',
-			view: 'image',
-			customSelect: '24',
-			carName: '',
-			maker: selectedMaker,
-			model: selectedModel,
-			dmodel: selectedDetailModel,
-			grade: selectedGrade,
-			dgrade: selectedDetailGrade,
-			'price-min': priceMin,
-			'price-max': priceMax,
-			'year-min': yearMin,
-			'year-max': yearMax,
-			'usekm-min': useKmMin,
-			'usekm-max': useKmMax,
-			fuel,
-			mission,
-			color,
-			country,
-			carNo: '',
-			carPlateNumber,
-			'vehicle-model': '',
-			'vehicle-dmodel': '',
-			'vehicle-name': '',
-			tab: 'model',
-			detailSearch: 'close',
-			type: '',
-		})
-
-		const searchURL = `${baseURL}?${params.toString()}`
-
 		try {
-			const response = await axios.get(searchURL, {
-				headers: {
-					Accept: 'text/html',
-				},
-			})
-
-			const html = response.data
-			const parser = new DOMParser()
-			const doc = parser.parseFromString(html, 'text/html')
-
-			const carElements = doc.querySelectorAll('li.car-detail.ul-car-detail')
-			const cars = Array.from(carElements).map((el) => {
-				const rawImage =
-					el
-						.querySelector('.car-img')
-						.style.background.match(/url\((.*?)\)/)[1] || ''
-				const cleanImage = decodeHTML(rawImage)
-
-				return {
-					image: cleanImage,
-					link:
-						'https://www.arkmotors.kr' +
-						el.querySelector('a').getAttribute('href'),
-					name: el.querySelector('.car-name span a').textContent.trim(),
-					year:
-						el.querySelectorAll('.car-option li')[0]?.textContent.trim() || '',
-					mileage:
-						el.querySelectorAll('.car-option li')[1]?.textContent.trim() || '',
-					fuelType:
-						el.querySelectorAll('.car-option li')[2]?.textContent.trim() || '',
-					transmission:
-						el.querySelectorAll('.car-option li')[3]?.textContent.trim() || '',
-					price:
-						el.querySelector('.price .num')?.textContent.trim() + '만원' || '',
-				}
-			})
-
-			setCarList(cars)
+			// Обращаемся к нашему серверу FastAPI
+			const response = await axios.get(`${API_BASE_URL}/cars`, { params })
+			// Наш сервер возвращает массив автомобилей в формате JSON
+			setCarList(response.data)
 		} catch (error) {
 			console.error('Ошибка при загрузке автомобилей:', error)
 		} finally {
@@ -490,12 +276,23 @@ const Catalog = () => {
 		setColor('')
 		setCarPlateNumber('')
 
-		fetchCars({})
+		searchCars({})
 	}
 
 	useEffect(() => {
+		const initialMakerList = async () => {
+			try {
+				const response = await axios.get(`${API_BASE_URL}/makers`, {
+					params: { country },
+				})
+				setMakerList(response.data)
+			} catch (error) {
+				console.error('Ошибка при загрузке производителей:', error)
+			}
+		}
 		window.scroll({ top: 0, behavior: 'smooth' }) // Прокручиваем страницу вверх
-		fetchCars()
+		searchCars()
+		initialMakerList()
 	}, [country, page])
 
 	// ------------------ Обработчики пагинации ------------------
@@ -874,7 +671,7 @@ const Catalog = () => {
 						<div className='mt-6 flex flex-wrap gap-4 justify-center'>
 							{/* Кнопка "Поиск" */}
 							<button
-								onClick={handleSearch}
+								onClick={searchCars}
 								disabled={!country}
 								className='cursor-pointer px-6 py-3 rounded-lg font-semibold bg-arkGold text-black hover:bg-arkGoldDark hover:text-white transition shadow-md'
 							>
