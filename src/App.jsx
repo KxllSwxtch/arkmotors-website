@@ -1,6 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import { Home, Contacts, About, Cases, Catalog, ExportCatalog } from './pages'
+import {
+	Home,
+	Contacts,
+	About,
+	Cases,
+	Catalog,
+	ExportCatalog,
+	CarDetails,
+} from './pages'
 import { Header, Footer } from './components'
 
 const App = () => {
@@ -15,6 +23,7 @@ const App = () => {
 						<Route path='/about' element={<About />} />
 						<Route path='/cases' element={<Cases />} />
 						<Route path='/catalog' element={<Catalog />} />
+						<Route path='/catalog/:carId' element={<CarDetails />} />
 						<Route path='/export-catalog' element={<ExportCatalog />} />
 					</Routes>
 				</main>

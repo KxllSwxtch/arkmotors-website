@@ -4,5 +4,6 @@ import Contacts from './Contacts'
 import Cases from './Cases'
 import Catalog from './Catalog'
 import ExportCatalog from './ExportCatalog'
+import CarDetails from './CarDetails'
 
-export { Home, About, Contacts, Cases, Catalog, ExportCatalog }
+export { Home, About, Contacts, Cases, Catalog, ExportCatalog, CarDetails }

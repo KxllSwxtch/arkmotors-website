@@ -8,6 +8,9 @@ import AboutSection from './AboutSection'
 import AdvantagesSection from './AdvantagesSection'
 import HowToBuySection from './HowToBuySection'
 import HowToChooseCarSection from './HowToChooseCarSection'
+import CarCard from './CarCard'
+import Calculator from './Calculator'
+import ImageSlider from './ImageSlider'
 
 export {
 	Header,
@@ -20,4 +23,7 @@ export {
 	AdvantagesSection,
 	HowToBuySection,
 	HowToChooseCarSection,
+	CarCard,
+	Calculator,
+	ImageSlider,
 }

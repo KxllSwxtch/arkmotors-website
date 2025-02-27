@@ -3,7 +3,7 @@ import { FaTruck, FaFileContract, FaTools } from 'react-icons/fa'
 
 const HeroSection = () => {
 	return (
-		<section className='relative bg-[#1D1D1D] text-white min-h-screen flex items-center overflow-hidden'>
+		<section className='relative bg-[#1D1D1D] text-white min-h-screen flex items-center overflow-hidden pt-10'>
 			{/* Background */}
 			<div className='absolute inset-0'>
 				<img

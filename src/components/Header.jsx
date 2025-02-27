@@ -36,7 +36,15 @@ const Header = () => {
 								to='/catalog'
 								className='hover:text-[var(--color-arkGoldDark)] transition-colors duration-200'
 							>
-								Каталог
+								Каталог авто в Корее
+							</Link>
+						</li>
+						<li>
+							<Link
+								to='/export-catalog'
+								className='hover:text-[var(--color-arkGoldDark)] transition-colors duration-200'
+							>
+								Каталог авто на заказ
 							</Link>
 						</li>
 						<li>
@@ -87,7 +95,7 @@ const Header = () => {
 
 			{/* Бургер-меню (мобильная версия) */}
 			<div
-				className={`fixed top-0 right-0 w-3/4 h-full bg-[var(--color-arkBlack)] shadow-lg transform transition-transform duration-300 z-50 ${
+				className={`fixed top-0 right-0 w-full h-full bg-[var(--color-arkBlack)] shadow-lg transform transition-transform duration-300 z-50 ${
 					menuOpen ? 'translate-x-0' : 'translate-x-full'
 				}`}
 			>
@@ -100,14 +108,23 @@ const Header = () => {
 					</button>
 				</div>
 
-				<ul className='flex flex-col items-center space-y-6 text-lg font-medium mt-10'>
+				<ul className='flex flex-col items-center justify-center h-2/3 space-y-6 text-lg font-medium mt-10'>
 					<li>
 						<Link
 							to='/catalog'
 							onClick={closeMenu}
 							className='hover:text-[var(--color-arkGoldDark)]'
 						>
-							Каталог
+							Каталог авто в Корее
+						</Link>
+					</li>
+					<li>
+						<Link
+							to='/export-catalog'
+							onClick={closeMenu}
+							className='hover:text-[var(--color-arkGoldDark)]'
+						>
+							Каталог авто на заказ
 						</Link>
 					</li>
 					<li>
