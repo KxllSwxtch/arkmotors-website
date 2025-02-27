@@ -19,12 +19,15 @@ const HeroSection = () => {
 			{/* Content */}
 			<div className='container mx-auto px-6 relative z-10 text-center flex flex-col items-center'>
 				<h1 className='text-4xl md:text-6xl font-bold leading-tight animate-fade-in-up'>
-					АВТО ИЗ ЮЖНОЙ КОРЕИ <br />
-					<span className='text-[#D4AF37]'>ПОД ЗАКАЗ В МОСКВУ</span>
+					<span className='text-[#D4AF37]'>ПРОДАЖА</span> АВТО В ЮЖНОЙ КОРЕЕ и{' '}
+					<span className='text-[#D4AF37]'>ЭКСПОРТ</span> <br /> В СТРАНЫ СНГ
+					{/* <span className='text-[#D4AF37]'>ПОД ЗАКАЗ В МОСКВУ</span> */}
 				</h1>
 				<p className='text-lg md:text-xl mt-4 opacity-80 animate-fade-in-up delay-200'>
-					Подберем, доставим и оформим автомобиль <br />
-					из Южной Кореи без посредников за 14 дней
+					Профессиональный подбор автомобилей в Южной Корее. <br /> Подбор авто
+					на заказ
+					<br />
+					Быстро. Качественно. Надёжно
 				</p>
 
 				<Link to='/calculator'>
