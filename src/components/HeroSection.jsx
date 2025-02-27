@@ -34,16 +34,16 @@ const HeroSection = () => {
 				</Link>
 
 				{/* Дополнительные ссылки */}
-				<div className='mt-8 flex space-x-6 animate-fade-in-up delay-600'>
+				<div className='mt-8 md:space-x-6 animate-fade-in-up delay-600 flex flex-col justify-center md:flex-row'>
 					<Link
 						to='/catalog'
-						className='px-6 py-3 border-2 border-[#D4AF37] text-[#D4AF37] rounded-full font-semibold transition duration-300 hover:bg-[#D4AF37] hover:text-white'
+						className='mb-5 md:mb-0 px-6 py-3 border-2 border-[#D4AF37] text-[#D4AF37] md:rounded-full font-semibold transition duration-300 hover:bg-[#D4AF37] hover:text-white'
 					>
 						Купить внутри Кореи
 					</Link>
 					<Link
 						to='/export-catalog'
-						className='px-6 py-3 bg-[#D4AF37] text-white rounded-full font-semibold transition duration-300 hover:bg-[#8C6B1F] hover:text-white'
+						className='flex items-center justify-center px-6 py-3 bg-[#D4AF37] text-white md:rounded-full font-semibold transition duration-300 hover:bg-[#8C6B1F] hover:text-white'
 					>
 						Заказать авто из Кореи
 					</Link>
