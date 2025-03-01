@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import Select from 'react-select'
 
 import {
 	priceOptions,
@@ -16,6 +17,132 @@ import {
 	carTrimsTranslation,
 	carDetailedModelsTranslation,
 } from '../translations'
+
+const brandLogos = {
+	Bentley:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470478/avtovita/brandslogos/bentley.png',
+	Mitsuoka:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470421/avtovita/brandslogos/mitsuoka.png',
+	Mitsubishi:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470352/avtovita/brandslogos/mitsubishi.png',
+	McLaren:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470254/avtovita/brandslogos/mclaren.png',
+	Mazda:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470218/avtovita/brandslogos/mazda.png',
+	Maybach:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470152/avtovita/brandslogos/maybach.png',
+	Maserati:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470116/avtovita/brandslogos/maserati.png',
+	Lincoln:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470044/avtovita/brandslogos/lincoln.png',
+	Renault:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740469994/avtovita/brandslogos/renault.png',
+	'Rolls-Royce':
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740469938/avtovita/brandslogos/rolls-royce.png',
+	Lotus:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740469901/avtovita/brandslogos/lotus.png',
+	Rover:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740469859/avtovita/brandslogos/rover.png',
+	Lexus:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740469824/avtovita/brandslogos/lexus.png',
+	Lamborghini:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740469766/avtovita/brandslogos/lamborghini.png',
+	Dodge:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740469714/avtovita/brandslogos/dodge.png',
+	Daihatsu:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740469678/avtovita/brandslogos/daihatsu.png',
+	Nissan:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740469634/avtovita/brandslogos/nissan.png',
+	'Land Rover':
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740469530/avtovita/brandslogos/landrover.png',
+	Volvo:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740469491/avtovita/brandslogos/volvo.png',
+	Mini: 'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740469453/avtovita/brandslogos/mini.png',
+	Volkswagen:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740442227/avtovita/brandslogos/volkswagen.png',
+	Audi: 'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740442148/avtovita/brandslogos/audi.png',
+	'Mercedes-Benz':
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740442084/avtovita/brandslogos/mercedes.png',
+	BMW: 'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740441985/avtovita/brandslogos/bmw.png',
+	Hyundai:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740440093/avtovita/brandslogos/hyundai.png',
+	KIA: 'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740440478/avtovita/brandslogos/kia.png',
+	Genesis:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740440397/avtovita/brandslogos/genesis.png',
+	'Chevrolet (Korea)':
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740441862/avtovita/brandslogos/chevrolet.png',
+	Chevrolet:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740441862/avtovita/brandslogos/chevrolet.png',
+	'Renault Korea (Samsung)':
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740441673/avtovita/brandslogos/renaultkorea.png',
+	'KG Mobility (SsangYong)':
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740441782/avtovita/brandslogos/kg.png',
+	Daewoo:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740441921/avtovita/brandslogos/daewoo.png',
+	Bugatti:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470527/avtovita/brandslogos/bugatti.png',
+	Buick:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470567/avtovita/brandslogos/buick.png',
+	SAAB: 'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470618/avtovita/brandslogos/saab.png',
+	Scion:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470648/avtovita/brandslogos/scion.png',
+	Smart:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470719/avtovita/brandslogos/smart.png',
+	Subaru:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470754/avtovita/brandslogos/subaru.png',
+	Suzuki:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470790/avtovita/brandslogos/suzuki.png',
+	Opel: 'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470824/avtovita/brandslogos/opel.png',
+	Oldsmobile:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470908/avtovita/brandslogos/oldsmobile.png',
+	Iveco:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470942/avtovita/brandslogos/iveco.png',
+	Isuzu:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470974/avtovita/brandslogos/isuzu.png',
+	Infiniti:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471009/avtovita/brandslogos/infiniti.png',
+	Jaguar:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471069/avtovita/brandslogos/jaguar.png',
+	Jeep: 'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471101/avtovita/brandslogos/jeep.png',
+	Zidou:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471173/avtovita/brandslogos/zhidou.png',
+	Geely:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471208/avtovita/brandslogos/geely.png',
+	Cadillac:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471249/avtovita/brandslogos/cadillac.png',
+	Chrysler:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471287/avtovita/brandslogos/chrysler.png',
+	Tesla:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471322/avtovita/brandslogos/tesla.png',
+	Toyota:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471360/avtovita/brandslogos/toyota.png',
+	Ferrari:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471393/avtovita/brandslogos/ferrari.png',
+	Ford: 'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471424/avtovita/brandslogos/ford.png',
+	Foton:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471465/avtovita/brandslogos/foton.png',
+	Pontiac:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471496/avtovita/brandslogos/pontiac.png',
+	Peugeot:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471531/avtovita/brandslogos/peugeot.png',
+	Fiat: 'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471564/avtovita/brandslogos/fiat.png',
+	Hummer:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471597/avtovita/brandslogos/hummer.png',
+	GMC: 'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471630/avtovita/brandslogos/gmc.png',
+	Polestar:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471734/avtovita/brandslogos/polestar.png',
+	BYD: 'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471769/avtovita/brandslogos/BYD.png',
+	Citroën:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471866/avtovita/brandslogos/citroen.png',
+	'Alfa Romeo':
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471902/avtovita/brandslogos/alfaromeo.png',
+	'Aston Martin':
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740471960/avtovita/brandslogos/astonmartin.png',
+	Acura:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740472002/avtovita/brandslogos/acura.png',
+	Honda:
+		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740472069/avtovita/brandslogos/honda.png',
+}
 
 // Helpers
 function translateFuelType(text) {
@@ -360,6 +487,76 @@ const Catalog = () => {
 		if (page < totalPages) setPage(page + 1)
 	}
 
+	const options = makerList.map((maker) => {
+		const translatedName =
+			carBrandsTranslation[maker.MAKER_NAME] || maker.MAKER_NAME
+		return {
+			value: maker.MAKER_NO,
+			label: (
+				<span className='flex items-center gap-2'>
+					{brandLogos[translatedName] && (
+						<img
+							src={brandLogos[translatedName]}
+							alt={translatedName}
+							className='inline-block w-5 auto'
+						/>
+					)}
+					{translatedName}
+				</span>
+			),
+			searchLabel: carBrandsTranslation[maker.MAKER_NAME] || maker.MAKER_NAME,
+		}
+	})
+
+	const customStyles = {
+		control: (provided) => ({
+			...provided,
+			borderRadius: '0.5rem',
+			borderColor: '#d1d5db',
+			boxShadow: 'none',
+			'&:hover': {
+				borderColor: '#9ca3af',
+			},
+		}),
+		option: (provided, state) => ({
+			...provided,
+			display: 'flex',
+			alignItems: 'center',
+			gap: '0.5rem',
+			color: state.isSelected ? '#fff' : '#374151',
+			backgroundColor: state.isSelected ? '#2563eb' : '#fff',
+			'&:hover': {
+				backgroundColor: '#f3f4f6',
+			},
+		}),
+	}
+
+	// eslint-disable-next-line react/prop-types
+	const BrandSelector = ({ handleMakerChange }) => {
+		const handleChange = (selectedOption) => {
+			handleMakerChange(selectedOption.value) // Обновляем selectedMaker
+		}
+
+		const customFilter = (option, inputValue) => {
+			return option.data.searchLabel
+				.toLowerCase()
+				.includes(inputValue.toLowerCase())
+		}
+
+		return (
+			<Select
+				ignoreCase
+				value={options.find((option) => option.value === selectedMaker)}
+				filterOption={customFilter} // Добавили кастомный фильтр
+				options={options}
+				onChange={handleChange}
+				placeholder='Выберите марку'
+				styles={customStyles}
+				className='w-full text-gray-800 rounded-lg shadow-sm'
+			/>
+		)
+	}
+
 	return (
 		<div className='p-4 mt-20 md:mt-10 text-secondary-500 min-h-screen'>
 			{/* Фильтры */}
@@ -401,34 +598,10 @@ const Catalog = () => {
 						<div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
 							{/* Производитель */}
 							<div className='flex-1'>
-								<select
-									value={selectedMaker}
-									onChange={(e) => handleMakerChange(e.target.value)}
-									className='cursor-pointer w-full border border-yellow-500 bg-white text-black p-3 rounded-lg shadow-md focus:ring-red-600 focus:border-red-600 transition duration-300 appearance-none pr-10 relative'
-									style={{
-										backgroundImage:
-											'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
-										backgroundPosition: 'right 12px center',
-										backgroundRepeat: 'no-repeat',
-										backgroundSize: '1rem',
-									}}
-								>
-									<option value='' className='text-gray-500'>
-										Марка
-									</option>
-									{makerList
-										?.sort((a, b) => (a.MAKER_NAME > b.MAKER_NAME ? -1 : 1))
-										.map((maker) => (
-											<option
-												key={maker.MAKER_NO}
-												value={maker.MAKER_NO}
-												className='text-black'
-											>
-												{carBrandsTranslation[maker.MAKER_NAME] ||
-													maker.MAKER_NAME}
-											</option>
-										))}
-								</select>
+								<label className='block text-gray-700 font-semibold mb-2'>
+									Марка:
+								</label>
+								<BrandSelector handleMakerChange={handleMakerChange} />
 							</div>
 
 							{/* Модель */}
