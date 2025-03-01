@@ -8,6 +8,7 @@ import {
 	Catalog,
 	ExportCatalog,
 	CarDetails,
+	ExportCarDetails,
 } from './pages'
 import { Header, Footer } from './components'
 
@@ -25,6 +26,10 @@ const App = () => {
 						<Route path='/catalog' element={<Catalog />} />
 						<Route path='/catalog/:carId' element={<CarDetails />} />
 						<Route path='/export-catalog' element={<ExportCatalog />} />
+						<Route
+							path='/export-catalog/:carId'
+							element={<ExportCarDetails />}
+						/>
 					</Routes>
 				</main>
 				<Footer />
