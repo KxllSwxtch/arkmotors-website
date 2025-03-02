@@ -1,6 +1,8 @@
+import Select from 'react-select'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { CarCard, Loader } from '../components'
+import { brandLogos } from '../utils'
 
 const ExportCatalog = () => {
 	const [cars, setCars] = useState([])
@@ -21,6 +23,78 @@ const ExportCatalog = () => {
 		priceTo: '',
 	})
 
+	// Опции с логотипами брендов
+	const brandOptions = [
+		{ value: '', label: 'Любая' },
+		{ value: '1', label: 'Acura', logo: brandLogos.Acura },
+		{ value: '2', label: 'Alfaromeo', logo: brandLogos['Alfa Romeo'] },
+		{ value: '3', label: 'Aston Martin', logo: brandLogos['Aston Martin'] },
+		{ value: '4', label: 'Audi', logo: brandLogos.Audi },
+		{ value: '5', label: 'Baic Yinxiang', logo: brandLogos.Buick },
+		{ value: '6', label: 'Bentley', logo: brandLogos.Bentley },
+		{ value: '7', label: 'BMW', logo: brandLogos.BMW },
+		{ value: '8', label: 'Cadillac', logo: brandLogos.Cadillac },
+		{ value: '9', label: 'Chevrolet', logo: brandLogos.Chevrolet },
+		{
+			value: '10',
+			label: 'Chevrolet GM Daewoo',
+			logo: brandLogos['Chevrolet (Korea)'],
+		},
+		{ value: '11', label: 'Chrysler', logo: brandLogos.Chrysler },
+		{ value: '12', label: 'Citroen', logo: brandLogos.Citroën },
+		{ value: '13', label: 'Daihatsu', logo: brandLogos.Daihatsu },
+		{ value: '14', label: 'DFSK', logo: '' },
+		{ value: '15', label: 'Dodge', logo: brandLogos.Dodge },
+		{ value: '16', label: 'etc', logo: '' },
+		{ value: '17', label: 'Ferrari', logo: brandLogos.Ferrari },
+		{ value: '18', label: 'Fiat', logo: brandLogos.Fiat },
+		{ value: '19', label: 'Ford', logo: brandLogos.Ford },
+		{ value: '20', label: 'Genesis', logo: brandLogos.Genesis },
+		{ value: '21', label: 'GMC', logo: brandLogos.GMC },
+		{ value: '22', label: 'Honda', logo: brandLogos.Honda },
+		{ value: '23', label: 'Hummer', logo: brandLogos.Hummer },
+		{ value: '24', label: 'Hyundai', logo: brandLogos.Hyundai },
+		{ value: '25', label: 'Infiniti', logo: brandLogos.Infiniti },
+		{ value: '26', label: 'Jaguar', logo: brandLogos.Jaguar },
+		{ value: '27', label: 'Jeep', logo: brandLogos.Jeep },
+		{
+			value: '28',
+			label: 'KG Mobility Ssangyong',
+			logo: brandLogos['KG Mobility (SsangYong)'],
+		},
+		{ value: '29', label: 'Kia', logo: brandLogos.KIA },
+		{ value: '30', label: 'Lamborghini', logo: brandLogos.Lamborghini },
+		{ value: '31', label: 'Land Rover', logo: brandLogos['Land Rover'] },
+		{ value: '32', label: 'Lexus', logo: brandLogos.Lexus },
+		{ value: '33', label: 'Lincoln', logo: brandLogos.Lincoln },
+		{ value: '34', label: 'Lotus', logo: brandLogos.Lotus },
+		{ value: '35', label: 'Maserati', logo: brandLogos.Maserati },
+		{ value: '36', label: 'Maybach', logo: brandLogos.Maybach },
+		{ value: '37', label: 'Mazda', logo: brandLogos.Mazda },
+		{ value: '38', label: 'McLaren', logo: brandLogos.McLaren },
+		{ value: '39', label: 'Mercedes-Benz', logo: brandLogos['Mercedes-Benz'] },
+		{ value: '40', label: 'Mercury', logo: '' },
+		{ value: '41', label: 'Mini', logo: brandLogos.Mini },
+		{ value: '42', label: 'Mitsubishi', logo: brandLogos.Mitsubishi },
+		{ value: '43', label: 'Mitsuoka', logo: brandLogos.Mitsuoka },
+		{ value: '44', label: 'Nissan', logo: brandLogos.Nissan },
+		{ value: '45', label: 'Others', logo: '' },
+		{ value: '46', label: 'Peugeot', logo: brandLogos.Peugeot },
+		{ value: '47', label: 'Polestar', logo: brandLogos.Polestar },
+		{ value: '48', label: 'Porsche', logo: brandLogos.Porsche },
+		{ value: '49', label: 'Renault-Korea Samsung', logo: brandLogos.Renault },
+		{ value: '50', label: 'Rolls-Royce', logo: brandLogos['Rolls-Royce'] },
+		{ value: '51', label: 'Saab', logo: brandLogos.SAAB },
+		{ value: '52', label: 'Scion', logo: brandLogos.Scion },
+		{ value: '53', label: 'Smart', logo: brandLogos.Smart },
+		{ value: '54', label: 'Subaru', logo: brandLogos.Subaru },
+		{ value: '55', label: 'Suzuki', logo: brandLogos.Suzuki },
+		{ value: '56', label: 'Tesla', logo: brandLogos.Tesla },
+		{ value: '57', label: 'Toyota', logo: brandLogos.Toyota },
+		{ value: '58', label: 'Volkswagen', logo: brandLogos.Volkswagen },
+		{ value: '59', label: 'Volvo', logo: brandLogos.Volvo },
+	]
+
 	// Список годов для фильтра
 	const years = [
 		'2011',
@@ -37,6 +111,7 @@ const ExportCatalog = () => {
 		'2022',
 		'2023',
 		'2024',
+		'2025',
 	]
 
 	// Функция для получения данных с API
@@ -267,301 +342,299 @@ const ExportCatalog = () => {
 		)
 	}
 
+	// Кастомный рендер опций
+	const customSingleValue = ({ data }) => (
+		<div className='flex items-center'>
+			{data.logo && (
+				<img src={data.logo} alt={data.label} className='w-6 mr-2' />
+			)}
+			<span>{data.label}</span>
+		</div>
+	)
+
+	const customOption = (props) => {
+		const { data, innerRef, innerProps } = props
+		return (
+			<div
+				ref={innerRef}
+				{...innerProps}
+				className='flex items-center p-2 hover:bg-gray-200 cursor-pointer'
+			>
+				{data.logo && (
+					<img src={data.logo} alt={data.label} className='w-6 h-6 mr-2' />
+				)}
+				<span>{data.label}</span>
+			</div>
+		)
+	}
+
+	// @ts-ignore
+	const BrandSelect = ({ filters, handleFilterChange }) => {
+		const handleChange = (selectedOption) => {
+			handleFilterChange({
+				target: {
+					name: 'brand',
+					value: selectedOption.value,
+				},
+			})
+		}
+
+		return (
+			<div className='mb-4'>
+				<label className='block text-gray-700 font-semibold mb-2'>Марка</label>
+				<Select
+					options={brandOptions}
+					value={brandOptions.find((opt) => opt.value === filters.brand)}
+					onChange={handleChange}
+					getOptionLabel={(e) => (
+						<div className='flex items-center '>
+							{e.logo && (
+								<img src={e.logo} alt={e.label} className='w-5 mr-2' />
+							)}
+							<span>{e.label}</span>
+						</div>
+					)}
+					// components={{ SingleValue: customSingleValue, Option: customOption }}
+					className='w-full'
+					isSearchable={false} // 🔥 Отключает возможность ввода текста
+				/>
+			</div>
+		)
+	}
+
 	return (
 		<div className='mt-25 md:mt-35 container m-auto'>
 			<h1 className='text-3xl font-bold text-center mb-8'>
 				Каталог автомобилей на экспорт
 			</h1>
 
-			{/* Форма фильтрации */}
-			<div className='bg-white p-5 rounded-lg shadow-md mb-8'>
-				<form>
-					<div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
-						<div>
-							<label>Марка</label>
-							<select
-								name='brand'
-								value={filters.brand}
-								onChange={handleFilterChange}
-								className='w-full border p-2 rounded'
-							>
-								<option value=''>Любая</option>
-								<option value='1'>Acura</option>
-								<option value='2'>Alfaromeo</option>
-								<option value='3'>Aston martin</option>
-								<option value='4'>Audi</option>
-								<option value='5'>Baic yinxiang</option>
-								<option value='6'>Bentley</option>
-								<option value='7'>Bmw</option>
-								<option value='8'>Cadillac</option>
-								<option value='9'>Chevrolet</option>
-								<option value='10'>ChevroletGMDaewoo</option>
-								<option value='11'>Chrysler</option>
-								<option value='12'>Citroen</option>
-								<option value='13'>Daihatsu</option>
-								<option value='14'>DFSK</option>
-								<option value='15'>Dodge</option>
-								<option value='16'>etc</option>
-								<option value='17'>Ferrari</option>
-								<option value='18'>Fiat</option>
-								<option value='19'>Ford</option>
-								<option value='20'>Genesis</option>
-								<option value='21'>GMC</option>
-								<option value='22'>Honda</option>
-								<option value='23'>Hummer</option>
-								<option value='24'>Hyundai</option>
-								<option value='25'>Infiniti</option>
-								<option value='26'>Jaguar</option>
-								<option value='27'>Jeep</option>
-								<option value='28'>KG Mobility Ssangyong</option>
-								<option value='29'>Kia</option>
-								<option value='30'>Lamborghini</option>
-								<option value='31'>Land rover</option>
-								<option value='32'>Lexus</option>
-								<option value='33'>Lincoln</option>
-								<option value='34'>Lotus</option>
-								<option value='35'>Maserati</option>
-								<option value='36'>Maybach</option>
-								<option value='37'>Mazda</option>
-								<option value='38'>Mclaren</option>
-								<option value='39'>Mercedes-Benz</option>
-								<option value='40'>Mercury</option>
-								<option value='41'>Mini</option>
-								<option value='42'>Mitsubishi</option>
-								<option value='43'>Mitsuoka</option>
-								<option value='44'>Nissan</option>
-								<option value='45'>Others</option>
-								<option value='46'>Peugeot</option>
-								<option value='47'>Polestar</option>
-								<option value='48'>Porsche</option>
-								<option value='49'>Renault-KoreaSamsung</option>
-								<option value='50'>Rolls-Royce</option>
-								<option value='51'>Saab</option>
-								<option value='52'>Scion</option>
-								<option value='53'>Smart</option>
-								<option value='54'>Subaru</option>
-								<option value='55'>Suzuki</option>
-								<option value='56'>Tesla</option>
-								<option value='57'>Toyota</option>
-								<option value='58'>Volkswagen</option>
-								<option value='59'>Volvo</option>
-							</select>
-						</div>
-
-						<div>
-							<label>Модель</label>
-							<select
-								name='model'
-								value={filters.model}
-								onChange={handleFilterChange}
-								className='w-full border p-2 rounded'
-								disabled={!filters.brand}
-							>
-								<option value=''>Любая</option>
-								{models.map((model, index) => (
-									<option key={index} value={model.MODEL_NAME}>
-										{model.MODEL_NAME}
-									</option>
-								))}
-							</select>
-						</div>
-
-						<div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+			<div className='md:flex md:flex-row md:justify-center grid grid-cols-1'>
+				{/* Форма фильтрации */}
+				<div className='bg-white p-5 rounded-lg shadow-md mb-8 md:w-1/3'>
+					<form>
+						<div className='grid grid-cols-1 md:grid-cols-1 gap-4'>
 							<div>
-								<label>Год (от)</label>
+								<BrandSelect
+									filters={filters}
+									handleFilterChange={handleFilterChange}
+								/>
+							</div>
+
+							<div>
+								<label>Модель</label>
 								<select
-									name='yearFrom'
-									value={filters.yearFrom}
+									name='model'
+									value={filters.model}
 									onChange={handleFilterChange}
 									className='w-full border p-2 rounded'
+									disabled={!filters.brand}
 								>
-									<option value=''>Любой</option>
-									{filteredYearsFrom.map((year) => (
-										<option key={year} value={year}>
-											{year}
+									<option value=''>Любая</option>
+									{models.map((model, index) => (
+										<option key={index} value={model.MODEL_NAME}>
+											{model.MODEL_NAME}
 										</option>
 									))}
 								</select>
 							</div>
-							<div>
-								<label>Год (до)</label>
-								<select
-									name='yearTo'
-									value={filters.yearTo}
-									onChange={handleFilterChange}
-									className='w-full border p-2 rounded'
-								>
-									<option value=''>Любой</option>
-									{filteredYearsTo.map((year) => (
-										<option key={year} value={year}>
-											{year}
-										</option>
-									))}
-								</select>
-							</div>
-						</div>
 
-						<div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
-							<div>
-								<label>Пробег (от, км)</label>
+							<div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+								<div>
+									<label>Год (от)</label>
+									<select
+										name='yearFrom'
+										value={filters.yearFrom}
+										onChange={handleFilterChange}
+										className='w-full border p-2 rounded'
+									>
+										<option value=''>Любой</option>
+										{filteredYearsFrom.reverse().map((year) => (
+											<option key={year} value={year}>
+												{year}
+											</option>
+										))}
+									</select>
+								</div>
+								<div>
+									<label>Год (до)</label>
+									<select
+										name='yearTo'
+										value={filters.yearTo}
+										onChange={handleFilterChange}
+										className='w-full border p-2 rounded'
+									>
+										<option value=''>Любой</option>
+										{filteredYearsTo.map((year) => (
+											<option key={year} value={year}>
+												{year}
+											</option>
+										))}
+									</select>
+								</div>
+							</div>
+
+							<div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+								<div>
+									<label>Пробег (от, км)</label>
+									<input
+										type='number'
+										name='mileageFrom'
+										value={filters.mileageFrom}
+										onChange={handleMileageChange}
+										className='w-full border p-2 rounded'
+										placeholder='От'
+										min={0}
+									/>
+								</div>
+								<div>
+									<label>Пробег (до, км)</label>
+									<input
+										type='number'
+										name='mileageTo'
+										value={filters.mileageTo}
+										onChange={handleMileageChange}
+										className='w-full border p-2 rounded'
+										placeholder='До'
+									/>
+								</div>
+							</div>
+
+							<div className='mb-4'>
+								<label
+									className='block text-gray-700 font-semibold mb-2'
+									htmlFor='capacity-from'
+								>
+									Объём двигателя (от)
+								</label>
+								<div className='relative'>
+									<select
+										name='capacityFrom'
+										id='capacity-from'
+										className='block w-full bg-white border border-gray-300 rounded-lg shadow-sm py-2 px-3 text-gray-700 focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 transition duration-300'
+										value={filters.capacityFrom}
+										onChange={handleCapacityChange}
+									>
+										<option value=''>Любой</option>
+										<option value='1398'>1,4</option>
+										<option value='1498'>1,5</option>
+										<option value='1598'>1,6</option>
+										<option value='1798'>1,8</option>
+										<option value='1998'>2,0</option>
+										<option value='2498'>2,5</option>
+										<option value='2998'>3,0</option>
+										<option value='3498'>3,5</option>
+										<option value='3798'>3,8</option>
+										<option value='3998'>4,0</option>
+										<option value='7000'>Более 4,0</option>
+									</select>
+								</div>
+							</div>
+
+							<div className='mb-4'>
+								<label
+									className='block text-gray-700 font-semibold mb-2'
+									htmlFor='capacity-to'
+								>
+									Объём двигателя (до)
+								</label>
+								<div className='relative'>
+									<select
+										name='capacityTo'
+										id='capacity-to'
+										className='block w-full bg-white border border-gray-300 rounded-lg shadow-sm py-2 px-3 text-gray-700 focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 transition duration-300'
+										value={filters.capacityTo}
+										onChange={handleCapacityChange}
+									>
+										<option value=''>Любой</option>
+										<option value='7000'>Более 4,0</option>
+										<option value='3998'>4,0</option>
+										<option value='3798'>3,8</option>
+										<option value='3498'>3,5</option>
+										<option value='2998'>3,0</option>
+										<option value='2498'>2,5</option>
+										<option value='1998'>2,0</option>
+										<option value='1798'>1,8</option>
+										<option value='1598'>1,6</option>
+										<option value='1498'>1,5</option>
+										<option value='1398'>1,4</option>
+									</select>
+								</div>
+							</div>
+
+							<div className='filter__item mb-4'>
+								<label
+									className='block text-gray-700 font-semibold mb-2'
+									htmlFor='price-from'
+								>
+									Цена (от, воны)
+								</label>
 								<input
 									type='number'
-									name='mileageFrom'
-									value={filters.mileageFrom}
-									onChange={handleMileageChange}
-									className='w-full border p-2 rounded'
-									placeholder='От'
-									min={0}
+									id='price-from'
+									name='priceFrom'
+									placeholder='0'
+									className='block w-full bg-white border border-gray-300 rounded-lg shadow-sm py-2 px-3 text-gray-700 focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 transition duration-300'
+									value={filters.priceFrom}
+									onChange={(e) =>
+										setFilters((prevFilters) => ({
+											...prevFilters,
+											priceFrom: e.target.value,
+										}))
+									}
 								/>
 							</div>
-							<div>
-								<label>Пробег (до, км)</label>
+
+							<div className='filter__item mb-4'>
+								<label
+									className='block text-gray-700 font-semibold mb-2'
+									htmlFor='price-to'
+								>
+									Цена (до, воны)
+								</label>
 								<input
 									type='number'
-									name='mileageTo'
-									value={filters.mileageTo}
-									onChange={handleMileageChange}
-									className='w-full border p-2 rounded'
-									placeholder='До'
+									id='price-to'
+									name='priceTo'
+									placeholder='∞'
+									className='block w-full bg-white border border-gray-300 rounded-lg shadow-sm py-2 px-3 text-gray-700 focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 transition duration-300'
+									value={filters.priceTo}
+									onChange={(e) =>
+										setFilters((prevFilters) => ({
+											...prevFilters,
+											priceTo: e.target.value,
+										}))
+									}
 								/>
 							</div>
 						</div>
 
-						<div className='mb-4'>
-							<label
-								className='block text-gray-700 font-semibold mb-2'
-								htmlFor='capacity-from'
+						<div className='flex justify-between mt-4'>
+							<button
+								type='button'
+								onClick={resetFilters}
+								className='bg-gray-400 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded'
 							>
-								Объём двигателя (от)
-							</label>
-							<div className='relative'>
-								<select
-									name='capacityFrom'
-									id='capacity-from'
-									className='block w-full bg-white border border-gray-300 rounded-lg shadow-sm py-2 px-3 text-gray-700 focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 transition duration-300'
-									value={filters.capacityFrom}
-									onChange={handleCapacityChange}
-								>
-									<option value=''>Любой</option>
-									<option value='1398'>1,4</option>
-									<option value='1498'>1,5</option>
-									<option value='1598'>1,6</option>
-									<option value='1798'>1,8</option>
-									<option value='1998'>2,0</option>
-									<option value='2498'>2,5</option>
-									<option value='2998'>3,0</option>
-									<option value='3498'>3,5</option>
-									<option value='3798'>3,8</option>
-									<option value='3998'>4,0</option>
-									<option value='7000'>Более 4,0</option>
-								</select>
-							</div>
-						</div>
-
-						<div className='mb-4'>
-							<label
-								className='block text-gray-700 font-semibold mb-2'
-								htmlFor='capacity-to'
+								Сбросить фильтр
+							</button>
+							<button
+								type='button'
+								onClick={applyFilters}
+								className='bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded'
 							>
-								Объём двигателя (до)
-							</label>
-							<div className='relative'>
-								<select
-									name='capacityTo'
-									id='capacity-to'
-									className='block w-full bg-white border border-gray-300 rounded-lg shadow-sm py-2 px-3 text-gray-700 focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 transition duration-300'
-									value={filters.capacityTo}
-									onChange={handleCapacityChange}
-								>
-									<option value=''>Любой</option>
-									<option value='7000'>Более 4,0</option>
-									<option value='3998'>4,0</option>
-									<option value='3798'>3,8</option>
-									<option value='3498'>3,5</option>
-									<option value='2998'>3,0</option>
-									<option value='2498'>2,5</option>
-									<option value='1998'>2,0</option>
-									<option value='1798'>1,8</option>
-									<option value='1598'>1,6</option>
-									<option value='1498'>1,5</option>
-									<option value='1398'>1,4</option>
-								</select>
-							</div>
+								Поиск
+							</button>
 						</div>
+					</form>
+				</div>
 
-						<div className='filter__item mb-4'>
-							<label
-								className='block text-gray-700 font-semibold mb-2'
-								htmlFor='price-from'
-							>
-								Цена (от, воны)
-							</label>
-							<input
-								type='number'
-								id='price-from'
-								name='priceFrom'
-								placeholder='0'
-								className='block w-full bg-white border border-gray-300 rounded-lg shadow-sm py-2 px-3 text-gray-700 focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 transition duration-300'
-								value={filters.priceFrom}
-								onChange={(e) =>
-									setFilters((prevFilters) => ({
-										...prevFilters,
-										priceFrom: e.target.value,
-									}))
-								}
-							/>
-						</div>
-
-						<div className='filter__item mb-4'>
-							<label
-								className='block text-gray-700 font-semibold mb-2'
-								htmlFor='price-to'
-							>
-								Цена (до, воны)
-							</label>
-							<input
-								type='number'
-								id='price-to'
-								name='priceTo'
-								placeholder='∞'
-								className='block w-full bg-white border border-gray-300 rounded-lg shadow-sm py-2 px-3 text-gray-700 focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 transition duration-300'
-								value={filters.priceTo}
-								onChange={(e) =>
-									setFilters((prevFilters) => ({
-										...prevFilters,
-										priceTo: e.target.value,
-									}))
-								}
-							/>
-						</div>
-					</div>
-
-					<div className='flex justify-between mt-4'>
-						<button
-							type='button'
-							onClick={resetFilters}
-							className='bg-gray-400 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded'
-						>
-							Сбросить фильтр
-						</button>
-						<button
-							type='button'
-							onClick={applyFilters}
-							className='bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded'
-						>
-							Поиск
-						</button>
-					</div>
-				</form>
-			</div>
-
-			{/* Сетка карточек автомобилей */}
-			<div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-				{cars
-					.sort((a, b) => (a.YEAR > b.YEAR ? 1 : -1))
-					.map((car) => (
-						<CarCard key={car.ID} car={car} />
-					))}
+				{/* Сетка карточек автомобилей */}
+				<div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full md:ml-5'>
+					{cars
+						.sort((a, b) => (a.year > b.year ? 1 : -1))
+						.map((car) => (
+							<CarCard key={car.ID} car={car} />
+						))}
+				</div>
 			</div>
 
 			{/* Лоадер при загрузке данных */}
