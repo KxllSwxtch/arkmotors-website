@@ -42,14 +42,14 @@ const HeroSection = () => {
 						to='/catalog'
 						className='mb-5 md:mb-0 px-6 py-3 border-2 border-[#D4AF37] text-[#D4AF37] md:rounded-full font-semibold transition duration-300 hover:bg-[#D4AF37] hover:text-white'
 					>
-						Купить внутри Кореи
+						Смотреть каталог автомобилей
 					</Link>
-					<Link
+					{/* <Link
 						to='/export-catalog'
 						className='flex items-center justify-center px-6 py-3 bg-[#D4AF37] text-white md:rounded-full font-semibold transition duration-300 hover:bg-[#8C6B1F] hover:text-white'
 					>
 						Заказать авто из Кореи
-					</Link>
+					</Link> */}
 				</div>
 
 				{/* Features */}
