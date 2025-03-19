@@ -36,17 +36,17 @@ const Header = () => {
 								to='/catalog'
 								className='hover:text-[var(--color-arkGoldDark)] transition-colors duration-200'
 							>
-								Каталог авто в Корее
+								Каталог авто
 							</Link>
 						</li>
-						<li>
+						{/* <li>
 							<Link
 								to='/export-catalog'
 								className='hover:text-[var(--color-arkGoldDark)] transition-colors duration-200'
 							>
 								Каталог авто на заказ
 							</Link>
-						</li>
+						</li> */}
 						<li>
 							<Link
 								to='/contacts'
@@ -63,14 +63,14 @@ const Header = () => {
 								О нас
 							</Link>
 						</li>
-						<li>
+						{/* <li>
 							<Link
 								to='/cases'
 								className='hover:text-[var(--color-arkGoldDark)] transition-colors duration-200'
 							>
 								Кейсы
 							</Link>
-						</li>
+						</li> */}
 					</ul>
 				</nav>
 
@@ -115,10 +115,10 @@ const Header = () => {
 							onClick={closeMenu}
 							className='hover:text-[var(--color-arkGoldDark)]'
 						>
-							Каталог авто в Корее
+							Каталог авто
 						</Link>
 					</li>
-					<li>
+					{/* <li>
 						<Link
 							to='/export-catalog'
 							onClick={closeMenu}
@@ -126,7 +126,7 @@ const Header = () => {
 						>
 							Каталог авто на заказ
 						</Link>
-					</li>
+					</li> */}
 					<li>
 						<Link
 							to='/contacts'
@@ -145,7 +145,7 @@ const Header = () => {
 							О нас
 						</Link>
 					</li>
-					<li>
+					{/* <li>
 						<Link
 							to='/cases'
 							onClick={closeMenu}
@@ -153,7 +153,7 @@ const Header = () => {
 						>
 							Кейсы
 						</Link>
-					</li>
+					</li> */}
 				</ul>
 			</div>
 		</header>

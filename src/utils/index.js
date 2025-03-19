@@ -6,6 +6,7 @@ import missionOptions from './missionOptions'
 import colorOptions from './colorOptions'
 import translateCarName from './translateCarName'
 import brandLogos from './brandLogos'
+import modelLogos from './modelLogos'
 
 export {
 	priceOptions,
@@ -16,4 +17,5 @@ export {
 	colorOptions,
 	translateCarName,
 	brandLogos,
+	modelLogos,
 }
