@@ -63,6 +63,10 @@ const Header = () => {
 								О нас
 							</Link>
 						</li>
+						<li className='flex gap-2 font-light ml-5'>
+							<span>+82 10-3642-2039 - </span>
+							<span>Пан Сергей</span>
+						</li>
 						{/* <li>
 							<Link
 								to='/cases'
@@ -144,6 +148,10 @@ const Header = () => {
 						>
 							О нас
 						</Link>
+					</li>
+					<li className='flex flex-col items-center gap-2 font-light mt-5'>
+						<span>+82 10-3642-2039</span>
+						<span>Пан Сергей</span>
 					</li>
 					{/* <li>
 						<Link

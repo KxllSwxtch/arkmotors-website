@@ -285,6 +285,250 @@ const modelLogos = {
 		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742366286/carmodels/eacd9105547eb3ce5a38b5811eccf53e_obgwly.webp',
 	'Super Salon':
 		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742366337/carmodels/destaque-v3_q0c58k.webp',
+	'A-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742443947/carmodels/Mercedes-A-Class-Saloon-PNG-Photos_r4qmvu.png',
+	'B-Class (MY B)':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444004/carmodels/mercedes-benz-b-class-w247-modeloverview-696x392-09-2022_a517px.avif',
+	'C-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444043/carmodels/Polar_White_Mercedes_Benz_C_Class_2014_Car_PNG_Clipart-121_lbwwox.png',
+	'CL-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444070/carmodels/White_Lorinser_Mercedes_Benz_CL_Class_Car_PNG_Clipart-130_jxtbkn.png',
+	'CLA-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444094/carmodels/e32a3b2803938e49a13a083ccb46902b_r6qvoe.png',
+	'CLE-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444118/carmodels/3d4668a5f4e815c509c62dd43b26f67a_gzu8zf.png',
+	'CLK-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444153/carmodels/78e6068c-e0c7-42f3-9248-49dc15a1c962_bbgshq.webp',
+	'CLS-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444188/carmodels/712e76b2-20ae-47d4-bec4-559b2b180333_pneqnc.webp',
+	'E-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444217/carmodels/51506279619zqpgkosu9sqb394pfu7o7fwxbcvkjteqqgvopsnd1gmwl6uw8yao504kgoxwmzv9vtfuatlovqzgtintvuqhf1nzwyv7u1n1t0gf_tjc2lu.png',
+	EQA: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444252/carmodels/mercedes-eq-eqa-suv-h243-modeloverview-696x392-09-2022_twkae8.avif',
+	EQB: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444281/carmodels/mercedes-eq-eqb-modeloverview-x243-696x392-09-2022_jifxnl.avif',
+	EQC: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444301/carmodels/mercedes-car-eqc-300kw-edition-ytq_lwu278.png',
+	EQE: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444328/carmodels/295.122_Front.png.860x860_q95_rwx6qw.png',
+	EQS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444354/carmodels/450-Sedan_nqlmvb.png',
+	'G-Class (G-Wagen)':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444463/carmodels/pngimg.com_-_mercedes_PNG1861_wur1pv.png',
+	'GL-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444485/carmodels/gl-no-background_pmwwy4.avif',
+	'GLA-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444504/carmodels/ede305fcb7b96a771134c5e1cb2c0288_z10jr8.png',
+	'GLB-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444523/carmodels/mlp-img-top-2021-glb_xx0oos.avif',
+	'GLC-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444540/carmodels/186b31129992455f138aeac97015d965_wgk6nc.png',
+	'GLE-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444564/carmodels/model1_kptihn.png',
+	'GLK-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444592/carmodels/Silver_Mercedes_Benz_GLK_2014_Car_PNG_Clipart-128_yfwsg5.png',
+	'GLS-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444617/carmodels/51506280093jv4gusm0vc1wvusi2gfa2ytuhcjlv3te1qpkukucr0e8yhtxdzqh2pklcdmbn9dtt8wrqymkswkgs3isdz9gj4lm5jgmpt49l2ne_w0ihps.png',
+	'M-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444776/carmodels/2009-mercedes-benz-m-class-ml350-4-matic-suv-angular-front_u4dlwg.avif',
+	'R-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444801/carmodels/cc7ff185-4d7c-4df6-a6bb-079aeac0f4a8_d0uhn6.webp',
+	'S-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444821/carmodels/pngtree-luxury-mercedes-benz-s-class-sedan-in-sleek-black-exterior-png-image_13498655_jzhfdc.png',
+	'SL-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444843/carmodels/Mercedes-Benz-SL-Class-PNG-Clipart-Background_oucsoc.png',
+	'SLC-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444863/carmodels/2020-mercedes-benz-slc-roadster-300-convertible-angular-front_vhvwcj.avif',
+	'SLK-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444884/carmodels/2012-mercedes-benz-slkclass-slk350-roadster-angular-front_wknf5s.avif',
+	SLR: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444930/carmodels/4c093268-c61b-4c08-9de9-0e5b51ec58e9_nisgxo.webp',
+	'SLS AMG':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742444966/carmodels/HOR_XB1_M-B_SLS_sj6eel.webp',
+	'AMG GT':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445008/carmodels/51506279807py9khwbwpshea5scm2q4q5edaaku996nntddwty7jwtfdlz2uewvkc6bk3jko9shdkkzf9nelnn0q9tyrticjz8tx49hjveuy44a_kyyrrr.png',
+	'V-Class':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445046/carmodels/visual-web-02-1_nlrblr.png',
+	Sprinter:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445082/carmodels/19MBSprinter_w5z9nk.avif',
+	Unimog:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445104/carmodels/Unimog06_m7eddj.png',
+	'1 Series':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445321/carmodels/BMW-1-Series-Transparent-File_fvlxvh.png',
+	'2 Series':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445345/carmodels/23-BMW-2-Series-Gran-Coupe-White_ltbghv.png',
+	'3 Series':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445370/carmodels/BMW-3-Series-2019-PNG-Photo-Image_ej1etq.png',
+	'4 Series':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445389/carmodels/2021-BMW-4-Series-hero_m9pp9z.png',
+	'5 Series':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445411/carmodels/ice2_Titan-Bronze_810-501_qfcfxg.png',
+	'6 Series':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445451/carmodels/bmw-6-series-gran-turismo-posi-modelfinder_vqeo1e.png',
+	'7 Series':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445472/carmodels/BMW-7-Series-PNG-Images-HD_u5ndaa.png',
+	'8 Series':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445498/carmodels/BMW-8-Series-Gran-Coupe-PNG-Photos_pjuo7n.png',
+	'Gran Turismo':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445536/carmodels/630i_lrx7ty.webp',
+	X1: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445555/carmodels/b4d0bcd4e96041788e5d69034720d7ba_grjfp7.png',
+	X2: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445579/carmodels/BMW-X2-Free-PNG_pafrb6.png',
+	X3: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445600/carmodels/BMW-X3-XDrive30e-Background-PNG-Image_sexgue.png',
+	X4: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445618/carmodels/BMW-X4-PNG-Free-File-Download_z7ty9n.png',
+	X5: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445652/carmodels/bmw-x5-black-car_qhthai.png',
+	X6: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445672/carmodels/purepng.com-bmw-x6-blue-carcarbmwvehicletransport-9615246630450hbgr_aoiwpd.png',
+	X7: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445691/carmodels/BMW-X7-Transparent-Free-PNG_ixg9n5.png',
+	'X3 M':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445707/carmodels/x3-m-competition_y9wwlb.webp',
+	'X4 M':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445724/carmodels/x4-m-competition_iknboo.webp',
+	'X5 M':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445742/carmodels/25XK_300_bqusuq.png',
+	'X6 M':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445765/carmodels/22XN_300_hsm1fl.png',
+	XM: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445784/carmodels/xm_m0y3rh.webp',
+	Z3: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445827/carmodels/bmw-z3-index_j2uayo.webp',
+	Z4: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445847/carmodels/Bmw-Z4-PNG-HD-Quality_hp6iql.webp',
+	Z8: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445871/carmodels/MOT_XB1_BMW_Z8_lqdtwp.webp',
+	i3: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445889/carmodels/2019-BMW-i3-MLP-Hero_urceu8.avif',
+	i4: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445911/carmodels/i4-m50_lhblqq.webp',
+	i5: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445930/carmodels/i5_M60_CoSY_hj0az0.png',
+	i7: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445956/carmodels/ext_tbptst.png',
+	i8: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742445989/carmodels/2018-BMW-I8-Coupe-Download-Free-PNG_bdib1e.png',
+	iX1: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446009/carmodels/ix1_mfsbjk.webp',
+	iX3: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446069/carmodels/ix3_xd2mkj.webp',
+	iX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446083/carmodels/update_on_ix_remzb1.png',
+	'M Coupe': '',
+	A1: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446285/carmodels/Audi-A1-Transparent-Images_pwonm6.png',
+	A3: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446317/carmodels/Audi-A3-2019-PNG-Images-HD_u1rhxg.png',
+	A4: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446336/carmodels/purepng.com-audi-a4-caraudicars-961524670575xcrug_sv17nk.png',
+	A5: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446361/carmodels/Audi-A5-Free-PNG_l8byrz.png',
+	A6: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446382/carmodels/Automobile-Audi-A6-PNG-Transparent-Image_zvw12g.png',
+	A7: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446400/carmodels/Audi-A7-PNG-Download-Image_cwma02.png',
+	A8: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446426/carmodels/Audi-A8-TFSI-E-Transparent-Image_snrnwy.png',
+	Q2: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446450/carmodels/Q2-Website_qtujau.png',
+	Q3: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446484/carmodels/purepng.com-audi-q3-caraudicars-961524670883v6rkg_j3r8ir.png',
+	Q4: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446499/carmodels/model2_nhc95x.png',
+	Q5: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446530/carmodels/purepng.com-audi-q5-caractere-black-caraudicarvehicletransport-961524636654bsxjw_phxzno.png',
+	Q7: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446557/carmodels/purepng.com-audi-q7-caraudicars-961524670848felfc_djfd2t.png',
+	Q8: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446584/carmodels/Audi-Q8-PNG-Images-HD_orhast.png',
+	R8: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446603/carmodels/pngimg.com_-_audi_PNG1771_frecir.png',
+	RS3: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446628/carmodels/Audi-RS3-PNG-Clipart-Background_ztlop8.png',
+	RS4: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446648/carmodels/Audi-RS4-Transparent-Image_c0ns3s.png',
+	RS5: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446666/carmodels/Audi-RS5-PNG-Free-File-Download_zniln4.png',
+	RS6: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446685/carmodels/Audi-RS6-Transparent-File_kzn9d1.png',
+	RS7: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446718/carmodels/Audi-RS7-Download-Free-PNG_vgkmd5.png',
+	RSQ8: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446740/carmodels/2032_76_vxmlwk.avif',
+	S3: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446763/carmodels/2022_24_ptvxfb.webp',
+	S4: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446783/carmodels/Audi-S4-Transparent-Image_yddeop.png',
+	S5: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446797/carmodels/2020_24_dfqc5u.avif',
+	S6: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446819/carmodels/2023_76_g7dzk4.avif',
+	S7: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446841/carmodels/2021_76_trqlo7.avif',
+	S8: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446863/carmodels/Audi-S8-PNG-HD-Quality_bhsxli.png',
+	SQ5: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446882/carmodels/2022_74_s62nfu.avif',
+	SQ7: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446903/carmodels/2021_76_1_wa4l45.avif',
+	SQ8: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446927/carmodels/2020_24_h7phul.webp',
+	TT: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446948/carmodels/Audi-Tt-Background-PNG_yysw6e.png',
+	TTRS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742446984/carmodels/Audi-TT-RS-PNG-Photo-Image_nmr4ts.png',
+	TTS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447006/carmodels/purepng.com-yellow-audi-tts-roadster-caraudicarvehicletransport-961524658348dclp9_jam7dh.png',
+	'e-tron':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447028/carmodels/2023_76_mvorca.webp',
+	'e-tron GT':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447050/carmodels/6Y6Y-44I_k8vuxl.png',
+	'RS e-tron GT':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447093/carmodels/2023_24_eyldly.avif',
+	'Allroad Quattro':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447115/carmodels/Audi-A6-Allroad-Transparent-Free-PNG_uu9y6a.png',
+	Golf: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447409/carmodels/pngimg.com_-_volkswagen_PNG1824_cq4oui.png',
+	Tiguan:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447442/carmodels/2023_76_ipcfvv.avif',
+	CC: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447462/carmodels/2012-volkswagen-cc-luxury-sedan-angular-front_anh5jq.avif',
+	'ID.4':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447492/carmodels/2024-volkswagen-id4-standard-s-7e78c2668aa5-600x300_bd2luu.png',
+	Jetta:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447517/carmodels/be74dd022d027b83d57920fadbe7094b_rlhtna.png',
+	Arteon:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447542/carmodels/2021-VW-Arteon-MLP-Hero_iovryq.avif',
+	Passat:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447561/carmodels/Volkswagen-Passat-Transparent-PNG_xgspig.png',
+	Beetle:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447580/carmodels/pngimg.com_-_volkswagen_PNG1789_d4iz41.png',
+	Phaeton:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447617/carmodels/29f50c522249c3f79a6cc3fc047e1b90483f68fa_tuazyv.avif',
+	Polo: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447638/carmodels/pngimg.com_-_volkswagen_PNG1821_lmiuf7.png',
+	Touareg:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447660/carmodels/Volkswagen-Touareg-Free-Picture-PNG_zcvebw.png',
+	Sharan:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447692/carmodels/Sharan_ansv6t.png',
+	Scirocco:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447715/carmodels/Volkswagen-Scirocco-Transparent-Image_hizavm.png',
+	'T-Roc':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447740/carmodels/troc-slide_khxmqd.png',
+	EOS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447788/carmodels/2014-Volkswagen-Eos-front_9073_032_1823x802_4Y4Y_cropped_sdpquj.avif',
+	Bora: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447814/carmodels/771-7718369_volkswagen-bora-2008-png_p7xtva.png',
+	Atlas:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447841/carmodels/2021_24_lmqqow.avif',
+	Luton:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447889/carmodels/VolkswagenCrafter_17_redfil.png',
+	Vento:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447910/carmodels/front-1-3-_xevwf6.png',
+	Microbus:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447956/carmodels/Volkswagen-Bus-Transparent-File_chx32f.png',
+	California:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447978/carmodels/VWCalifornia_20_dat66s.png',
+	Multivan:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742448168/carmodels/vw-t61-multivan_o4avwa.png',
+	Cooper:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742448643/carmodels/Mini-Cooper-Red-Car-PNG-HD-Quality_hadl86.png',
+	'Cooper Convertible':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742448667/carmodels/2020-MINI-Convertible_jxuuy9.avif',
+	Coupe:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742448693/carmodels/2013-mini-cooper-s-coupe-angular-front_y24ylf.avif',
+	Roadster:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742448716/carmodels/2013-mini-cooper-base-roadster-angular-front_hbt9lr.avif',
+	Countryman:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742448741/carmodels/2023_24_pelaju.avif',
+	Clubman:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449993/carmodels/mini-clubman-index-_2_ymv78i.webp',
+	Paceman:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742448774/carmodels/2016-MINI-Paceman-front_10372_032_1842x907_B62_cropped_czssys.avif',
+	'Rover Mini':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742448800/carmodels/pngimg.com_-_mini_PNG11764_rytj8e.png',
+	'Cooper Electric':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742448819/carmodels/all-electric_MINI_Cooper_Classic_E_mwntnc.png',
+	C30: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742448971/carmodels/2012-volvo-c30-t5-m-hatchback-angular-front_bgnyjb.avif',
+	'C40 Recharge':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742448994/carmodels/2022_24_cnj2mj.avif',
+	C70: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449019/carmodels/2013vlv002a_640_01_q0wwxu.avif',
+	S40: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449039/carmodels/59a60ed4-959c-47ab-8422-31e1a8cbc30f_rd2pxr.webp',
+	S60: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449068/carmodels/2022_76_xlq11v.webp',
+	S70: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449093/carmodels/Volvo-S70-Sedan-1998_2000_en9v3a.png',
+	S80: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449118/carmodels/pngimg.com_-_volvo_PNG18_lz92sx.png',
+	S90: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449144/carmodels/2020_24_jmqlmy.avif',
+	V40: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449170/carmodels/Volvo-V40-2019-Transparent-File_awvgz9.png',
+	V50: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449189/carmodels/download_vf4k3n.png',
+	V60: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449214/carmodels/Volvo-V60-PNG-Background_iibune.png',
+	V70: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449234/carmodels/purepng.com-volvo-xc70-carcarvehicletransportvolvo-961524668917h5ueg_tf7lq6.png',
+	V90: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449262/carmodels/2000_24_k4m9ww.avif',
+	XC40: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449285/carmodels/2021_76_cvfzpa.avif',
+	XC60: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449307/carmodels/2020_24_pmx9eg.webp',
+	XC70: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449332/carmodels/purepng.com-volvo-xc70-carcarvehicletransportvolvo-961524668917h5ueg_1_o0lgrg.png',
+	XC90: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449359/carmodels/purepng.com-black-volvo-xc90-excellence-carcarvehicletransportvolvo-961524654983kac6b_ss3gnl.png',
+	740: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449394/carmodels/volvo-740-sedan-b230-1988-1991_cgiwfz.png',
+	760: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449423/carmodels/1-1985-1990_ywocsu.png',
+	850: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449462/carmodels/HOR_XB1_Volvo_850_uxwawi.webp',
+	940: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449492/carmodels/a26f08_31b7dfdb6e5046e0b1c385653950dc26_mv2_zte0uj.png',
+	960: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449508/carmodels/png-transparent-2008-volvo-s40-2009-volvo-s40-car-2009-volvo-c30-volvo-compact-car-sedan-car_qeyubc.png',
+	Discovery:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449607/carmodels/silver-land-rover-discovery-sport-car_i1clix.png',
+	'Discovery Sport':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449637/carmodels/2016-Land-Rover-Discovery-Sport-HSE-Luxury-Trim_x2x9dd.png',
+	Defender:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449666/carmodels/Land-Rover-Defender-Transparent-Images_ygbst9.png',
+	'Range Rover':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449692/carmodels/pngimg.com_-_land_rover_PNG18_cfg5dk.png',
+	'Range Rover Evoque':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449728/carmodels/range-rover-evoque-silver-car_wwftk9.png',
+	'Range Rover Sport':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449759/carmodels/2021-Land-Rover-Range-Rover-Sport-hero_fqpvgw.png',
+	'Range Rover Velar':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449808/carmodels/pngimg.com_-_land_rover_PNG61_ffp2pv.png',
+	Freelander:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449830/carmodels/pDfQZsE0dUWCufDZgrhQwgdxI4OmPLkaz0VufftJ_xejmro.webp',
 }
 
 export default modelLogos
