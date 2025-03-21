@@ -468,7 +468,7 @@ const modelLogos = {
 		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447910/carmodels/front-1-3-_xevwf6.png',
 	Microbus:
 		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447956/carmodels/Volkswagen-Bus-Transparent-File_chx32f.png',
-	California:
+	'Ford California':
 		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742447978/carmodels/VWCalifornia_20_dat66s.png',
 	Multivan:
 		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742448168/carmodels/vw-t61-multivan_o4avwa.png',
@@ -652,6 +652,91 @@ const modelLogos = {
 	Escalade:
 		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524905/carmodels/vehicles-drp-suvs-23-escalade_yxptqu.avif',
 	Concor: '',
+	296: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526131/carmodels/small_296_GTB_Thumb_8f6ff97551_kzix1w.png',
+	348: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526204/carmodels/pngwing.com_gg8put.png',
+	360: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526236/carmodels/MOT_XB360_Ferrari_360_bb2nlp.webp',
+	456: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526257/carmodels/5dd51def0cf6995f44de91d4-ferrari-456-gt-1992-design-mob_vzk76s.avif',
+	458: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526277/carmodels/purepng.com-ferrari-458-italia-carcarferrarivehicletransport-961524667589bmvtk_q5lont.png',
+	488: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526304/carmodels/purepng.com-red-ferrari-488-gtb-carcarferrarivehicletransport-961524664035iiglb_jojqup.png',
+	'512 TR':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526324/carmodels/HOR_XB1_Ferrari_512_cw6bkj.webp',
+	550: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526349/carmodels/ferrari-550_xafyq1.avif',
+	'575M':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526371/carmodels/HOR_XB1_Ferrari_575_kfpmmi.webp',
+	599: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526391/carmodels/HOR_XB1_Ferrari_599_10_oqoij9.webp',
+	612: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526413/carmodels/MOT_XB1_Ferrari_612_ap4uxz.webp',
+	812: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526434/carmodels/Ferrari-812-Superfast-Transparent-Free-PNG_srpzac.png',
+	F12: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526458/carmodels/purepng.com-black-ferrari-f12-berlinetta-carcarferrarivehicletransport-961524658796jrblw_q58jio.png',
+	F355: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526481/carmodels/HOR_XB1_Ferrari_F355_rku54a.webp',
+	F40: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526502/carmodels/compressed_4ac3ebcc6d9a96ac79376c234a6cf903_dkqwpe.webp',
+	F430: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526522/carmodels/HOR_XB1_Ferrari_430_r6ol2u.webp',
+	F50: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526550/carmodels/HOR_XB1_Ferrari_F50_95_zha96b.webp',
+	F8: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526573/carmodels/Ferrari-F8-Tributo-PNG-Image-Transparent-Background_rqouqo.png',
+	FF: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526599/carmodels/HOR_XB1_Ferrari_FF_lfu3a4.webp',
+	'GTC4 Lusso':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526625/carmodels/grey-ferrari-gtc4-lusso-car_zegfzw.png',
+	SF90: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526648/carmodels/FH5_Ferrari_SF90_Stradale_2020_Large_knmh44.webp',
+	LaFerrari:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526679/carmodels/HOR_XB1_Ferrari_LaFerrari_w74ssj.webp',
+	Roma: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526698/carmodels/FH5_Ferrari_Roma_2020_Large_tibuyz.webp',
+	'Enzo Ferrari':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526726/carmodels/HOR_XB1_Ferrari_Enzo_dwwy0g.webp',
+	California:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526053/carmodels/purepng.com-ferrari-california-red-carcarferrarivehicletransport-96152465228982kdz_jxxqay.png',
+	Portofino:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526763/carmodels/HOR_XB1_Ferrari_Portofino_hqafna.webp',
+	Purosangue:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742526778/carmodels/Purosangue_Thumb_0c3b8e5ea7_s5nrkq.png',
+	Escape:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527003/carmodels/2025-Escape-ST-Line-Select-Right_xns8mw.avif',
+	Explorer:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527038/carmodels/purepng.com-ford-explorer-xltcarvehicletransportautocars-561521125244ehpza_ifj8q8.png',
+	'Explorer Sport Trac':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527061/carmodels/2010frd008a_640_01_cbjqmr.avif',
+	Taurus:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527082/carmodels/1019_34_kmca4z.avif',
+	Focus:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527105/carmodels/purepng.com-ford-focus-st-yellow-carcarvehicletransportford-961524664016apjao_bmuoxx.png',
+	'F-Series':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527135/carmodels/2019-Ford-F-150-White-Platinum_ujzlfl.png',
+	GT: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527165/carmodels/purepng.com-yellow-ford-gt-carcarvehicletransportford-961524651071guvne_ztcxch.png',
+	'S-MAX':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527195/carmodels/ford-s-max-st-line-YR2YaD54eS_mo3npc.png',
+	Ranger:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527217/carmodels/ford-ranger-wildtrak-color-cyber-orange_fjdhfy.png',
+	Mustang:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527243/carmodels/pngimg.com_-_mustang_PNG30_pagfku.png',
+	Mondeo:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527266/carmodels/purepng.com-ford-mondeo-red-carcarvehicletransportford-961524638418lugc0_dy9fro.png',
+	Bronco:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527314/carmodels/cq5dam.web.1280.1280_dyoizw.webp',
+	Thunderbird:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527359/carmodels/55-57_ford-thunderbird-convertible-min-vintage-effect-1_nkoqxc.png',
+	Windstar:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527385/carmodels/de7ns81-9648d8a7-986b-4189-9f67-34aaac435066_g4caxv.png',
+	Econoline:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527409/carmodels/de8pgcc-b7867f4b-a3fe-45a6-a77b-1a05d69875eb_c7q3ga.png',
+	Expedition:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527435/carmodels/vehicle_rzrley.avif',
+	Contour:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527459/carmodels/Ford-Contour-LX-1995_2000_ogpzay.png',
+	Kuga: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527484/carmodels/Ford-Kuga-PNG-Images-HD_zl1f1l.png',
+	'Five Hundred':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527514/carmodels/2005-Ford-Five-Hundred-EX-100396387-29_qw8da8.png',
+	Probe:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527544/carmodels/2-1993-1998_x4sksa.png',
+	Freestyle:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527567/carmodels/0_4loAtY1LfP-9YtQu_coiqof.png',
+	Fusion:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527593/carmodels/2018-ford-fusion-se-32-white_nteuur.png',
+	Transit:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527623/carmodels/pngtree-isolated-of-ford-transit-cargo-van-2020-model-high-roof-148-png-image_15323203_bzya3i.png',
+	'E-Series':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527651/carmodels/cq5dam.web.1280.1280_ioej3l.avif',
+	Ka: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527677/carmodels/Ford-Ka-Transparent-Images_isodxp.png',
+	Fiesta:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527690/carmodels/pngimg.com_-_ford_PNG12210_fvfvgu.png',
+	Flex: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742527708/carmodels/2019_Ford_Flex_SEL_Blue_Exterior_Front_Picture_dwg5bn.png',
 }
 
 export default modelLogos

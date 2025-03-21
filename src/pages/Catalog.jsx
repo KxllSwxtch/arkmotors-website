@@ -372,7 +372,11 @@ const Catalog = () => {
 				<span className='flex items-center gap-2'>
 					{modelLogos[translatedName] && (
 						<img
-							src={modelLogos[translatedName]}
+							src={`${
+								selectedMaker[translatedName]
+									? selectedMaker[translatedName] + ' '
+									: ''
+							}${modelLogos[translatedName]}`}
 							alt={translatedName}
 							className='inline-block w-10 h-auto'
 						/>
