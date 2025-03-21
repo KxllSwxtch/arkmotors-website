@@ -529,6 +529,129 @@ const modelLogos = {
 		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449808/carmodels/pngimg.com_-_land_rover_PNG61_ffp2pv.png',
 	Freelander:
 		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742449830/carmodels/pDfQZsE0dUWCufDZgrhQwgdxI4OmPLkaz0VufftJ_xejmro.webp',
+	Nitro:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522382/carmodels/Dodge-Nitro_mzievq.webp',
+	Dakota:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522419/carmodels/Dodge-Dakota-Regular-Cab-1997_2004_iahqps.png',
+	Durango:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522437/carmodels/Dodge-Durango-SRT-PNG-Photos_fyzprl.png',
+	'Ram Van':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522457/carmodels/CC25_VF3L27_2TH_PW7_APA_XXX_XXX_XXX.2dd34b7553f8fcf0d4242eb79005eaf6_zooxcc.png',
+	'Ram Pickup':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522472/carmodels/pngimg.com_-_pickup_truck_PNG16332_skecvc.png',
+	Magnum:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522495/carmodels/2006-Dodge-Magnum-EX-100531255-28_zth81e.png',
+	Viper:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522508/carmodels/Dodge-Viper-PNG-Photos_mrqscq.png',
+	Van: '',
+	// Avenger:
+	// 	'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522558/carmodels/e99e46203376e1dc862b14fcbfb697760035c5f8_ialpkb.avif',
+	Charger:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522575/carmodels/red-dodge-charger-s-r-t-7xd9iqk9y6o2aqou_anhnqf.png',
+	Challenger:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522594/carmodels/dodge-png-1o18ga2ighipbyvh_gyfkxg.png',
+	Caravan:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522608/carmodels/2019-Dodge-Grand-Caravan-Canada-Octane-Red_b10qf3.png',
+	Caliber:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522632/carmodels/pngtree-dodge-caliber-3d-caliber-photo-png-image_13484603_ikziw5.png',
+	Gallardo:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522774/carmodels/Lamborghini-Galardo-PNG-Images-HD_f8illd.png',
+	Diablo:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522802/carmodels/Lamborghini-Diablo-Base-1990_2001_xtjzev.png',
+	Reventón:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522820/carmodels/HOR_XB1_Lambo_Reventon_FE_kgdbzi.webp',
+	Murciélago:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522840/carmodels/141-1415316_svg-black-and-white-library-drawing-lambo-murcielago_mp7pf3.png',
+	Aventador:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522854/carmodels/purepng.com-blue-lamborghini-aventador-carcarvehicletransportlamborghini-961524657644ldrr1_egal0t.png',
+	Huracán:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522876/carmodels/white-lamborghini-huracan-car_vxinzi.png',
+	Urus: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742522891/carmodels/compressed_f71fac8651cb239b369c8774380e31a7_nlxwf0.webp',
+	CT: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523051/carmodels/2012-lexus-ct-200h-base-hatchback-angular-front_fvfjaq.avif',
+	ES: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523065/carmodels/Lexus-ES-250-AWD-visualizer-styles-750x471-LEX-ESG-MY22-0026-04_j2u2tr.avif',
+	GS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523096/carmodels/blue-lexus-gs-f-car_mdzmyc.png',
+	GX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523116/carmodels/Lexus-GX-PremiumJelly-Styles-750x471-LEX-GXG-MY24-1000.03_hizyfd.avif',
+	IS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523153/carmodels/Red-Lexus-PNG-Free-File-Download_raycbv.png',
+	LC: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523170/carmodels/lc_sport_320-1da3c3_f8inz1.png',
+	LM: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523188/carmodels/all-new-lm_320_2401-09863e_njlwcv.png',
+	LS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523211/carmodels/ls500_320-1606948105-157128_oeac93.png',
+	LX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523231/carmodels/my22-lx-600-fsport-mgp-masthead_yw3ldm.png',
+	NX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523242/carmodels/Lexus-NX-250-style-selector-grecianwater-visualizer-750x471-LEX-NXG-MY25-0001.07_pbc8qx.avif',
+	RC: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523274/carmodels/purepng.com-lexus-rc-f-blue-carcarvehicletransportlexus-961524665425ubstr_bvm3pm.png',
+	RX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523290/carmodels/rx_40_221114n-2f41dd_q17y9g.png',
+	RZ: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523331/carmodels/Lexus-RZ-300e-visualizer-styles-750x471-LEX-RZV-MY25-0042.04_dkeynb.avif',
+	SC: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523350/carmodels/HOR_XB1_Lexus_SC300_mbqbgs.webp',
+	UX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523362/carmodels/Lexus-UXh-visualizer-styles-750x471-PNG-LEX-UXH-MY23-0014.03_kbgx9v.avif',
+	Spectre:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523466/carmodels/spectre-1_ttqciw.png',
+	Ghost:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523496/carmodels/2021-rolls-royce-ghost-deep-etch_n5fidw.webp',
+	Phantom:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523520/carmodels/Rolls-Royce-Phantom-PNG-HD-Quality_vtenj7.png',
+	Cullinan:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523533/carmodels/Rolls-Royce-Cullinan-Transparent-Images_m6ikyr.png',
+	Wraith:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523564/carmodels/rolls-royce-wraith-silver-car_fjls42.png',
+	Dawn: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523603/carmodels/Rolls-Royce-Dawn_vcuxkl.webp',
+	Corniche:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523637/carmodels/e94d2bf8-6a30-488e-886a-dd0b9ce2e904_q3btwj.webp',
+	'Silver Spur':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523665/carmodels/pngaaa.com-1108916_spfrlg.png',
+	'Silver Seraph':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523687/carmodels/rolls-royce-silver-seraph-repair-dubai-20200927085557_uf1sxw.png',
+	Q: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523823/carmodels/Infiniti-Q30_0_lis8nv.webp',
+	QX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523856/carmodels/infiniti-2025-all-new-qx80-nav_wmojvp.png',
+	G: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523873/carmodels/Infiniti-G37-PNG-Clipart-Background_qlihtv.png',
+	M: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523921/carmodels/2013-INFINITI-M-front_8312_032_1831x756_K23_cropped_ruyk7f.avif',
+	I: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523944/carmodels/pngimg.com_-_infiniti_PNG39_fbqips.png',
+	FX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523978/carmodels/purepng.com-infiniti-fx30d-s-black-carcarcarsvehiclevehiclestransport-5615211261151nmx2_zdlmej.png',
+	EX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742523996/carmodels/infiniti_PNG4_kqdnas.png',
+	JX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524009/carmodels/2013-infiniti-jx-fwd-suv-angular-front_fpchxo.avif',
+	Gladiator:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524139/carmodels/Jeep-Gladiator-Background-PNG-Image_qawqch.png',
+	Wrangler:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524162/carmodels/Jeep-Wrangler-2018-PNG-Clipart-Background_wqda1y.png',
+	Renegade:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524182/carmodels/Jeep-Renegade-Transparent-PNG_kwr5ww.png',
+	Liberty:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524208/carmodels/jeep-liberty-logo-png-05252024-1ey2i7d0h8iuh8ys_oqnm1i.png',
+	Avenger:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524227/carmodels/JEEP-AVENGER-SUMMIT-MY25-CONCRETE-VOLCANO-565x330_zpevl4.png',
+	Cherokee:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524247/carmodels/black-jeep-grand-cherokee-car_dmqw3r.png',
+	Compass:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524267/carmodels/Jeep-Compass-No-Background_vwpwfx.png',
+	Commander:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524289/carmodels/173_Commander_Overland_nafta_Polar_White_107.png.img.1440_srxsgp.png',
+	Patriot:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524304/carmodels/purepng.com-red-jeep-patriot-suv-carcarvehicletransportjeepsuv-961524638251odo7c_h5f70a.png',
+	ATS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524483/carmodels/491-4917719_cadillac-ats_pzcfrr.png',
+	'ATS-V':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524508/carmodels/12543_26_ykypew.avif',
+	BLS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524527/carmodels/pngimg.com_-_cadillac_PNG27_i2vg7x.png',
+	CT4: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524544/carmodels/2021_76_pel8bx.webp',
+	CT5: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524566/carmodels/2024-cadillac-ct5-v-blackwing-sedan-8961eef3efda-600x300_q4htuk.png',
+	CT6: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524590/carmodels/1963_21_dcsxts.png',
+	'CT6-V':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524616/carmodels/1982_22_w7nzyq.avif',
+	CTS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524632/carmodels/2019-cadillac-cts-luxury-sedan-angular-front_oet2dh.avif',
+	'CTS-V':
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524655/carmodels/2019_56_tyrg4e.avif',
+	DTS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524676/carmodels/835-8352879_640-x-480-5-2010-cadillac-dts-black_dwhtyv.png',
+	SRX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524693/carmodels/pngimg.com_-_cadillac_PNG29_j4bcjr.png',
+	STS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524713/carmodels/cadillac-sts-blue-car-2_fbtqvt.png',
+	XLR: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524735/carmodels/purepng.com-cadillac-xlr-v-grey-carcarvehicletransportautocars-561521125160yetkw_rvz9dt.png',
+	XT4: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524755/carmodels/vehicles-drp-suvs-24-xt4_uuvhlf.avif',
+	XT5: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524795/carmodels/2025_76_l95ngf.avif',
+	DeVille:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524816/carmodels/pngimg.com_-_cadillac_PNG39_scv6vv.png',
+	Lyriq:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524839/carmodels/2023_76_xwiq0x.avif',
+	Seville:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524861/carmodels/pngtree-timeless-elegance-the-beauty-of-classic-cadillac-cars-png-image_13402828_f1kuef.png',
+	Escalade:
+		'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742524905/carmodels/vehicles-drp-suvs-23-escalade_yxptqu.avif',
+	Concor: '',
 }
 
 export default modelLogos
