@@ -122,6 +122,7 @@ const brandLogos = {
 		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740472002/avtovita/brandslogos/acura.png',
 	Honda:
 		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740472069/avtovita/brandslogos/honda.png',
+	Porsche: 'https://1000logos.net/wp-content/uploads/2018/02/Porsche-Logo.png',
 }
 
 export default brandLogos
