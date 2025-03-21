@@ -366,17 +366,20 @@ const Catalog = () => {
 	const modelOptions = modelList.map((model) => {
 		const translatedName =
 			carModelsTranslation[model.MODEL_NAME] || model.MODEL_NAME
+
+		const brandKey =
+			carBrandsTranslation[
+				makerList.find((maker) => maker.MAKER_NO === selectedMaker)?.MAKER_NAME
+			] ||
+			makerList.find((maker) => maker.MAKER_NO === selectedMaker)?.MAKER_NAME
+
 		return {
-			value: model.MODEL_NO,
+			value: `${selectedMaker}-${model.MODEL_NO}`, // Уникальный ключ
 			label: (
 				<span className='flex items-center gap-2'>
-					{modelLogos[translatedName] && (
+					{modelLogos?.[brandKey]?.[translatedName] && (
 						<img
-							src={`${
-								selectedMaker[translatedName]
-									? selectedMaker[translatedName] + ' '
-									: ''
-							}${modelLogos[translatedName]}`}
+							src={modelLogos[brandKey][translatedName]}
 							alt={translatedName}
 							className='inline-block w-10 h-auto'
 						/>
