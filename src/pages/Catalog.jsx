@@ -11,6 +11,7 @@ import {
 	colorOptions,
 	brandLogos,
 	modelLogos,
+	translateCarName,
 } from '../utils'
 import { CarListItem, Loader, Message } from '../components'
 import {
@@ -391,26 +392,61 @@ const Catalog = () => {
 		}
 	})
 
-	const options = makerList.map((maker) => {
-		const translatedName =
-			carBrandsTranslation[maker.MAKER_NAME] || maker.MAKER_NAME
-		return {
-			value: maker.MAKER_NO,
-			label: (
-				<span className='flex items-center gap-2'>
-					{brandLogos[translatedName] && (
-						<img
-							src={brandLogos[translatedName]}
-							alt={translatedName}
-							className='inline-block w-5 auto'
-						/>
-					)}
-					{translatedName}
-				</span>
-			),
-			searchLabel: carBrandsTranslation[maker.MAKER_NAME] || maker.MAKER_NAME,
-		}
-	})
+	const excludedMakers = [
+		'Nissan',
+		'Daihatsu',
+		'동풍소콘',
+		'Rover',
+		'Renault',
+		'Mazda',
+		'Mitsubishi',
+		'Mitsuoka',
+		'북기은상',
+		'Buick',
+		'SAAB',
+		'Scion',
+		'Sunlon',
+		'Smart',
+		'Subaru',
+		'Suzuki',
+		'Citroën',
+		'Opel',
+		'Oldsmobile',
+		'Iveco',
+		'Isuzu',
+		'Zidou',
+		'Geely',
+		'포톤',
+		'Peugeot',
+		'Fiat',
+		'Honda',
+		'BYD',
+	]
+
+	const options = makerList
+		.filter((maker) => {
+			return !excludedMakers.includes(translateCarName(maker.MAKER_NAME))
+		})
+		.map((maker) => {
+			const translatedName =
+				carBrandsTranslation[maker.MAKER_NAME] || maker.MAKER_NAME
+			return {
+				value: maker.MAKER_NO,
+				label: (
+					<span className='flex items-center gap-2'>
+						{brandLogos[translatedName] && (
+							<img
+								src={brandLogos[translatedName]}
+								alt={translatedName}
+								className='inline-block w-5 auto'
+							/>
+						)}
+						{translatedName}
+					</span>
+				),
+				searchLabel: carBrandsTranslation[maker.MAKER_NAME] || maker.MAKER_NAME,
+			}
+		})
 
 	const customStyles = {
 		control: (provided) => ({

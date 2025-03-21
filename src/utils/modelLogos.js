@@ -996,20 +996,213 @@ const modelLogos = {
 	},
 
 	'Alfa-Romeo': {
-		147: '',
-		156: '',
-		159: '',
+		147: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540208/carmodels/147_cykr61.png',
+		156: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540231/carmodels/ALFA-156-1998-SN-750x525_m8yovk.png',
+		159: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540243/carmodels/pngimg.com_-_alfa_romeo_PNG57_wlbhiy.png',
 		164: '',
-		166: '',
-		GT: '',
-		GTV: '',
-		MiTo: '',
-		Brera: '',
-		Spyder: '',
-		Guilia: '',
-		Giulietta: '',
-		'4C': '',
-		'8C': '',
+		166: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540322/carmodels/1472-large_default_dxvbh6.png',
+		GT: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540341/carmodels/pngimg.com_-_alfa_romeo_PNG39_ir6pm0.png',
+		GTV: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540351/carmodels/Mot_alf_gtv6_dcmmmd.webp',
+		MiTo: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540381/carmodels/pngimg.com_-_alfa_romeo_PNG75_mltwdn.png',
+		Brera:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540386/carmodels/purepng.com-red-alfa-romeo-brera-s-carcarvehicletransportalfa-romeo-961524651745oiprr_wbf54g.png',
+		Spyder:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540425/carmodels/Mot_alf_spider_rzvlki.webp',
+		Giuilia:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540450/carmodels/GIULIA_MCA_SPRINT_rossa_s9mzt1.avif',
+		Giulietta:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540466/carmodels/pngimg.com_-_alfa_romeo_PNG29_ovgacm.png',
+		'4C': 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540483/carmodels/purepng.com-alfa-romeo-4c-carcarvehicletransportalfa-romeo-961524665177igoln_tznxzj.png',
+		'8C': 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540494/carmodels/Mot_alf_8c_07_fhpti4.webp',
+	},
+
+	'Aston Martin': {
+		DB: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540572/carmodels/pngimg.com_-_aston_martin_PNG5_uikl4i.png',
+		DBS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540593/carmodels/purepng.com-aston-martin-dbs-silver-carcarvehicletransportaston-martin-961524642936tugv9_tzgjor.png',
+		Vantage:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540601/carmodels/vantage-24-model_20240212135451666_z8dkqa.png',
+		Vanquish:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540616/carmodels/purepng.com-aston-martin-vanquish-carcarcarsvehiclevehiclestransport-561521126453a6hpc_qmdzmd.png',
+		Rapide:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540633/carmodels/gray-aston-martin-rapide-luxury-car_tjodmv.png',
+		DBX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540648/carmodels/Aston-Martin-DBX-Transparent-Background_ab0sth.png',
+	},
+
+	Jaguar: {
+		'E-Pace':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540761/carmodels/model1_oz8yw1.png',
+		'F-Pace':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540782/carmodels/purepng.com-jaguar-f-pace-white-carcarvehicletransportjaguar-961524650283tduar_zvofa9.png',
+		'I-Pace':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540789/carmodels/Jaguar-I-Pace-PNG-HD-Quality_yfbwo5.png',
+		'S-Type':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540812/carmodels/Jaguar-S-Type-PNG-HD_jeyl3q.png',
+		'X-Type':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540832/carmodels/2005-jaguar-x-type-awd-25-4dr-sedan-090-cropmedium_t5nadc.png',
+		XE: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540846/carmodels/Jaguar-XE-Project-8-Transparent-File_ye3vqw.png',
+		XF: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540881/carmodels/white-jaguar-xf-2-car_hxk0wh.png',
+		XJ: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540896/carmodels/2018-Jaguar-XJ-PNG-Images-HD_pknybu.png',
+		XK: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540908/carmodels/purepng.com-jaguar-xkr-s-blue-carcarvehicletransportautocars-561521125346a9gaa_ya3ejd.png',
+		Daimler: '',
+		Sovereign:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742540977/carmodels/purepng.com-jaguar-xj-ultimate-carcarvehicletransportjaguar-961524669893eazkb_e9kifi.png',
+	},
+
+	Lotus: {
+		'2-Eleven':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742541850/carmodels/HOR_XB1_Lotus_2-Eleven_jxfgyv.webp',
+		Emira:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742541867/carmodels/c6ba607df627a5675bb8089983d149cb_a2a1pv.png',
+		Evora:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742541884/carmodels/silver-lotus-evora-400-car_u4ls2g.png',
+		Espirit:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742541899/carmodels/Lotus-Esprit-PNG-Clipart-Background_mxbtap.png',
+		Exige:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742541916/carmodels/pngimg.com_-_lotus_PNG26_qliecq.png',
+		Eletre:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742541930/carmodels/Eletre-cutout_cqubkv.webp',
+		Elise:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742541947/carmodels/pngimg.com_-_lotus_PNG39_ptsplv.png',
+		Europa:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742541988/carmodels/pngwing.com_kq1vx1.png',
+	},
+
+	Lincoln: {
+		MKC: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542114/carmodels/2019_76_ai4our.avif',
+		MKS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542137/carmodels/11104_st0640_116_lqlwtt.png',
+		MKT: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542139/carmodels/Lincoln-MKT-Black-Sedan-Transparent_q8xaif.png',
+		MKX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542193/carmodels/red-lincoln-mkx-car_ic41g2.png',
+		MKZ: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542192/carmodels/Lincoln-MKZ-PNG-Photo_o0hoof.png',
+		LS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542191/carmodels/2006-Lincoln-LS-EX-100566170-33_qjomjg.png',
+		Navigator:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542251/carmodels/model1_kmb8ni.png',
+		Aviator:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542251/carmodels/2025_Aviator_BYO_uh1r8w.avif',
+		Continental:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542251/carmodels/lincoln-continental-950-600_uoyyjj.png',
+		'Town Car':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542307/carmodels/52916269666_75b4658b8f_o_ixz8ag.png',
+		Nautilus:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542307/carmodels/2025_Nautilus_BYO_hhxxy5.avif',
+		Corsair:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542307/carmodels/BYO_CYP_2024_Corsair_hzlmap.avif',
+	},
+
+	Maybach: {
+		57: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542381/carmodels/a2697107-3394-40ae-9612-73db9d92a057_c7b8ck.webp',
+		62: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542380/carmodels/0fzXoqamRpAL3tXHPoEdoBBfV8nMuYfCIotrP8yS_fx709o.png',
+	},
+
+	McLaren: {
+		'540C':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542548/carmodels/purepng.com-red-mclaren-540c-carcarvehicletransportmclaren-961524656296gvl7j_h3dqtn.png',
+		'570GT':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542548/carmodels/McLaren-570GT-Transparent-Image_tazhee.png',
+		'570S':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542549/carmodels/orange-mclaren-570s-car_lkwtyz.png',
+		'600LT':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542619/carmodels/McLaren-600LT-Spider-Background-PNG-Image_uasoep.png',
+		'650S':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542616/carmodels/purepng.com-mclaren-650s-blue-carcarvehicletransportmclaren-961524658327ovnru_gouahe.png',
+		'675T':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542616/carmodels/purepng.com-green-mclaren-675lt-spider-super-carcarvehicletransportmclarensuper-car-961524645486qgi8m_kpwhnf.png',
+		'720S':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542690/carmodels/McLaren-720S-PNG-Photos_gyk4hs.png',
+		'750S':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542690/carmodels/750-cutout_ukps9w.png',
+		'765LT':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542689/carmodels/1765ltspider_cutout_pevsob.png',
+		GT: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542748/carmodels/gt_t2eyw4.avif',
+		'MP4-12C':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542748/carmodels/390-3901802_mclaren-png-download-mclaren-mp4-12c_n9sado.png',
+		아투라:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542748/carmodels/caab99e820c3263f00c985b917889d8c_m8ipq1.png',
+	},
+
+	Acura: {
+		MDX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542885/carmodels/mdx-2022-lhd-technology_bd1axv.png',
+		RSX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542886/carmodels/Acura-RSX-PNG-Pic_h02wdz.png',
+		TL: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542885/carmodels/2010-acura-tl-5-speed-at-with-tech-package-sedan-angular-front-1_ywuwu0.avif',
+		TSX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542939/carmodels/pngimg.com_-_acura_PNG24_q1tis3.png',
+		Integra:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542939/carmodels/MY24_Integra_EliteASpecMT_LCM_1036x520_Desktop_OverviewKeyFeatures_vfwfa9.avif',
+		CL: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542939/carmodels/2003-acura-cl-base-coupe-angular-front_yfolg7.avif',
+		NSX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543003/carmodels/purepng.com-acura-nsx-carcarvehicletransportacura-961524640438ry3jv_ygr1m4.png',
+		RDX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542995/carmodels/2025-RDX-pricing-and-specs-header-jellybean-XL_ytpxq4.avif',
+		RL: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742542995/carmodels/pngimg.com_-_acura_PNG15_m6u047.webp',
+		ILX: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543029/carmodels/2021-Acura-ILX-Platinum-White-Pearl-2_wazzmt.png',
+	},
+
+	Chrysler: {
+		200: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543213/carmodels/2013-chrysler-200-limited-sedan-angular-front_vd3ahp.avif',
+		'300C':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543213/carmodels/pngimg.com_-_chrysler_PNG5_r5nomi.png',
+		'300M':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543213/carmodels/d9dd8c55-bc90-41f8-a656-c0b1f558ad72_zo6rfj.webp',
+		LHS: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543306/carmodels/64f35783-866c-4662-9870-a6d5e9a10cce_daqzog.webp',
+		'PT Cruiser':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543306/carmodels/2007-chrysler-pt-cruiser-base-wagon-angular-front_mgczvx.avif',
+		Neon: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543306/carmodels/chrysler-neon_havb0c.png',
+		'New Yorker':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543361/carmodels/pngtree-vintage-chrysler-new-yorker-car-vintage-car-png-image_14604553-1_ymfjpq.png',
+		Voyager:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543360/carmodels/2021-Chrysler-Voyager-hero_c3dn2i.png',
+		Vision:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543361/carmodels/CHRYSLER_Vision_smwbcb.png',
+		Sebring:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543444/carmodels/dhvimhu-71fea1cf-f770-4c5d-987c-09db0288587e_xgg8e7.png',
+		Stratus:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543442/carmodels/e8b497fd16dfa5e52f41fd49d7d6de256c545b8544b66fe1f651f9f0f99014de_hjvyev.png',
+		Cirrus:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543442/carmodels/Chrysler-Cirrus-2001-700x510_ouirrt.png',
+		'Eagle Talon':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543508/carmodels/MOT_XB1_Eagle_Talon_zvuxlp.webp',
+		Prowler:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543508/carmodels/HOR_XB1_Plymouth_Prowler_s1dvdf.webp',
+		Pacifica:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543507/carmodels/Chrysler_Pacifica_jooqut.png',
+		Caravan:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543567/carmodels/CC24_RUCL53_2DE_PW7_APA_XXX_XXX_XXX.b01c02d7749aba414b351da45aa773d6_saiblk.png',
+		Concord:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543567/carmodels/c7dc5d185309519.656160e452464_ykfsbl.webp',
+		Crossfire:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543566/carmodels/639-6391415_chrysler-crossfire-roadster-convertible-2-doors-crossfires-2_yj5oav.png',
+		'Town & Country':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543602/carmodels/2016-chrysler-town-and-country-limited-minivan-angular-front_naswzh.avif',
+	},
+
+	Hummer: {
+		H1: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543676/carmodels/pngimg.com_-_hummer_PNG12197_r22ok8.png',
+		H2: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543676/carmodels/purepng.com-hummer-h2-suv-truckcarcarsvehiclevehiclestransport-561521126433zfg3x_knx9ty.png',
+		H3: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543675/carmodels/2010-hummer-h3-adventure-suv-angular-front_xdbled.avifs',
+	},
+
+	Polestar: {
+		'Polestar 4':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543733/carmodels/getimage-_16_flqbko.webp',
+		'Polestar 2':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742543733/carmodels/Polestar-2-Free-PNG_xog8fw.png',
+	},
+
+	Pontiac: {
+		'Grand Prix':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742544477/carmodels/6af2f7cb-1823-48a9-806b-a4ed48439892_vi4qzh.png',
+		'Grand Am':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742544477/carmodels/554631d7-a16f-4614-a479-19786d10b757_si4iu3.webp',
+		Bonneville:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742544477/carmodels/2005-pontiac-bonneville-gxp-sedan-angular-front_bgylq7.avif',
+		Sunfire:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742544535/carmodels/7ced9ff0-28c7-473f-b6c6-29904b69a1b9_fqqcj9.png',
+		Solstice:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742544535/carmodels/MOT_X1_Pontiac_Solstice_mc6cfs.webp',
+		Firebird:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742544536/carmodels/pontiac_firebird_trans_am_1978_png_by_mrfatback_dak2j86-fullview_p2dth3.png',
+		Fiero:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742544596/carmodels/generation_65321697b0676_1988-pontiac-fiero-gt-removebg-preview_myb2oa.webp',
+		'Trans Sport':
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742544596/carmodels/2004_Pontiac_Montana_ew5pn8.png',
+		Torrent:
+			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742544596/carmodels/2007-Pontiac-Torrent-EX-100762221-39_kfmfpc.png',
 	},
 }
 
