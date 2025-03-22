@@ -500,20 +500,29 @@ const Catalog = () => {
 	}
 
 	return (
-		<div className='p-4 mt-20 md:mt-10 text-secondary-500 min-h-screen grid md:grid-cols-[0.8fr_3fr] gap-10 text-xl'>
-			{/* Фильтры */}
-			<div className='md:ml-5'>
-				<>
-					{/* Кнопки для выбора страны */}
-					<div className='flex justify-center gap-6 mb-8'>
-						{[
-							{ label: 'Корейские', value: 'kor', emoji: '🇰🇷' },
-							{ label: 'Иномарки', value: 'foreign', emoji: '🌍' },
-						].map(({ label, value, emoji }) => (
-							<button
-								key={value}
-								onClick={() => handleCountryClick(value)}
-								className={`cursor-pointer flex items-center justify-center gap-2 p-3 text-lg font-bold rounded-xs shadow-xl transition-all duration-300
+		<div className='p-4 text-secondary-500 min-h-screen '>
+			<div className='w-full mb-10'>
+				<img
+					className='text-center m-auto'
+					src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1742607362/arkmotors/logo_rus.png'
+					alt='ArkMotors логотип'
+				/>
+			</div>
+
+			<div className='grid md:grid-cols-[0.8fr_3fr] gap-10 text-xl'>
+				{/* Фильтры */}
+				<div className='md:ml-5'>
+					<>
+						{/* Кнопки для выбора страны */}
+						<div className='flex justify-center gap-6 mb-8'>
+							{[
+								{ label: 'Корейские', value: 'kor', emoji: '🇰🇷' },
+								{ label: 'Иномарки', value: 'foreign', emoji: '🌍' },
+							].map(({ label, value, emoji }) => (
+								<button
+									key={value}
+									onClick={() => handleCountryClick(value)}
+									className={`cursor-pointer flex items-center justify-center gap-2 p-3 text-lg font-bold rounded-xs shadow-xl transition-all duration-300
 									${
 										country === value
 											? 'bg-gradient-to-r from-yellow-400 to-yellow-600 text-white scale-105 shadow-2xl'
@@ -521,127 +530,167 @@ const Catalog = () => {
 									}
 									active:scale-95
 								`}
-							>
-								<span>{label}</span>
-							</button>
-						))}
-					</div>
+								>
+									<span>{label}</span>
+								</button>
+							))}
+						</div>
 
-					{/* Если страна выбрана, показываем основные фильтры */}
-					{country && (
-						<div className='w-full mx-auto flex flex-col md:flex-row'>
-							<div className='grid grid-cols-1 md:grid-cols-1 gap-6 w-full'>
-								{/* Производитель */}
-								<div className='flex-1'>
-									<BrandSelector handleMakerChange={handleMakerChange} />
-								</div>
+						{/* Если страна выбрана, показываем основные фильтры */}
+						{country && (
+							<div className='w-full mx-auto flex flex-col md:flex-row'>
+								<div className='grid grid-cols-1 md:grid-cols-1 gap-6 w-full'>
+									{/* Производитель */}
+									<div className='flex-1'>
+										<BrandSelector handleMakerChange={handleMakerChange} />
+									</div>
 
-								{/* Модель */}
-								<div className='flex-1'>
-									<Select
-										isDisabled={!selectedMaker}
-										value={
-											modelOptions.find(
-												(option) => option.value === selectedModel,
-											) || ''
-										}
-										options={modelOptions}
-										onChange={(selectedOption) =>
-											handleModelChange(selectedOption.value)
-										}
-										placeholder='Модель'
-										styles={customStyles}
-										className='w-full text-gray-800 rounded-lg shadow-sm h-[100%]'
-									/>
-								</div>
+									{/* Модель */}
+									<div className='flex-1'>
+										<Select
+											isDisabled={!selectedMaker}
+											value={
+												modelOptions.find(
+													(option) => option.value === selectedModel,
+												) || ''
+											}
+											options={modelOptions}
+											onChange={(selectedOption) =>
+												handleModelChange(selectedOption.value)
+											}
+											placeholder='Модель'
+											styles={customStyles}
+											className='w-full text-gray-800 rounded-lg shadow-sm h-[100%]'
+										/>
+									</div>
 
-								{/* Подробная модель */}
-								<div className='flex-1'>
-									<select
-										value={selectedDetailModel}
-										onChange={(e) => handleDetailModelChange(e.target.value)}
-										className={`w-full border-1 p-3 rounded-lg shadow-md transition duration-300 appearance-none pr-10 relative
+									{/* Подробная модель */}
+									<div className='flex-1'>
+										<select
+											value={selectedDetailModel}
+											onChange={(e) => handleDetailModelChange(e.target.value)}
+											className={`w-full border-1 p-3 rounded-lg shadow-md transition duration-300 appearance-none pr-10 relative
 										${
 											selectedModel
 												? 'border-yellow-500 bg-white text-black hover:border-yellow-600 focus:ring-yellow-500'
 												: 'bg-[#dcdcdc] border-[#c9c9c9] text-gray-400 cursor-not-allowed'
 										}
 									`}
-										disabled={!selectedModel}
-										style={{
-											backgroundImage:
-												'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
-											backgroundPosition: 'right 10px center',
-											backgroundRepeat: 'no-repeat',
-											backgroundSize: '1rem',
-										}}
-									>
-										<option value='' className='text-gray-400'>
-											Поколение
-										</option>
-										{detailModelList?.map((dmodel) => (
-											<option
-												key={dmodel.DETAIL_MODEL_NO}
-												value={dmodel.DETAIL_MODEL_NO}
-												className='text-white'
-											>
-												{carTrimsTranslation[dmodel.DETAIL_MODEL_NAME] ||
-													dmodel.DETAIL_MODEL_NAME}
+											disabled={!selectedModel}
+											style={{
+												backgroundImage:
+													'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
+												backgroundPosition: 'right 10px center',
+												backgroundRepeat: 'no-repeat',
+												backgroundSize: '1rem',
+											}}
+										>
+											<option value='' className='text-gray-400'>
+												Поколение
 											</option>
-										))}
-									</select>
-								</div>
+											{detailModelList?.map((dmodel) => (
+												<option
+													key={dmodel.DETAIL_MODEL_NO}
+													value={dmodel.DETAIL_MODEL_NO}
+													className='text-white'
+												>
+													{carTrimsTranslation[dmodel.DETAIL_MODEL_NAME] ||
+														dmodel.DETAIL_MODEL_NAME}
+												</option>
+											))}
+										</select>
+									</div>
 
-								{/* Комплектация */}
-								<div className='flex-1'>
-									<select
-										value={selectedGrade}
-										onChange={(e) => handleGradeChange(e.target.value)}
-										className={`w-full border-2 p-3 pr-10 rounded-lg shadow-md transition duration-300 appearance-none relative
+									{/* Комплектация */}
+									<div className='flex-1'>
+										<select
+											value={selectedGrade}
+											onChange={(e) => handleGradeChange(e.target.value)}
+											className={`w-full border-2 p-3 pr-10 rounded-lg shadow-md transition duration-300 appearance-none relative
 										${
 											selectedDetailModel
 												? 'border-yellow-500 bg-white text-black hover:border-yellow-600 focus:ring-yellow-500'
 												: 'bg-[#dcdcdc] border-[#c9c9c9] text-gray-400 cursor-not-allowed'
 										}
 									`}
-										disabled={!selectedDetailModel}
-										style={{
-											backgroundImage:
-												'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
-											backgroundPosition: 'right 12px center',
-											backgroundRepeat: 'no-repeat',
-											backgroundSize: '1rem',
-										}}
-									>
-										<option value='' className='text-gray-400'>
-											Объём
-										</option>
-										{gradeList.map((grade) => (
-											<option
-												key={grade.GRADE_NO}
-												value={grade.GRADE_NO}
-												className='text-white'
-											>
-												{translateFuelType(grade.GRADE_NAME) ||
-													grade.GRADE_NAME}
+											disabled={!selectedDetailModel}
+											style={{
+												backgroundImage:
+													'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
+												backgroundPosition: 'right 12px center',
+												backgroundRepeat: 'no-repeat',
+												backgroundSize: '1rem',
+											}}
+										>
+											<option value='' className='text-gray-400'>
+												Объём
 											</option>
-										))}
-									</select>
-								</div>
+											{gradeList.map((grade) => (
+												<option
+													key={grade.GRADE_NO}
+													value={grade.GRADE_NO}
+													className='text-white'
+												>
+													{translateFuelType(grade.GRADE_NAME) ||
+														grade.GRADE_NAME}
+												</option>
+											))}
+										</select>
+									</div>
 
-								{/* Детальная комплектация */}
-								<div className='flex-1'>
-									<select
-										value={selectedDetailGrade}
-										onChange={(e) => handleDetailGradeChange(e.target.value)}
-										className={`w-full border-2 p-3 pr-10 rounded-lg shadow-md transition duration-300 appearance-none relative
+									{/* Детальная комплектация */}
+									<div className='flex-1'>
+										<select
+											value={selectedDetailGrade}
+											onChange={(e) => handleDetailGradeChange(e.target.value)}
+											className={`w-full border-2 p-3 pr-10 rounded-lg shadow-md transition duration-300 appearance-none relative
 										${
 											selectedGrade
 												? 'border-yellow-500 bg-white text-black hover:border-yellow-600 focus:ring-yellow-500'
 												: 'bg-[#dcdcdc] border-[#c9c9c9] text-gray-400 cursor-not-allowed'
 										}
 									`}
-										disabled={!selectedGrade}
+											disabled={!selectedGrade}
+											style={{
+												backgroundImage:
+													'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
+												backgroundPosition: 'right 12px center',
+												backgroundRepeat: 'no-repeat',
+												backgroundSize: '1rem',
+											}}
+										>
+											<option value='' className='text-gray-400'>
+												Комплектация
+											</option>
+											{detailGradeList.map((dgrade) => (
+												<option
+													key={dgrade.DETAIL_GRADE_NO}
+													value={dgrade.DETAIL_GRADE_NO}
+													className='text-white'
+												>
+													{translateFuelType(dgrade.DETAIL_GRADE_NAME)}
+												</option>
+											))}
+										</select>
+									</div>
+								</div>
+							</div>
+						)}
+					</>
+
+					{/* Дополнительные фильтры (шторка) */}
+					<div className='bg-white text-black mt-5'>
+						<div className='mx-auto w-full'>
+							<div className='grid grid-cols-1 md:grid-cols-1 gap-6 w-full'>
+								{/* Цена от */}
+								<div>
+									<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
+										Цена от:
+									</label>
+									<select
+										value={priceMin}
+										onChange={(e) => handlePriceMinChange(e.target.value)}
+										className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
 										style={{
 											backgroundImage:
 												'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
@@ -650,256 +699,216 @@ const Catalog = () => {
 											backgroundSize: '1rem',
 										}}
 									>
-										<option value='' className='text-gray-400'>
-											Комплектация
-										</option>
-										{detailGradeList.map((dgrade) => (
-											<option
-												key={dgrade.DETAIL_GRADE_NO}
-												value={dgrade.DETAIL_GRADE_NO}
-												className='text-white'
-											>
-												{translateFuelType(dgrade.DETAIL_GRADE_NAME)}
+										{priceOptions.map((opt) => (
+											<option key={opt.value} value={opt.value}>
+												{opt.label}
 											</option>
 										))}
 									</select>
 								</div>
-							</div>
-						</div>
-					)}
-				</>
 
-				{/* Дополнительные фильтры (шторка) */}
-				<div className='bg-white text-black mt-5'>
-					<div className='mx-auto w-full'>
-						<div className='grid grid-cols-1 md:grid-cols-1 gap-6 w-full'>
-							{/* Цена от */}
-							<div>
-								<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
-									Цена от:
-								</label>
-								<select
-									value={priceMin}
-									onChange={(e) => handlePriceMinChange(e.target.value)}
-									className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
-									style={{
-										backgroundImage:
-											'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
-										backgroundPosition: 'right 12px center',
-										backgroundRepeat: 'no-repeat',
-										backgroundSize: '1rem',
-									}}
-								>
-									{priceOptions.map((opt) => (
-										<option key={opt.value} value={opt.value}>
-											{opt.label}
-										</option>
-									))}
-								</select>
-							</div>
+								{/* Цена до */}
+								<div>
+									<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
+										Цена до:
+									</label>
+									<select
+										value={priceMax}
+										onChange={(e) => setPriceMax(e.target.value)}
+										className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
+										style={{
+											backgroundImage:
+												'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
+											backgroundPosition: 'right 12px center',
+											backgroundRepeat: 'no-repeat',
+											backgroundSize: '1rem',
+										}}
+									>
+										{filteredPriceMaxOptions.map((opt) => (
+											<option key={opt.value} value={opt.value}>
+												{opt.label}
+											</option>
+										))}
+									</select>
+								</div>
 
-							{/* Цена до */}
-							<div>
-								<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
-									Цена до:
-								</label>
-								<select
-									value={priceMax}
-									onChange={(e) => setPriceMax(e.target.value)}
-									className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
-									style={{
-										backgroundImage:
-											'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
-										backgroundPosition: 'right 12px center',
-										backgroundRepeat: 'no-repeat',
-										backgroundSize: '1rem',
-									}}
-								>
-									{filteredPriceMaxOptions.map((opt) => (
-										<option key={opt.value} value={opt.value}>
-											{opt.label}
-										</option>
-									))}
-								</select>
-							</div>
+								{/* Год от */}
+								<div>
+									<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
+										Год от:
+									</label>
+									<select
+										value={yearMin}
+										onChange={(e) => handleYearMinChange(e.target.value)}
+										className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
+										style={{
+											backgroundImage:
+												'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
+											backgroundPosition: 'right 12px center',
+											backgroundRepeat: 'no-repeat',
+											backgroundSize: '1rem',
+										}}
+									>
+										{yearOptions.map((opt) => (
+											<option key={opt.value} value={opt.value}>
+												{opt.label}
+											</option>
+										))}
+									</select>
+								</div>
 
-							{/* Год от */}
-							<div>
-								<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
-									Год от:
-								</label>
-								<select
-									value={yearMin}
-									onChange={(e) => handleYearMinChange(e.target.value)}
-									className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
-									style={{
-										backgroundImage:
-											'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
-										backgroundPosition: 'right 12px center',
-										backgroundRepeat: 'no-repeat',
-										backgroundSize: '1rem',
-									}}
-								>
-									{yearOptions.map((opt) => (
-										<option key={opt.value} value={opt.value}>
-											{opt.label}
-										</option>
-									))}
-								</select>
-							</div>
+								{/* Год до */}
+								<div>
+									<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
+										Год до:
+									</label>
+									<select
+										value={yearMax}
+										onChange={(e) => setYearMax(e.target.value)}
+										className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
+										style={{
+											backgroundImage:
+												'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
+											backgroundPosition: 'right 12px center',
+											backgroundRepeat: 'no-repeat',
+											backgroundSize: '1rem',
+										}}
+									>
+										{filteredYearMaxOptions.map((opt) => (
+											<option key={opt.value} value={opt.value}>
+												{opt.label}
+											</option>
+										))}
+									</select>
+								</div>
 
-							{/* Год до */}
-							<div>
-								<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
-									Год до:
-								</label>
-								<select
-									value={yearMax}
-									onChange={(e) => setYearMax(e.target.value)}
-									className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
-									style={{
-										backgroundImage:
-											'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
-										backgroundPosition: 'right 12px center',
-										backgroundRepeat: 'no-repeat',
-										backgroundSize: '1rem',
-									}}
-								>
-									{filteredYearMaxOptions.map((opt) => (
-										<option key={opt.value} value={opt.value}>
-											{opt.label}
-										</option>
-									))}
-								</select>
-							</div>
+								{/* Пробег от */}
+								<div>
+									<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
+										Пробег от:
+									</label>
+									<select
+										value={useKmMin}
+										onChange={(e) => handleUseKmMinChange(e.target.value)}
+										className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
+										style={{
+											backgroundImage:
+												'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
+											backgroundPosition: 'right 12px center',
+											backgroundRepeat: 'no-repeat',
+											backgroundSize: '1rem',
+										}}
+									>
+										{useKmOptions.map((opt) => (
+											<option key={opt.value} value={opt.value}>
+												{opt.label}
+											</option>
+										))}
+									</select>
+								</div>
 
-							{/* Пробег от */}
-							<div>
-								<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
-									Пробег от:
-								</label>
-								<select
-									value={useKmMin}
-									onChange={(e) => handleUseKmMinChange(e.target.value)}
-									className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
-									style={{
-										backgroundImage:
-											'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
-										backgroundPosition: 'right 12px center',
-										backgroundRepeat: 'no-repeat',
-										backgroundSize: '1rem',
-									}}
-								>
-									{useKmOptions.map((opt) => (
-										<option key={opt.value} value={opt.value}>
-											{opt.label}
-										</option>
-									))}
-								</select>
-							</div>
+								{/* Пробег до */}
+								<div>
+									<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
+										Пробег до:
+									</label>
+									<select
+										value={useKmMax}
+										onChange={(e) => setUseKmMax(e.target.value)}
+										className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
+										style={{
+											backgroundImage:
+												'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
+											backgroundPosition: 'right 12px center',
+											backgroundRepeat: 'no-repeat',
+											backgroundSize: '1rem',
+										}}
+									>
+										{filteredUseKmMaxOptions.map((opt) => (
+											<option key={opt.value} value={opt.value}>
+												{opt.label}
+											</option>
+										))}
+									</select>
+								</div>
 
-							{/* Пробег до */}
-							<div>
-								<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
-									Пробег до:
-								</label>
-								<select
-									value={useKmMax}
-									onChange={(e) => setUseKmMax(e.target.value)}
-									className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
-									style={{
-										backgroundImage:
-											'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
-										backgroundPosition: 'right 12px center',
-										backgroundRepeat: 'no-repeat',
-										backgroundSize: '1rem',
-									}}
-								>
-									{filteredUseKmMaxOptions.map((opt) => (
-										<option key={opt.value} value={opt.value}>
-											{opt.label}
-										</option>
-									))}
-								</select>
-							</div>
+								{/* Топливо */}
+								<div>
+									<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
+										Топливо:
+									</label>
+									<select
+										value={fuel}
+										onChange={(e) => setFuel(e.target.value)}
+										className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
+										style={{
+											backgroundImage:
+												'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
+											backgroundPosition: 'right 12px center',
+											backgroundRepeat: 'no-repeat',
+											backgroundSize: '1rem',
+										}}
+									>
+										{fuelOptions.map((opt) => (
+											<option key={opt.value} value={opt.value}>
+												{opt.label}
+											</option>
+										))}
+									</select>
+								</div>
 
-							{/* Топливо */}
-							<div>
-								<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
-									Топливо:
-								</label>
-								<select
-									value={fuel}
-									onChange={(e) => setFuel(e.target.value)}
-									className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
-									style={{
-										backgroundImage:
-											'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
-										backgroundPosition: 'right 12px center',
-										backgroundRepeat: 'no-repeat',
-										backgroundSize: '1rem',
-									}}
-								>
-									{fuelOptions.map((opt) => (
-										<option key={opt.value} value={opt.value}>
-											{opt.label}
-										</option>
-									))}
-								</select>
-							</div>
+								{/* Трансмиссия */}
+								<div>
+									<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
+										Трансмиссия:
+									</label>
+									<select
+										value={mission}
+										onChange={(e) => setMission(e.target.value)}
+										className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
+										style={{
+											backgroundImage:
+												'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
+											backgroundPosition: 'right 12px center',
+											backgroundRepeat: 'no-repeat',
+											backgroundSize: '1rem',
+										}}
+									>
+										{missionOptions.map((opt) => (
+											<option key={opt.value} value={opt.value}>
+												{opt.label}
+											</option>
+										))}
+									</select>
+								</div>
 
-							{/* Трансмиссия */}
-							<div>
-								<label className='block text-avtoVitaGold font-semibold mb-2 tracking-wide'>
-									Трансмиссия:
-								</label>
-								<select
-									value={mission}
-									onChange={(e) => setMission(e.target.value)}
-									className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
-									style={{
-										backgroundImage:
-											'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
-										backgroundPosition: 'right 12px center',
-										backgroundRepeat: 'no-repeat',
-										backgroundSize: '1rem',
-									}}
-								>
-									{missionOptions.map((opt) => (
-										<option key={opt.value} value={opt.value}>
-											{opt.label}
-										</option>
-									))}
-								</select>
-							</div>
+								{/* Цвет */}
+								<div>
+									<label className='block text-avtoVitaGold font-semibold tracking-wide'>
+										Цвет:
+									</label>
+									<select
+										value={color}
+										onChange={(e) => setColor(e.target.value)}
+										className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
+										style={{
+											backgroundImage:
+												'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
+											backgroundPosition: 'right 12px center',
+											backgroundRepeat: 'no-repeat',
+											backgroundSize: '1rem',
+										}}
+									>
+										{colorOptions.map((opt) => (
+											<option key={opt.value} value={opt.value}>
+												{opt.label}
+											</option>
+										))}
+									</select>
+								</div>
 
-							{/* Цвет */}
-							<div>
-								<label className='block text-avtoVitaGold font-semibold tracking-wide'>
-									Цвет:
-								</label>
-								<select
-									value={color}
-									onChange={(e) => setColor(e.target.value)}
-									className='w-full border border-yellow-600 p-3 pr-10 rounded-lg shadow-md bg-white text-black focus:ring-avtoVitaGold focus:border-avtoVitaGold transition duration-300 ease-in-out appearance-none relative'
-									style={{
-										backgroundImage:
-											'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>\')',
-										backgroundPosition: 'right 12px center',
-										backgroundRepeat: 'no-repeat',
-										backgroundSize: '1rem',
-									}}
-								>
-									{colorOptions.map((opt) => (
-										<option key={opt.value} value={opt.value}>
-											{opt.label}
-										</option>
-									))}
-								</select>
-							</div>
-
-							{/* Номер авто */}
-							{/* <div>
+								{/* Номер авто */}
+								{/* <div>
 										<label className='block text-gray-700 font-medium mb-2'>
 											Номер авто:
 										</label>
@@ -912,97 +921,101 @@ const Catalog = () => {
 											placeholder='Введите номер авто'
 										/>
 									</div> */}
+							</div>
 						</div>
 					</div>
-				</div>
 
-				{/* Кнопка поиска */}
-				<div className='flex flex-wrap gap-6 justify-center mt-5'>
-					{/* Кнопка "Поиск" */}
-					<button
-						onClick={searchCars}
-						disabled={!country}
-						className='cursor-pointer px-8 py-3 rounded-full font-semibold bg-yellow-600 text-white hover:bg-avtoVitaDark hover:text-black hover:bg-yellow-400 transition duration-300 ease-in-out shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2'
-					>
-						🔍 <span>Поиск</span>
-					</button>
-
-					{/* Кнопка "Сбросить фильтры" */}
-					<button
-						onClick={resetFilters}
-						className='cursor-pointer px-8 py-3 rounded-full font-semibold bg-gray-700 text-white hover:bg-red-600 transition duration-300 ease-in-out shadow-lg flex items-center gap-2'
-					>
-						🔄 <span>Сбросить</span>
-					</button>
-				</div>
-			</div>
-
-			{/* Отображение автомобилей */}
-			<div className='mt-6'>
-				{loading ? (
-					<div className='flex justify-center items-center h-32'>
-						<Loader />
-					</div>
-				) : carList.length > 0 ? (
-					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
-						{carList.map((car, idx) => (
-							<CarListItem car={car} key={idx} />
-						))}
-					</div>
-				) : (
-					<Message text='Автомобили не найдены' icon='❌' />
-				)}
-
-				{/* Пагинация */}
-				{carList.length > 0 && totalPages > 1 && (
-					<div className='mt-6 flex justify-center items-center gap-2'>
+					{/* Кнопка поиска */}
+					<div className='flex flex-wrap gap-6 justify-center mt-5'>
+						{/* Кнопка "Поиск" */}
 						<button
-							onClick={goToFirstPage}
-							disabled={page === 1}
-							className='cursor-pointer px-4 py-2 rounded-lg text-white font-semibold transition-all duration-300 bg-gray-700 hover:bg-gray-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed'
+							onClick={searchCars}
+							disabled={!country}
+							className='cursor-pointer px-8 py-3 rounded-full font-semibold bg-yellow-600 text-white hover:bg-avtoVitaDark hover:text-black hover:bg-yellow-400 transition duration-300 ease-in-out shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2'
 						>
-							&laquo;
-						</button>
-						<button
-							onClick={goToPrevPage}
-							disabled={page === 1}
-							className='px-4 py-2 rounded-lg text-white font-semibold transition-all duration-300 bg-gray-700 hover:bg-gray-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed'
-						>
-							&lt;
+							🔍 <span>Поиск</span>
 						</button>
 
-						{getPageNumbers().map((pageNum) => (
+						{/* Кнопка "Сбросить фильтры" */}
+						<button
+							onClick={resetFilters}
+							className='cursor-pointer px-8 py-3 rounded-full font-semibold bg-gray-700 text-white hover:bg-red-600 transition duration-300 ease-in-out shadow-lg flex items-center gap-2'
+						>
+							🔄 <span>Сбросить</span>
+						</button>
+					</div>
+				</div>
+
+				{/* Отображение автомобилей */}
+				<div className='md:mt-6'>
+					<h4 className='mb-5 text-center md:text-left '>
+						Недавно добавленные автомобили
+					</h4>
+					{loading ? (
+						<div className='flex justify-center items-center h-32'>
+							<Loader />
+						</div>
+					) : carList.length > 0 ? (
+						<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+							{carList.map((car, idx) => (
+								<CarListItem car={car} key={idx} />
+							))}
+						</div>
+					) : (
+						<Message text='Автомобили не найдены' icon='❌' />
+					)}
+
+					{/* Пагинация */}
+					{carList.length > 0 && totalPages > 1 && (
+						<div className='mt-6 flex justify-center items-center gap-2'>
 							<button
-								key={pageNum}
-								onClick={() => goToPage(pageNum)}
-								className={`cursor-pointer px-4 py-2 rounded-lg text-white font-semibold transition-all duration-300
+								onClick={goToFirstPage}
+								disabled={page === 1}
+								className='cursor-pointer px-4 py-2 rounded-lg text-white font-semibold transition-all duration-300 bg-gray-700 hover:bg-gray-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed'
+							>
+								&laquo;
+							</button>
+							<button
+								onClick={goToPrevPage}
+								disabled={page === 1}
+								className='px-4 py-2 rounded-lg text-white font-semibold transition-all duration-300 bg-gray-700 hover:bg-gray-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed'
+							>
+								&lt;
+							</button>
+
+							{getPageNumbers().map((pageNum) => (
+								<button
+									key={pageNum}
+									onClick={() => goToPage(pageNum)}
+									className={`cursor-pointer px-4 py-2 rounded-lg text-white font-semibold transition-all duration-300
                     ${
 											pageNum === page
 												? 'bg-yellow-500 text-black scale-110 shadow-lg'
 												: 'bg-gray-800 hover:bg-yellow-400 hover:text-black'
 										}
                 `}
-							>
-								{pageNum}
-							</button>
-						))}
+								>
+									{pageNum}
+								</button>
+							))}
 
-						<button
-							onClick={goToNextPage}
-							disabled={page === totalPages}
-							className='cursor-pointer px-4 py-2 rounded-lg text-white font-semibold transition-all duration-300 bg-gray-700 hover:bg-gray-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed'
-						>
-							&gt;
-						</button>
-						<button
-							onClick={goToLastPage}
-							disabled={page === totalPages}
-							className='cursor-pointer px-4 py-2 rounded-lg text-white font-semibold transition-all duration-300 bg-gray-700 hover:bg-gray-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed'
-						>
-							&raquo;
-						</button>
-					</div>
-				)}
+							<button
+								onClick={goToNextPage}
+								disabled={page === totalPages}
+								className='cursor-pointer px-4 py-2 rounded-lg text-white font-semibold transition-all duration-300 bg-gray-700 hover:bg-gray-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed'
+							>
+								&gt;
+							</button>
+							<button
+								onClick={goToLastPage}
+								disabled={page === totalPages}
+								className='cursor-pointer px-4 py-2 rounded-lg text-white font-semibold transition-all duration-300 bg-gray-700 hover:bg-gray-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed'
+							>
+								&raquo;
+							</button>
+						</div>
+					)}
+				</div>
 			</div>
 		</div>
 	)
