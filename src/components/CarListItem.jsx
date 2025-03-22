@@ -49,7 +49,11 @@ const CarListItem = ({ car }) => {
 					<img
 						src={car.image.replaceAll('"', '')}
 						alt={car.name}
-						className='w-full h-full object-cover'
+						className='w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-0'
+						loading='lazy'
+						onLoad={(e) => {
+							e.currentTarget.classList.remove('opacity-0')
+						}}
 					/>
 					{/* Полупрозрачный градиент внизу для эффекта глубины */}
 					<div className='absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/50 to-transparent'></div>

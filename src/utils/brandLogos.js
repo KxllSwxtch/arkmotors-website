@@ -1,4 +1,6 @@
-const brandLogos = {
+const cachedBrandLogos = localStorage.getItem('brandLogos')
+
+const rawBrandLogos = {
 	Bentley:
 		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740470478/avtovita/brandslogos/bentley.png',
 	Mitsuoka:
@@ -123,6 +125,14 @@ const brandLogos = {
 	Honda:
 		'https://res.cloudinary.com/pomegranitedesign/image/upload/v1740472069/avtovita/brandslogos/honda.png',
 	Porsche: 'https://1000logos.net/wp-content/uploads/2018/02/Porsche-Logo.png',
+}
+
+const brandLogos = cachedBrandLogos
+	? JSON.parse(cachedBrandLogos)
+	: rawBrandLogos
+
+if (!cachedBrandLogos) {
+	localStorage.setItem('brandLogos', JSON.stringify(rawBrandLogos))
 }
 
 export default brandLogos

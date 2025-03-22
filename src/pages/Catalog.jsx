@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo, lazy, Suspense } from 'react'
 import axios from 'axios'
 import Select from 'react-select'
 
@@ -13,7 +13,8 @@ import {
 	modelLogos,
 	translateCarName,
 } from '../utils'
-import { CarListItem, Loader, Message } from '../components'
+import { Loader, Message } from '../components'
+const CarListItem = lazy(() => import('../components/CarListItem'))
 import {
 	carBrandsTranslation,
 	carModelsTranslation,
@@ -307,8 +308,8 @@ const Catalog = () => {
 		setMission('')
 		setColor('')
 		setCarPlateNumber('')
-
-		searchCars({})
+		setPage(1)
+		searchCars()
 	}
 
 	useEffect(() => {
@@ -323,7 +324,9 @@ const Catalog = () => {
 			}
 		}
 		window.scroll({ top: 0, behavior: 'smooth' }) // Прокручиваем страницу вверх
-		searchCars()
+		if (makerList.length > 0 || selectedMaker === '') {
+			searchCars()
+		}
 		initialMakerList()
 	}, [country, page])
 
@@ -364,33 +367,43 @@ const Catalog = () => {
 		if (page < totalPages) setPage(page + 1)
 	}
 
-	const modelOptions = modelList.map((model) => {
-		const translatedName =
-			carModelsTranslation[model.MODEL_NAME] || model.MODEL_NAME
+	const modelOptions = useMemo(() => {
+		if (!modelList || !selectedMaker) return []
 
+		const selectedMakerObj = makerList.find(
+			(maker) => maker.MAKER_NO === selectedMaker,
+		)
 		const brandKey =
-			carBrandsTranslation[
-				makerList.find((maker) => maker.MAKER_NO === selectedMaker)?.MAKER_NAME
-			] ||
-			makerList.find((maker) => maker.MAKER_NO === selectedMaker)?.MAKER_NAME
+			carBrandsTranslation[selectedMakerObj?.MAKER_NAME] ||
+			selectedMakerObj?.MAKER_NAME
 
-		return {
-			value: model.MODEL_NO, // Уникальный ключ
-			label: (
-				<span className='flex items-center gap-2'>
-					{modelLogos?.[brandKey]?.[translatedName] && (
-						<img
-							src={modelLogos[brandKey][translatedName]}
-							alt={translatedName}
-							className='inline-block w-10 h-auto'
-						/>
-					)}
-					{translatedName}
-				</span>
-			),
-			searchLabel: translatedName,
-		}
-	})
+		return modelList.map((model) => {
+			const translatedName =
+				carModelsTranslation[model.MODEL_NAME] || model.MODEL_NAME
+
+			const logo =
+				modelLogos?.[brandKey]?.[translatedName] ||
+				modelLogos?.[brandKey]?.[model.MODEL_NAME]
+
+			return {
+				value: model.MODEL_NO,
+				label: (
+					<span className='flex items-center gap-2'>
+						{logo && (
+							<img
+								src={logo}
+								alt={translatedName}
+								loading='lazy'
+								className='inline-block w-10 h-auto'
+							/>
+						)}
+						{translatedName}
+					</span>
+				),
+				searchLabel: translatedName,
+			}
+		})
+	}, [modelList, selectedMaker, makerList])
 
 	const excludedMakers = [
 		'Nissan',
@@ -438,6 +451,7 @@ const Catalog = () => {
 							<img
 								src={brandLogos[translatedName]}
 								alt={translatedName}
+								loading='lazy'
 								className='inline-block w-5 auto'
 							/>
 						)}
@@ -503,6 +517,7 @@ const Catalog = () => {
 		<div className='p-4 text-secondary-500 min-h-screen '>
 			<div className='w-full mb-10'>
 				<img
+					loading='lazy'
 					className='text-center m-auto'
 					src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1742607362/arkmotors/logo_rus.png'
 					alt='ArkMotors логотип'
@@ -957,9 +972,11 @@ const Catalog = () => {
 						</div>
 					) : carList.length > 0 ? (
 						<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
-							{carList.map((car, idx) => (
-								<CarListItem car={car} key={idx} />
-							))}
+							<Suspense fallback={<Loader />}>
+								{carList.map((car, idx) => (
+									<CarListItem car={car} key={idx} />
+								))}
+							</Suspense>
 						</div>
 					) : (
 						<Message text='Автомобили не найдены' icon='❌' />

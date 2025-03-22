@@ -1,4 +1,6 @@
-const modelLogos = {
+const cachedModelLogos = localStorage.getItem('modelLogos')
+
+const rawModelLogos = {
 	Hyundai: {
 		i30: 'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742358523/carmodels/i30_a4p7mw.png',
 		Grandeur:
@@ -1204,6 +1206,14 @@ const modelLogos = {
 		Torrent:
 			'https://res.cloudinary.com/dt0nkqowc/image/upload/v1742544596/carmodels/2007-Pontiac-Torrent-EX-100762221-39_kfmfpc.png',
 	},
+}
+
+const modelLogos = cachedModelLogos
+	? JSON.parse(cachedModelLogos)
+	: rawModelLogos
+
+if (!cachedModelLogos) {
+	localStorage.setItem('modelLogos', JSON.stringify(rawModelLogos))
 }
 
 export default modelLogos
