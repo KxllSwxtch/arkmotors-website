@@ -375,7 +375,7 @@ const Catalog = () => {
 			makerList.find((maker) => maker.MAKER_NO === selectedMaker)?.MAKER_NAME
 
 		return {
-			value: `${selectedMaker}-${model.MODEL_NO}`, // Уникальный ключ
+			value: model.MODEL_NO, // Уникальный ключ
 			label: (
 				<span className='flex items-center gap-2'>
 					{modelLogos?.[brandKey]?.[translatedName] && (
@@ -492,7 +492,7 @@ const Catalog = () => {
 				filterOption={customFilter} // Добавили кастомный фильтр
 				options={options}
 				onChange={handleChange}
-				placeholder='Выберите марку'
+				placeholder='Марка'
 				styles={customStyles}
 				className='w-full text-gray-800 rounded-lg shadow-sm h-[100%]'
 			/>
@@ -500,7 +500,7 @@ const Catalog = () => {
 	}
 
 	return (
-		<div className='p-4 mt-20 md:mt-10 text-secondary-500 min-h-screen grid md:grid-cols-[0.8fr_3fr] gap-10'>
+		<div className='p-4 mt-20 md:mt-10 text-secondary-500 min-h-screen grid md:grid-cols-[0.8fr_3fr] gap-10 text-xl'>
 			{/* Фильтры */}
 			<div className='md:ml-5'>
 				<>
@@ -549,7 +549,7 @@ const Catalog = () => {
 										onChange={(selectedOption) =>
 											handleModelChange(selectedOption.value)
 										}
-										placeholder='Выберите модель'
+										placeholder='Модель'
 										styles={customStyles}
 										className='w-full text-gray-800 rounded-lg shadow-sm h-[100%]'
 									/>
@@ -560,11 +560,11 @@ const Catalog = () => {
 									<select
 										value={selectedDetailModel}
 										onChange={(e) => handleDetailModelChange(e.target.value)}
-										className={`w-full border-2 p-3 rounded-lg shadow-md transition duration-300 appearance-none pr-10 relative
+										className={`w-full border-1 p-3 rounded-lg shadow-md transition duration-300 appearance-none pr-10 relative
 										${
 											selectedModel
 												? 'border-yellow-500 bg-white text-black hover:border-yellow-600 focus:ring-yellow-500'
-												: 'border-gray-600 bg-gray-800 text-gray-400 cursor-not-allowed'
+												: 'bg-[#dcdcdc] border-[#c9c9c9] text-gray-400 cursor-not-allowed'
 										}
 									`}
 										disabled={!selectedModel}
@@ -579,7 +579,7 @@ const Catalog = () => {
 										<option value='' className='text-gray-400'>
 											Поколение
 										</option>
-										{detailModelList.map((dmodel) => (
+										{detailModelList?.map((dmodel) => (
 											<option
 												key={dmodel.DETAIL_MODEL_NO}
 												value={dmodel.DETAIL_MODEL_NO}
@@ -601,7 +601,7 @@ const Catalog = () => {
 										${
 											selectedDetailModel
 												? 'border-yellow-500 bg-white text-black hover:border-yellow-600 focus:ring-yellow-500'
-												: 'border-gray-600 bg-gray-800 text-gray-400 cursor-not-allowed'
+												: 'bg-[#dcdcdc] border-[#c9c9c9] text-gray-400 cursor-not-allowed'
 										}
 									`}
 										disabled={!selectedDetailModel}
@@ -614,7 +614,7 @@ const Catalog = () => {
 										}}
 									>
 										<option value='' className='text-gray-400'>
-											Выберите комплектацию
+											Объём
 										</option>
 										{gradeList.map((grade) => (
 											<option
@@ -638,7 +638,7 @@ const Catalog = () => {
 										${
 											selectedGrade
 												? 'border-yellow-500 bg-white text-black hover:border-yellow-600 focus:ring-yellow-500'
-												: 'border-gray-600 bg-gray-800 text-gray-400 cursor-not-allowed'
+												: 'bg-[#dcdcdc] border-[#c9c9c9] text-gray-400 cursor-not-allowed'
 										}
 									`}
 										disabled={!selectedGrade}
@@ -651,7 +651,7 @@ const Catalog = () => {
 										}}
 									>
 										<option value='' className='text-gray-400'>
-											Выберите детальную комплектацию
+											Комплектация
 										</option>
 										{detailGradeList.map((dgrade) => (
 											<option

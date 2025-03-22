@@ -10,7 +10,7 @@ import {
 	CarDetails,
 	ExportCarDetails,
 } from './pages'
-import { Header, Footer } from './components'
+import { Header, Footer, FixedPhone } from './components'
 
 const App = () => {
 	return (
@@ -31,6 +31,7 @@ const App = () => {
 							element={<ExportCarDetails />}
 						/>
 					</Routes>
+					<FixedPhone />
 				</main>
 				<Footer />
 			</Router>

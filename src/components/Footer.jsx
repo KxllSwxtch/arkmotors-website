@@ -1,6 +1,6 @@
 // src/components/Footer.jsx
 import { Link } from 'react-router-dom'
-import { FaInstagram, FaFacebook } from 'react-icons/fa'
+import { FaInstagram, FaFacebook, FaTelegram } from 'react-icons/fa'
 
 const Footer = () => {
 	return (
@@ -8,14 +8,14 @@ const Footer = () => {
 			<div className='container mx-auto text-center'>
 				{/* Логотип */}
 				<img
-					src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1739490319/arkmotors/logo.png'
+					src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1742607362/arkmotors/logo_rus.png'
 					alt='ArkMotors'
-					className='w-32 mx-auto mb-4'
+					className='w-52 mx-auto mb-4'
 				/>
 
 				{/* Навигация */}
 				<nav className='mb-4'>
-					<ul className='flex justify-center space-x-6'>
+					<ul className='flex justify-center space-x-6 text-lg'>
 						<li>
 							<Link
 								to='/contacts'
@@ -52,9 +52,9 @@ const Footer = () => {
 				</nav>
 
 				{/* Контакты */}
-				<div className='text-sm text-gray-400 mb-4'>
+				<div className='text-md text-gray-400 mb-4'>
 					<p>+82 10-3642-2039 — Сергей Пан (Корея)</p>
-					<p>Адрес: 경기 용인시 기흥구 중부대로 242</p>
+					<p>Адрес: 경기 용인시 기흥구 중부대로 242 (AutoHub)</p>
 				</div>
 
 				{/* Социальные сети */}
@@ -74,6 +74,14 @@ const Footer = () => {
 						className='text-[#D4AF37] hover:text-[#8C6B1F] transition duration-300 text-2xl'
 					>
 						<FaFacebook />
+					</a>
+					<a
+						href='https://t.me/Arkmotors'
+						target='_blank'
+						rel='noopener noreferrer'
+						className='text-[#D4AF37] hover:text-[#8C6B1F] transition duration-300 text-2xl'
+					>
+						<FaTelegram />
 					</a>
 				</div>
 

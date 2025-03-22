@@ -40,7 +40,7 @@ const AboutSection = () => {
 					</div>
 					<div className='flex justify-center'>
 						<img
-							src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1739490319/arkmotors/logo.png'
+							src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1742607362/arkmotors/logo_rus.png'
 							alt='ArkMotors'
 							className='w-80 h-auto rounded-lg shadow-2xl'
 						/>

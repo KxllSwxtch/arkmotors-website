@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { HiMenu, HiX } from 'react-icons/hi' // Иконки для бургер-меню
+import { FaFacebook, FaInstagram, FaTelegram } from 'react-icons/fa'
 
 const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false)
@@ -21,7 +22,7 @@ const Header = () => {
 				<div className='logo'>
 					<Link to='/'>
 						<img
-							src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1739490319/arkmotors/logo.png'
+							src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1742607362/arkmotors/logo_rus.png'
 							alt='ArkMotors Logo'
 							className='h-10'
 						/>
@@ -47,14 +48,14 @@ const Header = () => {
 								Каталог авто на заказ
 							</Link>
 						</li> */}
-						<li>
+						{/* <li>
 							<Link
 								to='/contacts'
 								className='hover:text-[var(--color-arkGoldDark)] transition-colors duration-200'
 							>
 								Контакты
 							</Link>
-						</li>
+						</li> */}
 						<li>
 							<Link
 								to='/about'
@@ -63,10 +64,44 @@ const Header = () => {
 								О нас
 							</Link>
 						</li>
-						<li className='flex gap-2 font-light ml-5'>
+
+						<div className='flex flex-row justify-between items-center gap-4'>
+							<li>
+								<a
+									href='https://www.instagram.com/romanovich.pan/'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='text-[#d62976] hover:text-[#d62977c4] transition duration-300 text-2xl'
+								>
+									<FaInstagram />
+								</a>
+							</li>
+							<li>
+								<a
+									href='https://www.facebook.com/profile.php?id=100013987413426'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='text-[#1877F2] hover:text-[#1876f2cd] transition duration-300 text-2xl'
+								>
+									<FaFacebook />
+								</a>
+							</li>
+							<li>
+								<a
+									href='https://t.me/Arkmotors'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='text-[#0088cc] hover:text-[#0088ccca] transition duration-300 text-2xl'
+								>
+									<FaTelegram />
+								</a>
+							</li>
+						</div>
+
+						{/* <li className='flex gap-2 font-light ml-5'>
 							<span>+82 10-3642-2039 - </span>
 							<span>Пан Сергей</span>
-						</li>
+						</li> */}
 						{/* <li>
 							<Link
 								to='/cases'
@@ -131,7 +166,7 @@ const Header = () => {
 							Каталог авто на заказ
 						</Link>
 					</li> */}
-					<li>
+					{/* <li>
 						<Link
 							to='/contacts'
 							onClick={closeMenu}
@@ -139,7 +174,7 @@ const Header = () => {
 						>
 							Контакты
 						</Link>
-					</li>
+					</li> */}
 					<li>
 						<Link
 							to='/about'
@@ -149,10 +184,43 @@ const Header = () => {
 							О нас
 						</Link>
 					</li>
-					<li className='flex flex-col items-center gap-2 font-light mt-5'>
+
+					<div className='flex flex-row justify-between items-center gap-10 mt-10'>
+						<li>
+							<a
+								href='https://www.instagram.com/romanovich.pan/'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='text-[#d62976] hover:text-[#d62977c4] transition duration-300 text-4xl'
+							>
+								<FaInstagram />
+							</a>
+						</li>
+						<li>
+							<a
+								href='https://www.facebook.com/profile.php?id=100013987413426'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='text-[#1877F2] hover:text-[#1876f2cd] transition duration-300 text-4xl'
+							>
+								<FaFacebook />
+							</a>
+						</li>
+						<li>
+							<a
+								href='https://t.me/Arkmotors'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='text-[#0088cc] hover:text-[#0088ccca] transition duration-300 text-4xl'
+							>
+								<FaTelegram />
+							</a>
+						</li>
+					</div>
+					{/* <li className='flex flex-col items-center gap-2 font-light mt-5'>
 						<span>+82 10-3642-2039</span>
 						<span>Пан Сергей</span>
-					</li>
+					</li> */}
 					{/* <li>
 						<Link
 							to='/cases'

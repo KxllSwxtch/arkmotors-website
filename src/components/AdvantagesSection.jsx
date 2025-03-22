@@ -73,7 +73,7 @@ const AdvantagesSection = () => {
 						<div className='text-center'>
 							{/* Логотип ArkMotors */}
 							<img
-								src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1739490319/arkmotors/logo.png'
+								src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1742607362/arkmotors/logo_rus.png'
 								alt='Логотип ArkMotors'
 								className='w-80 mx-auto'
 							/>

@@ -40,7 +40,7 @@ const CarListItem = ({ car }) => {
 		<div className='relative bg-avtoVitaBlack rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl duration-300 border border-gray-700/50'>
 			{/* Блок изображения */}
 			<Link
-				to={`/car/${carId}`}
+				to={`/catalog/${carId}`}
 				target='_blank'
 				rel='noopener noreferrer'
 				className='block'
@@ -86,6 +86,7 @@ const CarListItem = ({ car }) => {
 						<Link
 							to={`/catalog/${carId}`}
 							target='_blank'
+							rel='noopener noreferer'
 							className='inline-block px-4 py-2 border border-yellow-500 text-yellow-500 text-sm font-semibold rounded transition duration-300 hover:bg-yellow-500 hover:text-black'
 						>
 							Подробнее →

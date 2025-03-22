@@ -11,6 +11,7 @@ import HowToChooseCarSection from './HowToChooseCarSection'
 import CarCard from './CarCard'
 import Calculator from './Calculator'
 import ImageSlider from './ImageSlider'
+import FixedPhone from './FixedPhone'
 
 export {
 	Header,
@@ -26,4 +27,5 @@ export {
 	CarCard,
 	Calculator,
 	ImageSlider,
+	FixedPhone,
 }

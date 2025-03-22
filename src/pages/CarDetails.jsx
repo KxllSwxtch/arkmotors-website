@@ -105,6 +105,9 @@ const CarDetails = () => {
 								>
 									+82 10-3642-2039
 								</a>
+								<p className='mt-2'>
+									Адрес: 경기 용인시 기흥구 중부대로 242 (AutoHub)
+								</p>
 							</div>
 						</div>
 					</div>
@@ -163,8 +166,7 @@ const CarDetails = () => {
 					Контакты для связи
 				</h3>
 				<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-					{/* Виталий */}
-					<div className='p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200'>
+					<div className='p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200 text-center'>
 						<p className='text-lg font-semibold text-gray-700 mb-1'>Сергей</p>
 						<a
 							href='tel:+821093441782'
@@ -172,6 +174,9 @@ const CarDetails = () => {
 						>
 							+82 10-3642-2039
 						</a>
+						<p className='mt-5'>
+							Адрес: 경기 용인시 기흥구 중부대로 242 (AutoHub)
+						</p>
 					</div>
 				</div>
 			</div>
