@@ -117,42 +117,52 @@ const CarDetails = () => {
 				</div>
 
 				{/* Информация об автомобиле */}
-				<div className='bg-white rounded-lg shadow-lg p-8'>
+				<div className='rounded-lg shadow-lg p-4'>
 					<h2 className='text-2xl md:text-4xl font-bold mb-6 text-gray-800 text-center'>
 						{carName ? translateCarName(carName) : 'Модель не указана'}
 					</h2>
 
-					{/* Компактное расположение данных в табличном стиле */}
-					<div className='border-t border-gray-200'>
-						{carData ? (
-							<table className='w-full text-left mt-4'>
-								<tbody>
-									{Object.entries(carData).map(([key, value], index) => (
-										<tr
-											key={index}
-											className={`border-b border-gray-100 transition duration-300 hover:bg-gray-50 ${
-												index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
-											}`}
-										>
-											{/* Название характеристики */}
-											<td className='py-3 px-2 text-sm font-medium text-gray-600 w-1/3 md:w-1/4'>
-												{translations[key] || key}
-											</td>
-											{/* Значение характеристики */}
-											<td className='py-3 px-2 text-sm text-gray-800 text-right'>
-												<b>
-													{translations[value] ||
-														carModelsTranslation[value] ||
-														value.toLocaleString()}
-												</b>
-											</td>
-										</tr>
-									))}
-								</tbody>
-							</table>
-						) : (
-							<p className='text-center text-gray-500'>Автомобиль не найден</p>
-						)}
+					<div
+						className='relative border-t border-gray-200 overflow-hidden rounded-lg'
+						style={{
+							backgroundImage:
+								"url('https://res.cloudinary.com/dt0nkqowc/image/upload/e_blur:800/v1742714720/Ark%20Motors/campbell-3ZUsNJhi_Ik-unsplash_kmcbrq.jpg')",
+							backgroundSize: 'cover',
+							backgroundPosition: 'center',
+							backgroundRepeat: 'no-repeat',
+						}}
+					>
+						<div className='relative z-10'>
+							{carData ? (
+								<table className='w-full text-left mt-4'>
+									<tbody>
+										{Object.entries(carData).map(([key, value], index) => (
+											<tr
+												key={index}
+												className={`border-b border-gray-100 transition duration-300 hover:bg-gray-100 ${
+													index % 2 === 0 ? 'bg-white/80' : 'bg-white/60'
+												}`}
+											>
+												<td className='py-3 px-2 text-sm font-black text-black w-1/3 md:w-1/4'>
+													{translations[key] || key}
+												</td>
+												<td className='py-3 px-2 text-sm text-black text-right font-bold'>
+													<b>
+														{translations[value] ||
+															carModelsTranslation[value] ||
+															value.toLocaleString()}
+													</b>
+												</td>
+											</tr>
+										))}
+									</tbody>
+								</table>
+							) : (
+								<p className='text-center text-gray-500'>
+									Автомобиль не найден
+								</p>
+							)}
+						</div>
 					</div>
 				</div>
 			</div>
