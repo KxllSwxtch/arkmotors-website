@@ -78,7 +78,7 @@ const CarDetails = () => {
 	if (loading) return <Loader />
 
 	return (
-		<div className='container mx-auto p-4 max-w-6xl mt-30'>
+		<div className='container mx-auto p-4 max-w-6xl '>
 			{/* Основной контейнер с фото слева и информацией справа */}
 			<div className='grid grid-cols-1 md:grid-cols-2 md:gap-10'>
 				{/* Фотографии автомобиля */}

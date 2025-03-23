@@ -15,12 +15,25 @@ const AboutSection = () => {
 				</motion.h2>
 				<motion.div
 					className='grid grid-cols-1 md:grid-cols-2 gap-8 items-center'
-					initial={{ opacity: 0 }}
-					whileInView={{ opacity: 1 }}
-					viewport={{ once: true }}
-					transition={{ duration: 0.7 }}
+					initial='hidden'
+					whileInView='visible'
+					viewport={{ once: true, amount: 0.2 }}
+					variants={{
+						visible: {
+							transition: {
+								staggerChildren: 0.4,
+							},
+						},
+					}}
 				>
-					<div className='space-y-4 text-white text-lg'>
+					<motion.div
+						className='space-y-4 text-white text-lg'
+						variants={{
+							hidden: { opacity: 0, y: 40 },
+							visible: { opacity: 1, y: 0 },
+						}}
+						transition={{ duration: 0.8 }}
+					>
 						<p>
 							<span className='text-[#D4AF37] font-bold'>ArkMotors</span> – ваш
 							надёжный партнёр в сфере продажи и экспорта автомобилей. Мы
@@ -37,14 +50,21 @@ const AboutSection = () => {
 							и доставку до Владивостока. Наша цель – обеспечить безопасность,
 							оперативность и прозрачность на каждом этапе сотрудничества.
 						</p>
-					</div>
-					<div className='flex justify-center'>
+					</motion.div>
+					<motion.div
+						className='flex justify-center'
+						variants={{
+							hidden: { opacity: 0, scale: 0.9 },
+							visible: { opacity: 1, scale: 1 },
+						}}
+						transition={{ duration: 0.8 }}
+					>
 						<img
 							src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1742607362/arkmotors/logo_rus.png'
 							alt='ArkMotors'
 							className='w-80 h-auto rounded-lg shadow-2xl'
 						/>
-					</div>
+					</motion.div>
 				</motion.div>
 			</div>
 		</section>

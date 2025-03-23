@@ -16,14 +16,14 @@ const Footer = () => {
 				{/* Навигация */}
 				<nav className='mb-4'>
 					<ul className='flex justify-center space-x-6 text-lg'>
-						<li>
+						{/* <li>
 							<Link
 								to='/contacts'
 								className='hover:text-[#8C6B1F] transition duration-300'
 							>
 								Контакты
 							</Link>
-						</li>
+						</li> */}
 						<li>
 							<Link
 								to='/about'
@@ -32,14 +32,14 @@ const Footer = () => {
 								О нас
 							</Link>
 						</li>
-						<li>
+						{/* <li>
 							<Link
 								to='/cases'
 								className='hover:text-[#8C6B1F] transition duration-300'
 							>
 								Кейсы
 							</Link>
-						</li>
+						</li> */}
 						<li>
 							<Link
 								to='/catalog'
