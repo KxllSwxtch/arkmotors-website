@@ -23,21 +23,26 @@ const HeroSection = () => {
 					initial={{ opacity: 0, y: 30 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 1 }}
-					className='text-4xl md:text-6xl font-bold leading-tight'
+					className='text-4xl md:text-6xl font-bold leading-tight text-center'
 				>
 					<span className='text-[#D4AF37]'>ПРОДАЖА</span> АВТО В ЮЖНОЙ КОРЕЕ и{' '}
-					<span className='text-[#D4AF37]'>ЭКСПОРТ</span> <br /> В СТРАНЫ СНГ
+					<span className='text-[#D4AF37]'>ЭКСПОРТ</span> <br />
+					В СТРАНЫ СНГ <br />
+					<span className='text-lg md:text-2xl font-medium text-white mt-4 block'>
+						А также <span className='text-[#D4AF37]'>выкуп авто</span> и{' '}
+						<span className='text-[#D4AF37]'>Trade-in</span>
+					</span>
 				</motion.h1>
+
 				<motion.p
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 1, delay: 0.3 }}
 					className='text-lg md:text-xl mt-4 opacity-80'
 				>
-					Профессиональный подбор автомобилей в Южной Корее. <br /> Подбор авто
-					на заказ
-					<br />
-					Быстро. Качественно. Надёжно
+					Профессиональный подбор автомобилей в Южной Корее. <br />
+					Подбор авто на заказ. Выкуп автомобилей и программа Trade-in. <br />
+					Быстро. Качественно. Надёжно.
 				</motion.p>
 
 				{/* <Link to='/calculator'>

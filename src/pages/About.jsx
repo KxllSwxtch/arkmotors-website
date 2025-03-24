@@ -1,5 +1,5 @@
-import React from 'react'
 import { motion } from 'framer-motion'
+import { FaFacebook, FaInstagram, FaTelegram } from 'react-icons/fa'
 
 const About = () => {
 	return (
@@ -56,6 +56,46 @@ const About = () => {
 						<li>Удобные условия оплаты и доставки</li>
 						<li>Профессиональная поддержка и консультации</li>
 					</ul>
+
+					<div className='flex flex-col gap-3 mt-10'>
+						<h1 className='text-2xl font-semibold'>
+							ArkMotors в социальных сетях
+						</h1>
+						<div className='flex flex-row gap-5'>
+							<a
+								href='https://www.instagram.com/arkmotors_24/'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='text-[#d62976] hover:text-[#d62977c4] transition duration-300 text-2xl'
+							>
+								<FaInstagram />
+							</a>
+							<a
+								href='https://www.instagram.com/romanovich.pan/'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='text-[#d62976] hover:text-[#d62977c4] transition duration-300 text-2xl'
+							>
+								<FaInstagram />
+							</a>
+							<a
+								href='https://www.facebook.com/profile.php?id=100013987413426'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='text-[#1877F2] hover:text-[#1876f2cd] transition duration-300 text-2xl'
+							>
+								<FaFacebook />
+							</a>
+							<a
+								href='https://t.me/Arkmotors'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='text-[#0088cc] hover:text-[#0088ccca] transition duration-300 text-2xl'
+							>
+								<FaTelegram />
+							</a>
+						</div>
+					</div>
 				</motion.div>
 
 				{/* Контакты */}

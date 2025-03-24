@@ -60,6 +60,14 @@ const Footer = () => {
 				{/* Социальные сети */}
 				<div className='flex justify-center space-x-6 mb-4'>
 					<a
+						href='https://www.instagram.com/arkmotors_24/'
+						target='_blank'
+						rel='noopener noreferrer'
+						className='text-[#d62976] hover:text-[#d62977c4] transition duration-300 text-2xl'
+					>
+						<FaInstagram />
+					</a>
+					<a
 						href='https://www.instagram.com/romanovich.pan/'
 						target='_blank'
 						rel='noopener noreferrer'

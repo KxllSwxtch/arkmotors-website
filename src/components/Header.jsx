@@ -68,6 +68,16 @@ const Header = () => {
 						<div className='flex flex-row justify-between items-center gap-4'>
 							<li>
 								<a
+									href='https://www.instagram.com/arkmotors_24/'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='text-[#d62976] hover:text-[#d62977c4] transition duration-300 text-2xl'
+								>
+									<FaInstagram />
+								</a>
+							</li>
+							<li>
+								<a
 									href='https://www.instagram.com/romanovich.pan/'
 									target='_blank'
 									rel='noopener noreferrer'
@@ -186,6 +196,16 @@ const Header = () => {
 					</li>
 
 					<div className='flex flex-row justify-between items-center gap-10 mt-10'>
+						<li>
+							<a
+								href='https://www.instagram.com/arkmotors_24/'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='text-[#d62976] hover:text-[#d62977c4] transition duration-300 text-2xl'
+							>
+								<FaInstagram />
+							</a>
+						</li>
 						<li>
 							<a
 								href='https://www.instagram.com/romanovich.pan/'
