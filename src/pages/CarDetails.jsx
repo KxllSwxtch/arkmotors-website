@@ -97,7 +97,7 @@ const CarDetails = () => {
 							{/* Виталий */}
 							<div className='p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200'>
 								<p className='text-lg font-semibold text-gray-700 mb-1'>
-									Сергей
+									Менеджер
 								</p>
 								<a
 									href='tel:821036422039'
@@ -168,7 +168,7 @@ const CarDetails = () => {
 				</h3>
 				<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
 					<div className='p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200 text-center'>
-						<p className='text-lg font-semibold text-gray-700 mb-1'>Сергей</p>
+						<p className='text-lg font-semibold text-gray-700 mb-1'>Менеджер</p>
 						<a
 							href='tel:+821093441782'
 							className='block text-xl text-red-600 hover:text-red-500 transition duration-300'
