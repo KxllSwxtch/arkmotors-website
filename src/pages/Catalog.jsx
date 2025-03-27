@@ -37,9 +37,7 @@ function translateFuelType(text) {
 	return text
 }
 
-const API_BASE_URL = `https://corsproxy.io/?url=${encodeURIComponent(
-	'https://ark-motors-backend-3a002a527613.herokuapp.com',
-)}`
+const API_BASE_URL = `https://corsproxy.io/?url=https://ark-motors-backend-3a002a527613.herokuapp.com`
 const carsPerPage = 24
 
 const Catalog = () => {
@@ -319,9 +317,11 @@ const Catalog = () => {
 	useEffect(() => {
 		const initialMakerList = async () => {
 			try {
-				const response = await axios.get(`${API_BASE_URL}/makers`, {
-					params: { country },
-				})
+				const fullUrl = `https://ark-motors-backend-3a002a527613.herokuapp.com/makers?country=${country}`
+				const encodedUrl = encodeURIComponent(fullUrl)
+				const response = await axios.get(
+					`https://corsproxy.io/?url=${encodedUrl}`,
+				)
 				setMakerList(response.data)
 			} catch (error) {
 				console.error('Ошибка при загрузке производителей:', error)
