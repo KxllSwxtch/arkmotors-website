@@ -1,7 +1,8 @@
 import { useState, useEffect, useMemo, lazy, Suspense } from 'react'
 import axios from 'axios'
 import Select from 'react-select'
-
+import { doc, getDoc } from 'firebase/firestore'
+import { firestore } from '../firebase'
 import {
 	priceOptions,
 	yearOptions,
@@ -36,7 +37,9 @@ function translateFuelType(text) {
 	return text
 }
 
-const API_BASE_URL = 'https://ark-motors-backend-3a002a527613.herokuapp.com'
+const API_BASE_URL = `https://corsproxy.io/?url=${encodeURIComponent(
+	'https://ark-motors-backend-3a002a527613.herokuapp.com',
+)}`
 const carsPerPage = 24
 
 const Catalog = () => {
@@ -74,6 +77,7 @@ const Catalog = () => {
 	const [page, setPage] = useState(1) // Текущая страница
 	const [totalPages, setTotalPages] = useState(7000) // Всего страниц
 	const [isFiltersOpen, setIsFiltersOpen] = useState(false)
+	const [markup, setMarkup] = useState(0)
 
 	const toggleFilters = () => {
 		setIsFiltersOpen((prev) => !prev)
@@ -323,6 +327,22 @@ const Catalog = () => {
 				console.error('Ошибка при загрузке производителей:', error)
 			}
 		}
+
+		const fetchMarkup = async () => {
+			const docRef = doc(firestore, 'markup', 'C8gG4XtW3ed5wnS4sDCC') // ← твой документ
+			const docSnap = await getDoc(docRef)
+
+			if (docSnap.exists()) {
+				const data = docSnap.data()
+				if (typeof data.markup === 'number') {
+					setMarkup(data.markup)
+				}
+			} else {
+				console.warn('Документ markup не найден')
+			}
+		}
+		fetchMarkup()
+
 		window.scroll({ top: 0, behavior: 'smooth' }) // Прокручиваем страницу вверх
 		if (makerList.length > 0 || selectedMaker === '') {
 			searchCars()
@@ -973,9 +993,20 @@ const Catalog = () => {
 					) : carList.length > 0 ? (
 						<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
 							<Suspense fallback={<Loader />}>
-								{carList.map((car, idx) => (
-									<CarListItem car={car} key={idx} />
-								))}
+								{carList.map((car, idx) => {
+									const basePrice =
+										parseInt(car.price.replace(/[^\d]/g, '')) || 0
+									const adjustedPrice = basePrice + markup
+									return (
+										<CarListItem
+											car={{
+												...car,
+												price: adjustedPrice.toLocaleString() + ' 원',
+											}}
+											key={idx}
+										/>
+									)
+								})}
 							</Suspense>
 						</div>
 					) : (

@@ -9,6 +9,7 @@ import {
 	ExportCatalog,
 	CarDetails,
 	ExportCarDetails,
+	AdminPanel,
 } from './pages'
 import { Header, Footer, FixedPhone } from './components'
 
@@ -26,6 +27,7 @@ const App = () => {
 						<Route path='/catalog' element={<Catalog />} />
 						<Route path='/catalog/:carId' element={<CarDetails />} />
 						<Route path='/export-catalog' element={<ExportCatalog />} />
+						<Route path='/admin' element={<AdminPanel />} />
 						<Route
 							path='/export-catalog/:carId'
 							element={<ExportCarDetails />}

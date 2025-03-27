@@ -6,6 +6,7 @@ import Catalog from './Catalog'
 import ExportCatalog from './ExportCatalog'
 import CarDetails from './CarDetails'
 import ExportCarDetails from './ExportCarDetails'
+import AdminPanel from './AdminPanel'
 
 export {
 	Home,
@@ -16,4 +17,5 @@ export {
 	ExportCatalog,
 	CarDetails,
 	ExportCarDetails,
+	AdminPanel,
 }
