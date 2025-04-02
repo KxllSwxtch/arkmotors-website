@@ -37,7 +37,7 @@ function translateFuelType(text) {
 	return text
 }
 
-const API_BASE_URL = `https://corsproxy.io/?url=https://ark-motors-backend-3a002a527613.herokuapp.com`
+const API_BASE_URL = `https://ark-motors-backend-3a002a527613.herokuapp.com`
 const carsPerPage = 24
 
 const Catalog = () => {
@@ -121,9 +121,12 @@ const Catalog = () => {
 
 		if (!makerNo) return
 		try {
-			const response = await axios.get(`${API_BASE_URL}/models`, {
-				params: { maker: makerNo },
-			})
+			const response = await axios.get(
+				`${API_BASE_URL}/models?country=${country}`,
+				{
+					params: { maker: makerNo },
+				},
+			)
 			setModelList(response.data)
 		} catch (error) {
 			console.error('Ошибка при загрузке моделей:', error)
