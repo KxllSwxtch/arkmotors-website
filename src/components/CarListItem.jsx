@@ -36,6 +36,8 @@ const CarListItem = ({ car }) => {
 
 	const formattedCarName = translateCarName(car?.name) || car?.name
 
+	const formattedCarImage = car.image.replaceAll('"', '').replace('_TH', '')
+
 	return (
 		<div className='relative bg-avtoVitaBlack rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl duration-300 border border-gray-700/50'>
 			{/* Блок изображения */}
@@ -47,7 +49,7 @@ const CarListItem = ({ car }) => {
 			>
 				<div className='relative w-full h-60 overflow-hidden rounded-t-2xl'>
 					<img
-						src={car.image.replaceAll('"', '')}
+						src={formattedCarImage}
 						alt={car.name}
 						className='w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-0'
 						loading='lazy'

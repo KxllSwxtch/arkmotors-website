@@ -7,11 +7,7 @@ const Footer = () => {
 		<footer className='bg-[#1D1D1D] text-[#D4AF37] py-8 shadow-[0_-10px_15px_-10px_rgba(0,0,0,0.3)] border-t border-[#8C6B1F]'>
 			<div className='container mx-auto text-center'>
 				{/* Логотип */}
-				<img
-					src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1742607362/arkmotors/logo_rus.png'
-					alt='ArkMotors'
-					className='w-52 mx-auto mb-4'
-				/>
+				<img src='/logo.png' alt='ArkMotors' className='w-52 mx-auto mb-4' />
 
 				{/* Навигация */}
 				<nav className='mb-4'>

@@ -21,6 +21,7 @@ const getFirstImage = (images) => {
 
 const CarCard = ({ car }) => {
 	const firstImage = getFirstImage(car.IMAGES)
+
 	return (
 		<motion.div
 			className='bg-white rounded-lg shadow-lg overflow-hidden mx-4'

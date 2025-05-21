@@ -8,7 +8,7 @@ const HeroSection = () => {
 			{/* Background */}
 			<div className='absolute inset-0'>
 				<img
-					src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1739490319/arkmotors/logo.png'
+					src='/logo.png'
 					alt='Background'
 					className='w-full h-full object-cover opacity-20'
 				/>

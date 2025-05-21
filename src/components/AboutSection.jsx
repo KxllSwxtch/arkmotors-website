@@ -60,7 +60,7 @@ const AboutSection = () => {
 						transition={{ duration: 0.8 }}
 					>
 						<img
-							src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1742607362/arkmotors/logo_rus.png'
+							src='/logo.png'
 							alt='ArkMotors'
 							className='w-80 h-auto rounded-lg shadow-2xl'
 						/>

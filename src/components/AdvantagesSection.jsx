@@ -73,13 +73,13 @@ const AdvantagesSection = () => {
 						<div className='text-center'>
 							{/* Логотип ArkMotors */}
 							<img
-								src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1742607362/arkmotors/logo_rus.png'
+								src='/logo.png'
 								alt='Логотип ArkMotors'
 								className='w-80 mx-auto'
 							/>
 							{/* Картинка авто */}
 							<img
-								src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1740538366/kimsautotrade/whyusimage.png'
+								src='/whyusimage.png'
 								alt='Пример авто'
 								className='w-full h-auto object-cover rounded-lg shadow-lg'
 							/>

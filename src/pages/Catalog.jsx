@@ -332,16 +332,22 @@ const Catalog = () => {
 		}
 
 		const fetchMarkup = async () => {
-			const docRef = doc(firestore, 'markup', 'C8gG4XtW3ed5wnS4sDCC') // ← твой документ
-			const docSnap = await getDoc(docRef)
+			try {
+				const docRef = doc(firestore, 'markup', 'C8gG4XtW3ed5wnS4sDCC') // ← твой документ
+				const docSnap = await getDoc(docRef)
 
-			if (docSnap.exists()) {
-				const data = docSnap.data()
-				if (typeof data.markup === 'number') {
-					setMarkup(data.markup)
+				if (docSnap.exists()) {
+					const data = docSnap.data()
+					if (typeof data.markup === 'number') {
+						setMarkup(data.markup)
+					}
+				} else {
+					console.warn('Документ markup не найден')
 				}
-			} else {
-				console.warn('Документ markup не найден')
+			} catch (error) {
+				console.error('Ошибка при получении наценки:', error)
+				// Устанавливаем значение по умолчанию при ошибке
+				setMarkup(0)
 			}
 		}
 		fetchMarkup()
@@ -542,7 +548,7 @@ const Catalog = () => {
 				<img
 					loading='lazy'
 					className='text-center m-auto'
-					src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1742607362/arkmotors/logo_rus.png'
+					src='/logo.png'
 					alt='ArkMotors логотип'
 				/>
 			</div>

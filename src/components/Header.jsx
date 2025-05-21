@@ -21,11 +21,7 @@ const Header = () => {
 				{/* Логотип компании */}
 				<div className='logo'>
 					<Link to='/'>
-						<img
-							src='https://res.cloudinary.com/pomegranitedesign/image/upload/v1742607362/arkmotors/logo_rus.png'
-							alt='ArkMotors Logo'
-							className='h-10'
-						/>
+						<img src='/logo.png' alt='ArkMotors Logo' className='h-10' />
 					</Link>
 				</div>
 
