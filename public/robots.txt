@@ -1,0 +1,14 @@
+# robots.txt for ArkMotors - Korean Car Export to Russia
+# Domain: arkmotors.co.kr
+
+User-agent: *
+Allow: /
+
+# Block admin panel from search engines
+Disallow: /admin
+
+# Sitemap location
+Sitemap: https://arkmotors.co.kr/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

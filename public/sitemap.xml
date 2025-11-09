@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://arkmotors.co.kr/</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Catalog - In-stock inventory -->
+  <url>
+    <loc>https://arkmotors.co.kr/catalog</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Export Catalog - Cars available for export/order -->
+  <url>
+    <loc>https://arkmotors.co.kr/export-catalog</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- About page -->
+  <url>
+    <loc>https://arkmotors.co.kr/about</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contacts page -->
+  <url>
+    <loc>https://arkmotors.co.kr/contacts</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Cases page -->
+  <url>
+    <loc>https://arkmotors.co.kr/cases</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
